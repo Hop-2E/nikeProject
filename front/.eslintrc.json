@@ -5,11 +5,14 @@
         "es2021": true
     },
     "extends": "google",
-    "overrides": [
-    ],
+    "overrides": [],
     "parserOptions": {
-        "ecmaVersion": "latest"
+        "ecmaVersion": "latest",
+        "sourceType": "module"
     },
-    "rules": {
-    }
+    "rules": {},
+    "linebreak-style": [
+        "error",
+        "windows"
+    ]
 }
