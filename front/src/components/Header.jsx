@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "../App.css";
 
 const Header = () => {
@@ -23,7 +25,9 @@ const Header = () => {
           <span className="nikeJijigSaaral">|</span>
           <span className="nikeJijigSaaral"> Join Us </span>
           <span className="nikeJijigSaaral">|</span>
-          <span className="nikeJijigSaaral"> Sign In</span>
+          <Link className="links" to={"/SignIn"}>
+            <span className="nikeJijigSaaral"> Sign In</span>
+          </Link>
         </div>
       </div>
       <div className="headerTypeTwo">
@@ -65,7 +69,9 @@ const Header = () => {
         </div>
       </div>
       <div className="headerTypeThree">
-        <p className="bannerOne">Free Shipping + Returns, Free Membership, Exclusive Products</p>
+        <p className="bannerOne">
+          Free Shipping + Returns, Free Membership, Exclusive Products
+        </p>
         <p className="bannerTwo">Save Up to 40%</p>
         <p className="bannerThree">Shop All Our New Markdowns</p>
       </div>
