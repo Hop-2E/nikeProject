@@ -33,9 +33,9 @@ export const createProduct = async (req, res) => {
 
 export const findProduct = async (req, res) => {
   try {
-    const { params } = req.params;
+    const { title } = req.params;
     const product = await Product.findOne({
-      ShortUrl: params,
+      name: { title },
     });
     res.status(200).send({
       success: true,

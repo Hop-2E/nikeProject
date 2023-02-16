@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+// import bcrypt from 'bcrypt';
 import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema(
@@ -34,6 +34,7 @@ const UserSchema = new mongoose.Schema(
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
 //zasvar hrgtei
+//populate
 
 // UserSchema.virtual('Links', {
 //   ref: 'Link',
