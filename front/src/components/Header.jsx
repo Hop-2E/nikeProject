@@ -25,7 +25,7 @@ const Header = () => {
           <span className="nikeJijigSaaral">|</span>
           <span className="nikeJijigSaaral"> Join Us </span>
           <span className="nikeJijigSaaral">|</span>
-          <Link className="links" to={"/SignIn"}>
+          <Link className="links" to={"/SignUp"}>
             <span className="nikeJijigSaaral"> Sign In</span>
           </Link>
         </div>
