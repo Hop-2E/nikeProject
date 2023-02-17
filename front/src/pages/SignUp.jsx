@@ -68,12 +68,6 @@ const SignUp = () => {
                         <input type="password" placeholder='Password' />
                     </div>
                 </div>
-                {/* <div> */}
-                {/* <input type="text" placeholder='Shopping Preference' /> */}
-                {/* </div> */}
-                {/* <div> */}
-                {/* <input type="date" placeholder='Date Of Birth' /> */}
-                {/* </div> */}
             </div>
         </div>
     )
