@@ -12,6 +12,7 @@
   width: 100vw;
   display: flex;
   flex-direction: column;
+  transition: 1s;
 }
 .headerTypeOne {
   width: 100%;
@@ -25,14 +26,14 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding-right: 3%;
+  padding-right: 5%;
 }
 .brands {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 15px;
-  padding-left: 3%;
+  padding-left: 5%;
 }
 .jordanLogo {
   width: 31px;
@@ -49,7 +50,7 @@
 
 /* header type #2 */
 .headerTypeTwo {
-  width: 100%;
+  width: 90%;
   height: 60px;
   display: flex;
   justify-content: space-between;
@@ -59,7 +60,6 @@
 .nikeLogoOG {
   width: 62px;
   height: 25px;
-  padding-left: 3%;
 }
 .nikeNavbar {
   display: flex;
@@ -68,16 +68,15 @@
   gap: 20px;
 }
 .searchVerOne {
-  width: 80%;
   display: flex;
   justify-content: space-between;
+  gap: 150px;
 }
 .nikeNavTexts {
   font-size: 17px;
   cursor: pointer;
 }
 .nikeBagAndFav {
-  padding-right: 3%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,6 +97,30 @@
   border-radius: 20px;
   display: flex;
   gap: 10px;
+}
+.searchStyle {
+  width: 24px;
+  cursor: pointer;
+}
+.cancel {
+  cursor: pointer;
+  font-weight: bold;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 20px;
+}
+.cancel:hover {
+  color: rgb(143, 142, 142);
+}
+.center {
+  display: flex;
+  justify-content: center;
+}
+#nikeSearchInputTwo {
+  font-size: 16px;
+  outline: none;
+  border: 0;
+  background-color: #f5f5f5;
+  width: 30vw;
 }
 
 /* header type #3 */
@@ -244,7 +267,7 @@
   gap: 20px;
 }
 .sectionContainer {
-  width: 90%;
+  width: 80%;
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -255,7 +278,7 @@
   height: 100%;
 }
 .mainTwoType {
-  width: 90%;
+  width: 80%;
   font-family: "Roboto Condensed", sans-serif;
   font-size: x-large;
 }
@@ -310,13 +333,13 @@
 /* picOne styles */
 
 .PicOneTitle {
-  width: 90%;
+  width: 80%;
   font-family: "Roboto Condensed", sans-serif;
   font-size: 30px; 
   font-weight: bold;
 }
 .picOneImage {
-  width: 90%;
+  width: 80%;
 }
 .picOneContainer {
   padding: 100px 0;
@@ -325,4 +348,26 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
+}
+
+/* threePics styles */
+.threePicsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 0;
+}
+.products3pics {
+  width: 80%;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: x-large;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.threeProducts {
+  width: 100%;
+}
+.threeImage {
+  width: 100%;
 }
