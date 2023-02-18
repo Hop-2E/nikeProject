@@ -8,18 +8,32 @@ const MainTwo = ({
   titleOne,
   titleTwo,
   secName,
+  linkTo,
+  linkToTwo,
 }) => {
   return (
     <div className="mainTwoContainer">
       <span className="mainTwoType">{secName}</span>
       <div className="sectionContainer">
-        <div className="outputContainer" style={{backgroundImage: `url(${photoOne})`}}>
-          <img className="photos" src={photoOne} alt="@-@" />
-          <p>{typeOne}</p>
-          <p>{titleOne}</p>
+        <div
+          className="outputContainerOne"
+          style={{ backgroundImage: `url(${photoOne})` }}
+        >
+          <div className="buttonContainer">
+            <p className="nikeMainTypeText">{typeOne}</p>
+            <p className="nikeMainTitleText">{titleOne}</p>
+            <button className="linkTo">{linkTo}</button>
+          </div>
         </div>
-        <div className="outputContainer">
-          {/* <img className="photos" src={photoTwo} alt=";-;" /> */}
+        <div
+          className="outputContainerTwo"
+          style={{ backgroundImage: `url(${photoTwo})` }}
+        >
+          <div className="buttonContainer">
+            <p className="nikeMainTypeText">{typeOne}</p>
+            <p className="nikeMainTitleText">{titleOne}</p>
+            <button className="linkTo">{linkToTwo}</button>
+          </div>
         </div>
       </div>
     </div>

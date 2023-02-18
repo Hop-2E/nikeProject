@@ -21,6 +21,8 @@ const Home = () => {
           titleTwo="Flight MVP 2"
           typeOne="Collection"
           typeTwo="Collector"
+          linkTo="Shop Nike Trail"
+          linkToTwo="Shop Men's Trail"
         />
         <Footer />
       </div>
