@@ -1,114 +1,134 @@
 import '../App.css';
-
-const styles = {
-  bigContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    width: '100vw',
-    height: '100vh',
-  },
-  signContainer: {
-    width: '460px',
-    height: '100vh',
-    backgroundColor: 'yellow',
-  },
-  deedHeseg: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '460px',
-    height: '10vh',
-    backgroundColor: 'red',
-  },
-  title: {
-    width: '460px',
-    height: '32px',
-    fontSize: '28px',
-  },
-  nameInput: {
-    display: 'flex',
-    justifyContent: 'center',
-    width: '460px',
-    height: '10vh',
-  },
-  passwordInput: {
-    display: 'flex',
-    justifyContent: 'center',
-    width: '460px',
-    height: '8vh',
-  },
-  section: {
-    width: '460px',
-    height: '50vh',
-    backgroundColor: 'blue',
-  },
-  input: {
-    marginTop: '10px',
-    height: '56px',
-    width: '200px',
-    borderRadius: '8px',
-    marginRight: '10px',
-    paddingLeft: '10px',
-  },
-  pInput: {
-    height: '56px',
-    width: '420px',
-    borderRadius: '8px',
-    marginRight: '10px',
-    paddingLeft: '10px',
-  },
-  checker: {
-    display: 'flex',
-    height: '75px',
-    width: '460px',
-    flexDirection: 'column',
-  },
-};
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
+  const styles = {
+    Body: {
+      width: '100vw',
+      height: '100vh',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flexDirection: 'row',
+    },
+    BodyChild: {
+      width: '500px',
+      height: 'auto',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'start',
+      flexDirection: 'column',
+    },
+    NikeIconCn: {
+      width: '100%',
+      height: '40px',
+      display: 'flex',
+      justifyContent: '',
+      alignItems: 'center',
+    },
+    NikeIcon: {
+      width: '60px',
+      height: '60px',
+    },
+    h1: {
+      fontFamily: 'Roboto,sans-serif',
+      fontSize: '25px',
+      fontWeight: '400',
+    },
+    dev: {
+      width: '100%',
+      height: 'auto',
+      display: 'flex',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+    },
+    input: {
+      fontFamily: 'Roboto,sans-serif',
+      fontSize: '20px',
+      fontWeight: 'normal',
+      width: '460px',
+      height: '56px',
+      borderRadius: '5px',
+      border: '1px solid black',
+    },
+    continuebutton: {
+      fontFamily: 'Roboto,sans-serif',
+      fontSize: '20px',
+      fontWeight: 'normal',
+      width: '116px',
+      height: '56px',
+      borderRadius: '40px',
+      border: '1px solid black',
+      backgroundColor: 'black',
+      color: 'white',
+      marginLeft: '',
+    },
+  };
   return (
-    <div style={styles.bigContainer}>
-      <div style={styles.signContainer}>
-        <div style={styles.deedHeseg}>
-          <img src="" alt="" />
-          <div style={styles.title}>
-            <span>Now let's make you a Nike Member.</span>
-          </div>
-        </div>
-        <div style={styles.section}>
-          <div style={styles.nameInput}>
-            <input style={styles.input} type="text" placeholder="First Name" />
-            <input style={styles.input} type="text" placeholder="Sur Name" />
-          </div>
-          <div style={styles.passwordInput}>
-            <input
-              style={styles.pInput}
-              type="password"
-              placeholder="Password"
+    <>
+      <div style={styles.Body}>
+        <div style={styles.BodyChild}>
+          <div style={styles.NikeIconCn}>
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAdVBMVEX///8AAAD39/ft7e34+PhoaGhQUFDDw8PQ0NDc3Nyrq6uTk5Ovr6+7u7vKysrn5+ebm5tXV1csLCzW1tZtbW0zMzOBgYEiIiJCQkJdXV20tLRycnIQEBDx8fGZmZk8PDx8fHxJSUkXFxeKioqioqIUFBQ1NTWfOkAUAAAD9UlEQVR4nO3aa3vxShSAYSMIIaSlVdUWld3//xN3HBIJOc6sId7rub9bM4tZc9TpAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE/N6T66Bw30ND7jbKV7Yc3Um2p86lvNxHtiwywcrHTyixLsS/dFXtd9V2qr90t0l2ok3B1p82CnlAp1CjDSW6oX2f7Icib9KDv14WpHiL4drbF9F+776yE91Z/rx1gp9SrXI0mjYKBO9o5BmKh8lSfWKTHO5+Kcnfr1NMvvxDvEaNlq35vu3+L0TMrvaHgIspbpmIxROFAXfdNJ3jmGac08Ew3Nr1R6ZuV3choMAn0zFw3NZTo7tZSYHdbHUFuBSIYus6ZU+Z14qg2DNDVrJhYye6zROdwjZ9L0rJkYm5ffye8p3k4oXGO3Q/NYfhOxBuKxMRaL2MD1rBnbCZaMHwcVKekmerlD82AtecRxkrD3PftmF/Rs+X2LtrRLAouGLeX4+UNTuPxOgkto4cgFoqH5WpSdUi/iK9YsFVw6do5R+FKcXbTlsHDDsLmEt31D8+2vy7JT6sfGeuylGlhYiJ+Yjz/K03v9tNLud7oNa7/hbLIqz85G+Z31060MbLTQc7fLorQSmjeDNQyzDYnHn//sKrOzVH5nVxsK0dizST8/oaw3O+V3NrlqzeCaLqsb3/xVWQ2lmsx33Z7MznseVMyaCXvldxZct2h+WVpzaB6F1k+jvdtGjQ4X0dAs3Gve2PhSaZS4+QlNfsT5T92heWC7/M7ymg51AjkNhubB+51OaV5u6013vj33vXpBT/vSfRdrrmA6b3L2PD3lNXGX8jsbFvThq+YQajJrxlZiC24dxf2r/pprL+gZ+/teknTLvurSrjSbNWO/WnOYiesNW1bRUXvkNR+aB5u73+J1OoXXXGdvwTw75znToPKQV8D4XUxH2SC9fPPrsee7rh+O1x//aWYn8i6mw6/umQiRdzEt27vkt3tA+cU0JvvGhN7F9OQcK6TtZS/mmxpV99DI48ov5lrNb/DA8ouVr/dmHlp+idBafsLvYtosZSj+LqbPSoaD1vzdqFN0vjci+ixtTnzT1pbyS8iuh5bexYzUOlrUZO1dzEzBfzyas34xr2svk1/QtvK7mAuk99fC8ksxPj4N7nMxr89wRWxt+aWY5Be07P/u+bQX/b87Xsyb0bv5bH35pf02z8/Gn7Iscqozyljaf5aW5tR/lI6O7s80PBO90v8JpgzavbiXqXNhs/Mecy8vpFe+Q/1a+E9XfDe63l9Bev3wuabOErPJInuc2vR/3CfYlzU0G079z0/fHY7aeyQCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAv+Z/HBwq9QVvQoQAAAAASUVORK5CYII="
+              alt=""
+              style={styles.NikeIcon}
             />
           </div>
-          <div style={styles.checker}>
-            <span>Minimum of 8 characters</span>
-            <span>Uppercase, lowercase letters and one number</span>
-          </div>
-          <div style={styles.checkInput}>
-            <input type="" />
-            <input type="date" />
-          </div>
-          <span>Get a Nike Member Reward on your birthday.</span>
-        </div>
-        <div style={styles.bottom}>
           <div>
-            <input type="checkbox" />
-            <span>
-              Sign up for emails to get updates from Nike on products, offers
-              and your Member benefits.
-            </span>
+            <br />
+
+            <h1 style={styles.h1}>Now let's make you a new Nike Member.</h1>
+            <br />
+            {/* <p>
+              Mongolia{' '}
+              <strong style={{ textDecoration: 'underline' }}>Change</strong>
+            </p> */}
+            <br />
+            <br />
+          </div>
+          <div>
+            <TextField
+              id="outlined-basic"
+              label="Username"
+              variant="outlined"
+              style={styles.input}
+            />
+            <br />
+            <br />
+            <TextField
+              id="outlined-basic"
+              label="Password"
+              variant="outlined"
+              style={styles.input}
+            />
+            <br />
+            <br />
+            <TextField
+              id="outlined-basic"
+              label="Password"
+              variant="outlined"
+              style={styles.input}
+            />
+            <br />
+            <br />
+            <input type="date" style={styles.input} />
+          </div>
+          <div style={styles.dev}>
+            <br />
+            <Link to="/Signin">
+              {' '}
+              <strong>I have account</strong>
+            </Link>
+            <div style={{ width: '50px', height: 'auto' }}></div>
+            <button style={styles.continuebutton}>Continue</button>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
-
 export default SignUp;
