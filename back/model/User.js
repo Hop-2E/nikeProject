@@ -20,7 +20,7 @@ const UserSchema = new mongoose.Schema(
     firstName: {
       type: String,
     },
-    lastName: {
+    surName: {
       type: String,
     },
     birthday: {
@@ -57,7 +57,7 @@ UserSchema.methods.comparePassword = async function (password) {
 };
 
 UserSchema.methods.jwtGenerate = async function () {
-  return jwt.sign({ id: this._id, username: this.username }, process.env.JWT, {
+  return jwt.sign({ id: this._id, firstName: this.firstName }, process.env.JWT, {
     expiresIn: '1d',
   });
 };
