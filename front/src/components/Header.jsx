@@ -14,7 +14,7 @@ const Header = () => {
   };
   return (
     <div className="headerContainer">
-      {isClicked ? (
+      {!isClicked ? (
         <>
           <div className="headerTypeOne">
             <div className="brands">
@@ -36,7 +36,7 @@ const Header = () => {
               <span className="nikeJijigSaaral">|</span>
               <span className="nikeJijigSaaral"> Join Us </span>
               <span className="nikeJijigSaaral">|</span>
-              <Link className="links" to={"/SignUp"}>
+              <Link className="links" to={"/SignIn"}>
                 <span className="nikeJijigSaaral"> Sign In</span>
               </Link>
             </div>
