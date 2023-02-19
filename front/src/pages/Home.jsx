@@ -12,6 +12,7 @@ const Home = () => {
       <div className="homeContainer">
         <Header />
         <PicOne title="Just In" image="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1303,c_limit/3b29751e-eda0-4295-8051-bbe9e8cb9798/jordan.jpg" />
+        
         <MainTwo
           secName={"Basketball's Best"}
           photoOne={

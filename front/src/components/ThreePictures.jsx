@@ -17,11 +17,11 @@ const ThreePictures = ({
           <img src={image} alt="" className="threeImage" />
           <span className="threePicsType">{type}</span>
         </div>
-        <div className="threeProductImage">
+        <div className="threeProducts">
           <img src={imageTwo} alt="" className="threeImage" />
           <span className="threePicsType">{typeTwo}</span>
         </div>
-        <div className="threeProductImage">
+        <div className="threeProducts">
           <img src={imageThree} alt="" className="threeImage" />
           <span className="threePicsType">{typeThree}</span>
         </div>

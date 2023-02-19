@@ -30,8 +30,8 @@ const MainTwo = ({
           style={{ backgroundImage: `url(${photoTwo})` }}
         >
           <div className="buttonContainer">
-            <p className="nikeMainTypeText">{typeOne}</p>
-            <p className="nikeMainTitleText">{titleOne}</p>
+            <p className="nikeMainTypeText">{typeTwo}</p>
+            <p className="nikeMainTitleText">{titleTwo}</p>
             <button className="linkTo">{linkToTwo}</button>
           </div>
         </div>

@@ -357,6 +357,7 @@
   flex-direction: column;
   align-items: center;
   padding: 100px 0;
+  gap: 20px;
 }
 .products3pics {
   width: 80%;
@@ -364,9 +365,13 @@
   font-size: x-large;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
 }
 .threeProducts {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .threeImage {
   width: 100%;
