@@ -47,9 +47,9 @@ export const createUser = async (req, res) => {
 };
 export const login = async (req, res) => {
   try {
-    const { surName, password } = req.body;
+    const { firstName, password } = req.body;
     const user = await User.findOne({
-      surName,
+      firstName,
     });
     const token = jwt.sign({ user }, 'secret', { expiresIn: '1d' }); // password niga
     const isMatch = await user.comparePassword(password);
