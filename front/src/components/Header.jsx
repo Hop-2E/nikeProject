@@ -18,11 +18,13 @@ const Header = () => {
         <>
           <div className="headerTypeOne">
             <div className="brands">
-              <img
-                src={require("../images/Jumpman_logo.png")}
-                className="jordanLogo"
-                alt="#"
-              />
+              <Link to={"jordan"}>
+                <img
+                  src={require("../images/Jumpman_logo.png")}
+                  className="jordanLogo"
+                  alt="#"
+                />
+              </Link>
               <img
                 src={require("../images/Converse-logo.png")}
                 className="converseLogo"
@@ -110,7 +112,11 @@ const Header = () => {
                   alt=""
                   className="searchStyle"
                 />
-                <input placeholder="Search" type="text" id="nikeSearchInputTwo" />
+                <input
+                  placeholder="Search"
+                  type="text"
+                  id="nikeSearchInputTwo"
+                />
               </div>
             </div>
             <span className="cancel" onClick={searchTwo}>

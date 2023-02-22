@@ -89,7 +89,7 @@ const Signin = () => {
           </div>
           <div>
             <br />
-
+            
             <h1 style={styles.h1}>Enter your email to join us or sign in.</h1>
             <br />
             <p>

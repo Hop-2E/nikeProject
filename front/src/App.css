@@ -311,7 +311,7 @@
   color: #FFFFFF;
 }
 .buttonContainer {
-  padding: 15%;
+  padding: 5%;
   display: flex;
   flex-direction: column;
   gap: 10px;
