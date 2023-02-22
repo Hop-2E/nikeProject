@@ -1,53 +1,81 @@
-import "../App.css";
-import * as React from "react";
-import TextField from "@mui/material/TextField";
-import { Link } from "react-router-dom";
+import '../App.css';
+import * as React from 'react';
+import TextField from '@mui/material/TextField';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { instance } from '../App';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const styles = {
+  Body: {
+    width: '100vw',
+    height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  BodyChild: {
+    width: '500px',
+    height: 'auto',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'start',
+    flexDirection: 'column',
+  },
+  NikeIconCn: {
+    width: '100%',
+    height: '40px',
+    display: 'flex',
+    justifyContent: '',
+    alignItems: 'center',
+  },
+  NikeIcon: {
+    width: '60px',
+    height: '60px',
+  },
+  h1: {
+    fontFamily: 'Roboto,sans-serif',
+    fontSize: '28px',
+    fontWeight: '400',
+  },
+  input: {
+    fontFamily: 'Roboto,sans-serif',
+    fontSize: '20px',
+    fontWeight: 'normal',
+    width: '460px',
+    height: '56px',
+    borderRadius: '30px',
+  },
+};
 
 const Signin = () => {
-  const styles = {
-    Body: {
-      width: "100vw",
-      height: "100vh",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      flexDirection: "row",
-    },
-    BodyChild: {
-      width: "500px",
-      height: "auto",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "start",
-      flexDirection: "column",
-    },
-    NikeIconCn: {
-      width: "100%",
-      height: "40px",
-      display: "flex",
-      justifyContent: "",
-      alignItems: "center",
-    },
-    NikeIcon: {
-      width: "60px",
-      height: "60px",
-    },
-    h1: {
-      fontFamily: "Roboto,sans-serif",
-      fontSize: "28px",
-      fontWeight: "400",
-    },
-    input: {
-      fontFamily: "Roboto,sans-serif",
-      fontSize: "20px",
-      fontWeight: "normal",
-      width: "460px",
-      height: "56px",
-      borderRadius: "30px",
-    },
+  const [firstName, setFirstName] = useState();
+  const [password, setPassword] = useState();
+  const LoginPost = async () => {
+    try {
+      const res = await instance.post('/user/login', {
+        firstName: firstName,
+        password: password,
+      });
+      try {
+        window.localStorage.setItem('token', JSON.stringify(res.data.token));
+        window.localStorage.setItem(
+          'user_id',
+          JSON.stringify(res.data.data._id)
+        );
+      } catch (error) {
+        console.log(error.message);
+      }
+      window.location.replace(`/${res.data.data._id}`);
+    } catch (error) {
+      toast.error(error.response.data.error);
+    }
   };
   return (
     <>
+      <ToastContainer />
       <div style={styles.Body}>
         <div style={styles.BodyChild}>
           <div style={styles.NikeIconCn}>
@@ -65,8 +93,8 @@ const Signin = () => {
             <h1 style={styles.h1}>Enter your email to join us or sign in.</h1>
             <br />
             <p>
-              Mongolia{" "}
-              <strong style={{ textDecoration: "underline" }}>Change</strong>
+              Mongolia{' '}
+              <strong style={{ textDecoration: 'underline' }}>Change</strong>
             </p>
             <br />
             <br />
@@ -74,9 +102,10 @@ const Signin = () => {
           <div>
             <TextField
               id="outlined-basic"
-              label="Username"
+              label="Firstname"
               variant="outlined"
               style={styles.input}
+              onChange={(e) => setFirstName(e.target.value)}
             />
             <br />
             <br />
@@ -85,11 +114,13 @@ const Signin = () => {
               label="Password"
               variant="outlined"
               style={styles.input}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div>
             <br /> <strong>Don't have account?</strong>
           </div>
+          <button onClick={LoginPost}>Nevtreh</button>
         </div>
       </div>
     </>
