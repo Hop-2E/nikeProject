@@ -3,9 +3,11 @@ import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema(
   {
-    email: {
+    firstName: {
       type: String,
-      // required: [true, "нэвтрэх нэрээ оруулна уу"],
+    },
+    surName: {
+      type: String,
     },
     password: {
       type: String,
@@ -17,18 +19,8 @@ const UserSchema = new mongoose.Schema(
       default: 'normal',
       enum: ['normal', 'admin'],
     },
-    firstName: {
-      type: String,
-    },
-    surName: {
-      type: String,
-    },
     birthday: {
       type: Date,
-    },
-    shoppingPreference: {
-      type: String,
-      enum: ['Women', 'Men'],
     },
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
