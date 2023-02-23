@@ -48,17 +48,6 @@ const styles = {
     height: '56px',
     borderRadius: '30px',
   },
-  button: {
-    width: '460px',
-    height: '50px',
-    backgroundColor: 'black',
-    color: 'white',
-    borderRadius: '30px',
-    border: 'none',
-    fontSize: '20px',
-    fontWeight: '650',
-    marginTop: '20px',
-  },
 };
 
 const Signin = () => {
@@ -66,7 +55,7 @@ const Signin = () => {
   const [password, setPassword] = useState();
   const LoginPost = async () => {
     try {
-      const res = await instance.post('/user/SignIn', {
+      const res = await instance.post('/user/login', {
         firstName: firstName,
         password: password,
       });
@@ -100,7 +89,7 @@ const Signin = () => {
           </div>
           <div>
             <br />
-
+            
             <h1 style={styles.h1}>Enter your email to join us or sign in.</h1>
             <br />
             <p>
@@ -129,17 +118,9 @@ const Signin = () => {
             />
           </div>
           <div>
-            <br />
-            <Link
-              style={{ textDecoration: 'none', color: 'black' }}
-              to="/SignUp"
-            >
-              <strong>Don't have account?</strong>
-            </Link>
+            <br /> <strong>Don't have account?</strong>
           </div>
-          <button style={styles.button} onClick={LoginPost}>
-            Sign In
-          </button>
+          <button onClick={LoginPost}>Nevtreh</button>
         </div>
       </div>
     </>
