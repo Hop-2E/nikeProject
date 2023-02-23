@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 import '../App.css';
 
@@ -16,12 +17,12 @@ const Header = () => {
       <div className="headerTypeOne">
         <div className="brands">
           <img
-            src={require("../images/Jumpman_logo.png")}
+            src={require('../images/Jumpman_logo.png')}
             className="jordanLogo"
             alt="#"
           />
           <img
-            src={require("../images/Converse-logo.png")}
+            src={require('../images/Converse-logo.png')}
             className="converseLogo"
             alt="#"
           />
@@ -33,7 +34,7 @@ const Header = () => {
           <span className="nikeJijigSaaral">|</span>
           <span className="nikeJijigSaaral"> Join Us </span>
           <span className="nikeJijigSaaral">|</span>
-          <Link className="links" to={"/SignUp"}>
+          <Link className="links" to={'/SignUp'}>
             <span className="nikeJijigSaaral"> Sign In</span>
           </Link>
         </div>
@@ -41,7 +42,7 @@ const Header = () => {
       <div className="headerTypeTwo">
         <img
           className="nikeLogoOG"
-          src={require("../images/nikeLogo.png")}
+          src={require('../images/nikeLogo.png')}
           alt=""
         />
         <div className="searchVerOne">
