@@ -48,6 +48,17 @@ const styles = {
     height: '56px',
     borderRadius: '30px',
   },
+  button: {
+    width: '460px',
+    height: '50px',
+    backgroundColor: 'black',
+    color: 'white',
+    borderRadius: '30px',
+    border: 'none',
+    fontSize: '20px',
+    fontWeight: '650',
+    marginTop: '20px',
+  },
 };
 
 const Signin = () => {
@@ -89,7 +100,7 @@ const Signin = () => {
           </div>
           <div>
             <br />
-            
+
             <h1 style={styles.h1}>Enter your email to join us or sign in.</h1>
             <br />
             <p>
@@ -118,9 +129,17 @@ const Signin = () => {
             />
           </div>
           <div>
-            <br /> <strong>Don't have account?</strong>
+            <br />
+            <Link
+              style={{ textDecoration: 'none', color: 'black' }}
+              to="/SignUp"
+            >
+              <strong>Don't have account? Make one!</strong>
+            </Link>
           </div>
-          <button onClick={LoginPost}>Nevtreh</button>
+          <button style={styles.button} onClick={LoginPost}>
+            Log In
+          </button>
         </div>
       </div>
     </>
