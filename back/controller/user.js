@@ -47,11 +47,11 @@ export const createUser = async (req, res) => {
 };
 export const login = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { firstName, password } = req.body;
     const user = await User.findOne({
-      email,
+      firstName,
     });
-    const token = jwt.sign({ user }, '', { expiresIn: '1d' }); // password niga
+    const token = jwt.sign({ user }, 'secret', { expiresIn: '1d' }); // password niga
     const isMatch = await user.comparePassword(password);
     console.log(isMatch);
     if (!isMatch) {

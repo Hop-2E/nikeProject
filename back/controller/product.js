@@ -1,10 +1,10 @@
-import Product from '../model/Product.js';
+import Product from "../model/Product.js";
 
 export const getAllProduct = async (req, res) => {
   try {
-    // const limit = req.query.limit;
-    // const skip = req.query.skip;
-    // const link = await Link.find({}).limit(limit).skip(skip);
+    const limit = req.query.limit;
+    const skip = req.query.skip;
+    const product = await Product.find({}).limit(limit).skip(skip);
     res.status(200).send({
       data: product,
     });

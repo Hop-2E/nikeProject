@@ -19,6 +19,12 @@ const UserSchema = new mongoose.Schema(
       default: 'normal',
       enum: ['normal', 'admin'],
     },
+    firstName: {
+      type: String,
+    },
+    lastName: {
+      type: String,
+    },
     birthday: {
       type: Date,
     },
@@ -49,7 +55,7 @@ UserSchema.methods.comparePassword = async function (password) {
 };
 
 UserSchema.methods.jwtGenerate = async function () {
-  return jwt.sign({ id: this._id, username: this.username }, process.env.JWT, {
+  return jwt.sign({ id: this._id, firstName: this.firstName }, process.env.JWT, {
     expiresIn: '1d',
   });
 };
