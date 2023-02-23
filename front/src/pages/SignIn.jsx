@@ -1,11 +1,11 @@
 import '../App.css';
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { instance } from '../App';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useRef } from 'react';
-import { instance } from '../App';
 
 const styles = {
   Body: {
@@ -46,14 +46,6 @@ const styles = {
     fontWeight: 'normal',
     width: '460px',
     height: '56px',
-    borderRadius: '10px',
-  },
-  davharInput: {
-    fontFamily: 'Roboto,sans-serif',
-    fontSize: '20px',
-    fontWeight: 'normal',
-    width: '220px',
-    height: '56px',
     borderRadius: '30px',
   },
   button: {
@@ -67,32 +59,29 @@ const styles = {
     fontWeight: '650',
     marginTop: '20px',
   },
-  dateInput: {
-    width: '460px',
-    marginTop: '10px',
-    height: '56px',
-    border: 'solid grey 1px',
-    borderRadius: '5px',
-    fontSize: '15px',
-  },
 };
 
-const SignUp = () => {
-  const firstNameValue = useRef();
-  const surNameValue = useRef();
-  const birthdayValue = useRef();
-  const passwordValue = useRef();
-  const navigate = useNavigate();
-  const createUser = async () => {
+const Signin = () => {
+  const [firstName, setFirstName] = useState();
+  const [password, setPassword] = useState();
+  const LoginPost = async () => {
     try {
-      const res = await instance.post('/user/SignUp', {
-        firstName: firstNameValue.current.value,
-        password: passwordValue.current.value,
+      const res = await instance.post('/user/SignIn', {
+        firstName: firstName,
+        password: password,
       });
-      navigate(`/SignIn`);
-      console.log(res.data);
+      try {
+        window.localStorage.setItem('token', JSON.stringify(res.data.token));
+        window.localStorage.setItem(
+          'user_id',
+          JSON.stringify(res.data.data._id)
+        );
+      } catch (error) {
+        console.log(error.message);
+      }
+      window.location.replace(`/${res.data.data._id}`);
     } catch (error) {
-      console.log(error);
+      toast.error(error.response.data.error);
     }
   };
   return (
@@ -111,7 +100,8 @@ const SignUp = () => {
           </div>
           <div>
             <br />
-            <h1 style={styles.h1}>Now let's make you a Nike Member.</h1>
+
+            <h1 style={styles.h1}>Enter your email to join us or sign in.</h1>
             <br />
             <p>
               Mongolia{' '}
@@ -121,22 +111,13 @@ const SignUp = () => {
             <br />
           </div>
           <div>
-            <div style={{ display: 'flex', gap: '20px' }}>
-              <TextField
-                id="outlined-basic"
-                label="Firstname"
-                variant="outlined"
-                style={styles.davharInput}
-                ref={firstNameValue}
-              />
-              <TextField
-                id="outlined-basic"
-                label="Surname"
-                variant="outlined"
-                style={styles.davharInput}
-                ref={surNameValue}
-              />
-            </div>
+            <TextField
+              id="outlined-basic"
+              label="Firstname"
+              variant="outlined"
+              style={styles.input}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
             <br />
             <br />
             <TextField
@@ -144,27 +125,24 @@ const SignUp = () => {
               label="Password"
               variant="outlined"
               style={styles.input}
-              ref={passwordValue}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div>
             <br />
-            <div>
-              <input style={styles.dateInput} type="date" ref={birthdayValue} />
-            </div>
             <Link
               style={{ textDecoration: 'none', color: 'black' }}
-              to="/SignIn"
+              to="/SignUp"
             >
-              <strong>Already registered?</strong>
+              <strong>Don't have account?</strong>
             </Link>
-            <button onClick={createUser} style={styles.button}>
-              Sign Up
-            </button>
           </div>
+          <button style={styles.button} onClick={LoginPost}>
+            Sign In
+          </button>
         </div>
       </div>
     </>
   );
 };
-export default SignUp;
+export default Signin;
