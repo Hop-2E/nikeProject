@@ -19,12 +19,6 @@ const UserSchema = new mongoose.Schema(
       default: 'normal',
       enum: ['normal', 'admin'],
     },
-    firstName: {
-      type: String,
-    },
-    lastName: {
-      type: String,
-    },
     birthday: {
       type: Date,
     },

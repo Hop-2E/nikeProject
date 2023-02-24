@@ -66,7 +66,7 @@ const Signin = () => {
   const [password, setPassword] = useState();
   const LoginPost = async () => {
     try {
-      const res = await instance.post('/user/login', {
+      const res = await instance.post('/user/SignIn', {
         firstName: firstName,
         password: password,
       });

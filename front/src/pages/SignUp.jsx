@@ -78,23 +78,44 @@ const styles = {
 };
 
 const SignUp = () => {
+  // const firstNameValue = useRef();
+  // const surNameValue = useRef();
+  // const birthdayValue = useRef();
+  // const passwordValue = useRef();
+  // const navigate = useNavigate();
+  // const createUser = async () => {
+  //   try {
+  //     const res = await instance.post('/user/SignUp', {
+  //       firstName: firstNameValue.current.value,
+  //       password: passwordValue.current.value,
+  //     });
+  //     navigate(`/SignIn`);
+  //     console.log(res.data);
+  //   } catch (error) {
+  //     console.log(birthdayValue);
+  //   }
+  // };
   const firstNameValue = useRef();
+  const passwordValue = useRef();
   const surNameValue = useRef();
   const birthdayValue = useRef();
-  const passwordValue = useRef();
   const navigate = useNavigate();
   const createUser = async () => {
     try {
       const res = await instance.post('/user/SignUp', {
         firstName: firstNameValue.current.value,
         password: passwordValue.current.value,
+        surName: surNameValue.current.value,
+        birthday: birthdayValue.current.value,
       });
       navigate(`/SignIn`);
       console.log(res.data);
     } catch (error) {
       console.log(error);
+      // console.log('Hi');
     }
   };
+
   return (
     <>
       <ToastContainer />

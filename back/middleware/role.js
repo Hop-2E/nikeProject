@@ -1,11 +1,11 @@
 import User from "../model/User.js";
-import Link from "../model/link.js";
+import Product from "../model/Product.js";
 
 export const AdminRole = async (req, res, next) => {
   try {
     const { _id } = req.params;
-    const link = await Link.findById(_id);
-    const user = await User.findById(link.user_id);
+    const product = await Product.findById(_id);
+    const user = await User.findById(product.user_id);
     if (user.role === "admin") {
       return next();
     } else {
