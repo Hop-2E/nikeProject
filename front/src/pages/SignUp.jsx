@@ -78,23 +78,6 @@ const styles = {
 };
 
 const SignUp = () => {
-  // const firstNameValue = useRef();
-  // const surNameValue = useRef();
-  // const birthdayValue = useRef();
-  // const passwordValue = useRef();
-  // const navigate = useNavigate();
-  // const createUser = async () => {
-  //   try {
-  //     const res = await instance.post('/user/SignUp', {
-  //       firstName: firstNameValue.current.value,
-  //       password: passwordValue.current.value,
-  //     });
-  //     navigate(`/SignIn`);
-  //     console.log(res.data);
-  //   } catch (error) {
-  //     console.log(birthdayValue);
-  //   }
-  // };
   const firstNameValue = useRef();
   const passwordValue = useRef();
   const surNameValue = useRef();
@@ -105,14 +88,15 @@ const SignUp = () => {
       const res = await instance.post('/user/SignUp', {
         firstName: firstNameValue.current.value,
         password: passwordValue.current.value,
-        surName: surNameValue.current.value,
-        birthday: birthdayValue.current.value,
       });
       navigate(`/SignIn`);
       console.log(res.data);
     } catch (error) {
       console.log(error);
-      // console.log('Hi');
+      console.log(birthdayValue.current.value);
+      console.log(firstNameValue.current.value);
+      console.log(surNameValue.current.value);
+      console.log(passwordValue.current.value);
     }
   };
 
@@ -143,30 +127,33 @@ const SignUp = () => {
           </div>
           <div>
             <div style={{ display: 'flex', gap: '20px' }}>
-              <TextField
+              {/* <TextField
                 id="outlined-basic"
                 label="Firstname"
                 variant="outlined"
                 style={styles.davharInput}
                 ref={firstNameValue}
-              />
-              <TextField
+              /> */}
+              <input type="text" style={styles.input} ref={firstNameValue} />
+              {/* <TextField
                 id="outlined-basic"
                 label="Surname"
                 variant="outlined"
                 style={styles.davharInput}
                 ref={surNameValue}
-              />
+              /> */}
+              <input type="text" style={styles.input} ref={surNameValue} />
             </div>
             <br />
             <br />
-            <TextField
+            {/* <TextField
               id="outlined-basic"
               label="Password"
               variant="outlined"
               style={styles.input}
               ref={passwordValue}
-            />
+            /> */}
+            <input type="text" style={styles.input} ref={passwordValue} />
           </div>
           <div>
             <br />
