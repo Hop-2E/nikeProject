@@ -8,6 +8,12 @@
   color: black;
 }
 
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5em;
+}
+
 /* header type #1 */
 .headerContainer {
   width: 100vw;
@@ -124,6 +130,22 @@
   border: 0;
   background-color: #f5f5f5;
   width: 30vw;
+}
+.searchedFull {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.searched {
+  width: 100vw;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.taarsanUmnuud {
+  width: 32%;
 }
 
 /* header type #3 */
@@ -290,6 +312,7 @@
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   flex-direction: column;
   justify-content: end;
 }
@@ -298,6 +321,7 @@
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   flex-direction: column;
   justify-content: end;
 }
@@ -335,31 +359,48 @@
 
 /* picOne styles */
 
-.PicOneTitle {
-  width: 80%;
-  font-family: "Roboto Condensed", sans-serif;
-  font-size: 30px;
-  font-weight: bold;
-}
 .picOneImage {
-  width: 80%;
+  width: 90%;
 }
 .picOneContainer {
-  padding: 100px 0;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 }
-
-/* threePics styles */
-.threePicsContainer {
-  width: 100%;
+.picOneGoShop {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 100px 0;
+  gap: 20px;
+}
+.picOneButton {
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 0;
+  background-color: #111;
+  color: #f5f5f5;
+  font-size: 18px;
+}
+.picOneSpan {
+  font-size: 18px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+.picOneGoShop h1 {
+  font-size: 72px;
+  font-family: "Tilt Warp", cursive;
+  font-weight: bold;
+  color: #111;
+}
+
+/* threePics styles */
+.threePicsContainer {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 20px;
 }
 .products3pics {
@@ -379,6 +420,9 @@
 .threeImage {
   width: 100%;
 }
+.threePicsType {
+  font-size: 20px;
+}
 
 .loginButton {
   background-color: #111;
@@ -388,4 +432,18 @@
   font-size: 20px;
   font-weight: bold;
   width: 460px;
+}
+
+/* product styles */
+.productsContainer {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.productsleftNav {
+  width: 20%;
+}
+.productsRightNav {
+  width: 80%;
 }
