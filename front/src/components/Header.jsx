@@ -41,15 +41,19 @@ const Header = () => {
           </div>
         </div>
         <div className="headerTypeTwo">
-          <img
-            className="nikeLogoOG"
-            src={require("../images/nikeLogo.png")}
-            alt=""
-          />
+          <Link to={"/"}>
+            <img
+              className="nikeLogoOG"
+              src={require("../images/nikeLogo.png")}
+              alt=""
+            />
+          </Link>
           <div className="searchVerOne">
             <br />
             <div className="nikeNavbar">
-              <span className="nikeNavTexts">New & Featured </span>
+              <Link className="links" to={"/products"}>
+                <span className="nikeNavTexts">New & Featured </span>
+              </Link>
               <span className="nikeNavTexts">Men</span>
               <span className="nikeNavTexts">Women</span>
               <span className="nikeNavTexts">Kids</span>
@@ -91,26 +95,35 @@ const Header = () => {
   ) : (
     <>
       <div className="headerContainer">
-        <div className="headerTypeTwo">
-          <img
-            className="nikeLogoOG"
-            src={require("../images/nikeLogo.png")}
-            alt=""
-          />
-          <div className="searchVerOne">
-            <div className="nikeSearch">
-              <img
-                onClick={searchTwo}
-                src="https://cdn-icons-png.flaticon.com/512/54/54481.png"
-                alt=""
-                className="nikeBagAndFavIcon"
-              />
-              <input placeholder="Search" type="text" id="nikeSearchInputTwo" />
+        <div className="searchedFull">
+          <div className="headerTypeTwo">
+            <img
+              className="nikeLogoOG"
+              src={require("../images/nikeLogo.png")}
+              alt=""
+            />
+            <div className="searchVerOne">
+              <div className="nikeSearch">
+                <img
+                  onClick={searchTwo}
+                  src="https://cdn-icons-png.flaticon.com/512/54/54481.png"
+                  alt=""
+                  className="nikeBagAndFavIcon"
+                />
+                <input
+                  placeholder="Search"
+                  type="text"
+                  id="nikeSearchInputTwo"
+                />
+              </div>
             </div>
+            <span className="cancel" onClick={searchTwo}>
+              cancel
+            </span>
           </div>
-          <span className="cancel" onClick={searchTwo}>
-            cancel
-          </span>
+          <div className="searched">
+            <div className="taarsanUmnuud"></div>
+          </div>
         </div>
       </div>
     </>

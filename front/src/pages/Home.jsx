@@ -11,8 +11,27 @@ const Home = () => {
     <>
       <div className="homeContainer">
         <Header />
-        <PicOne title="Just In" image="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1303,c_limit/3b29751e-eda0-4295-8051-bbe9e8cb9798/jordan.jpg" />
-        
+        <PicOne
+          quote="SPRING IN YOUR STEP"
+          span="Turn the fun up in the bright and bouncy Air VaporMax"
+          button="Shop Men's Air"
+          image="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_1824,c_limit/0a5aa15e-e49a-4b32-925c-8a848b234b79/nike-just-do-it.jpg"
+        />
+        <ThreePictures
+          title="Popular Right Now"
+          image="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/lj4izcovokw5jtfzc82u/sportswear-club-fleece-hoodie-qzVJfR.png"
+          imageTwo="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/cb407ca7-49bb-4316-8153-9889227f9710/sportswear-tech-fleece-hoodie-Rhmk1c.png"
+          imageThree="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/c284b247-b701-4078-9469-231591df6323/sportswear-tech-fleece-hoodie-vKhp1p.png"
+          type="Men's Clothes"
+          typeTwo="Women's Clothes"
+          typeThree="Wild Clothes"
+        />
+        <PicOne
+          quote="ARTIST SERIES"
+          span="Combining innovative art with familiar silhouettes, we’re creating a canvas for"
+          button="Shop"
+          image="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_1824,c_limit/c747ef67-329f-4bbf-81ad-5dff7e0d7ea5/nike-just-do-it.jpg"
+        />
         <MainTwo
           secName={"Basketball's Best"}
           photoOne={
@@ -28,7 +47,9 @@ const Home = () => {
           linkTo="Shop Nike Trail"
           linkToTwo="Shop Men's Trail"
         />
-        <ThreePictures title="Popular Right Now" image="https://media.discordapp.net/attachments/1075701997770121216/1075711035287281745/247547cd-243e-4fe6-a458-16e9599a2109.webp"
+        <ThreePictures
+          title="Popular Right Now"
+          image="https://media.discordapp.net/attachments/1075701997770121216/1075711035287281745/247547cd-243e-4fe6-a458-16e9599a2109.webp"
           imageTwo="https://media.discordapp.net/attachments/1075701997770121216/1075711035853512755/640f315b-ab45-42fa-afce-e36581b48084.webp"
           imageThree="https://media.discordapp.net/attachments/1075701997770121216/1075711035006271538/sportswear-therma-fit-tech-pack-mens-winterized-crew-xpNWBR.jpeg"
           type="Men's Clothes"
