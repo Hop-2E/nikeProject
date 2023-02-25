@@ -96,6 +96,7 @@ const SignUp = () => {
       console.log(error.response);
     }
   };
+
   return (
     <>
       <ToastContainer />

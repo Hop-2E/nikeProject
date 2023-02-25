@@ -6,8 +6,8 @@ const routerUser = express.Router();
 routerUser
   .all(checkToken)
   .get('/', getAllUser)
-  .post('/register', createUser)
-  .post('/login', login);
+  .post('/SignUp', createUser)
+  .post('/SignIn', login);
 routerUser.route('/:id').get(getUser);
 
 export default routerUser;
