@@ -97,6 +97,7 @@ const Signin = () => {
               <strong style={{ textDecoration: 'underline' }}>Change</strong>
             </p>
             <br />
+            <br />
           </div>
           <div>
             <TextField
@@ -119,8 +120,7 @@ const Signin = () => {
           <div>
             <br /> <strong>Don't have account?</strong>
           </div>
-          <br />
-          <button className='loginButton' onClick={LoginPost}>Login</button>
+          <button onClick={LoginPost}>Nevtreh</button>
         </div>
       </div>
     </>
