@@ -5,8 +5,9 @@ const UserSchema = new mongoose.Schema(
   {
     firstName: {
       type: String,
+      // required: [true, "нэвтрэх нэрээ оруулна уу"],
     },
-    surName: {
+    surName:{
       type: String,
     },
     password: {
@@ -14,29 +15,27 @@ const UserSchema = new mongoose.Schema(
       // required: [true, "нууц үгээ оруулна уу"],
       // minLength: [8, "хэтэрхий богино байна , 8 н оронтой байна"],
     },
+    birthday: {
+      type: Date
+    },
     role: {
       type: String,
       default: "normal",
-      enum: ["normal", "admin"],
-    },
-    birthday: {
-      type: Date,
+      enum: ["normal", "admin", "superAdmin"],
     },
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
-//zasvar hrgtei
-
-// UserSchema.virtual('Links', {
-//   ref: 'Link',
-//   localField: '_id',
-//   foreignField: 'user_id',
+// UserSchema.virtual("Links", {
+//   ref: "Link",
+//   localField: "_id",
+//   foreignField: "user_id",
 // });
 
 UserSchema.pre("save", async function (next) {
   try {
     const salt = await bcrypt.genSalt(10);
-    const hashPassword = bcrypt.hash(this.password, salt);
+    const hashPassword = await bcrypt.hash(this.password, salt);
     this.password = hashPassword;
     next();
   } catch (error) {
@@ -49,13 +48,9 @@ UserSchema.methods.comparePassword = async function (password) {
 };
 
 UserSchema.methods.jwtGenerate = async function () {
-  return jwt.sign(
-    { id: this._id, firstName: this.firstName },
-    process.env.JWT,
-    {
-      expiresIn: "100d",
-    }
-  );
+  return jwt.sign({ id: this._id, surName: this.surName }, process.env.JWT, {
+    expiresIn: "1d",
+  });
 };
 
 const User = mongoose.model("User", UserSchema);
