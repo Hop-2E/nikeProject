@@ -1,5 +1,5 @@
-import bcrypt from 'bcrypt';
-import mongoose from 'mongoose';
+import bcrypt from "bcrypt";
+import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema(
   {
@@ -16,14 +16,8 @@ const UserSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      default: 'normal',
-      enum: ['normal', 'admin'],
-    },
-    firstName: {
-      type: String,
-    },
-    lastName: {
-      type: String,
+      default: "normal",
+      enum: ["normal", "admin"],
     },
     birthday: {
       type: Date,
@@ -39,10 +33,10 @@ const UserSchema = new mongoose.Schema(
 //   foreignField: 'user_id',
 // });
 
-UserSchema.pre('save', async function (next) {
+UserSchema.pre("save", async function (next) {
   try {
     const salt = await bcrypt.genSalt(10);
-    const hashPassword = await bcrypt.hash(this.password, salt);
+    const hashPassword = bcrypt.hash(this.password, salt);
     this.password = hashPassword;
     next();
   } catch (error) {
@@ -55,10 +49,14 @@ UserSchema.methods.comparePassword = async function (password) {
 };
 
 UserSchema.methods.jwtGenerate = async function () {
-  return jwt.sign({ id: this._id, firstName: this.firstName }, process.env.JWT, {
-    expiresIn: '1d',
-  });
+  return jwt.sign(
+    { id: this._id, firstName: this.firstName },
+    process.env.JWT,
+    {
+      expiresIn: "100d",
+    }
+  );
 };
 
-const User = mongoose.model('User', UserSchema);
+const User = mongoose.model("User", UserSchema);
 export default User;

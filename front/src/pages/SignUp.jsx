@@ -1,98 +1,99 @@
-import '../App.css';
-import * as React from 'react';
-import TextField from '@mui/material/TextField';
-import { Link, useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useRef } from 'react';
-import { instance } from '../App';
+import "../App.css";
+import * as React from "react";
+import TextField from "@mui/material/TextField";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react";
+import { instance } from "../App";
 
 const styles = {
   Body: {
-    width: '100vw',
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
+    width: "100vw",
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
   },
   BodyChild: {
-    width: '500px',
-    height: 'auto',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'start',
-    flexDirection: 'column',
+    width: "500px",
+    height: "auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "start",
+    flexDirection: "column",
   },
   NikeIconCn: {
-    width: '100%',
-    height: '40px',
-    display: 'flex',
-    justifyContent: '',
-    alignItems: 'center',
+    width: "100%",
+    height: "40px",
+    display: "flex",
+    justifyContent: "",
+    alignItems: "center",
   },
   NikeIcon: {
-    width: '60px',
-    height: '60px',
+    width: "60px",
+    height: "60px",
   },
   h1: {
-    fontFamily: 'Roboto,sans-serif',
-    fontSize: '28px',
-    fontWeight: '400',
+    fontFamily: "Roboto,sans-serif",
+    fontSize: "28px",
+    fontWeight: "400",
   },
   input: {
-    fontFamily: 'Roboto,sans-serif',
-    fontSize: '20px',
-    fontWeight: 'normal',
-    width: '460px',
-    height: '56px',
-    borderRadius: '10px',
+    fontFamily: "Roboto,sans-serif",
+    fontSize: "20px",
+    fontWeight: "normal",
+    width: "460px",
+    height: "56px",
+    borderRadius: "10px",
   },
   davharInput: {
-    fontFamily: 'Roboto,sans-serif',
-    fontSize: '20px',
-    fontWeight: 'normal',
-    width: '220px',
-    height: '56px',
-    borderRadius: '30px',
+    fontFamily: "Roboto,sans-serif",
+    fontSize: "20px",
+    fontWeight: "normal",
+    width: "220px",
+    height: "56px",
+    borderRadius: "30px",
   },
   button: {
-    width: '460px',
-    height: '50px',
-    backgroundColor: 'black',
-    color: 'white',
-    borderRadius: '30px',
-    border: 'none',
-    fontSize: '20px',
-    fontWeight: '650',
-    marginTop: '20px',
+    width: "460px",
+    height: "50px",
+    backgroundColor: "black",
+    color: "white",
+    borderRadius: "30px",
+    border: "none",
+    fontSize: "20px",
+    fontWeight: "650",
+    marginTop: "20px",
   },
   dateInput: {
-    width: '460px',
-    marginTop: '10px',
-    height: '56px',
-    border: 'solid grey 1px',
-    borderRadius: '5px',
-    fontSize: '15px',
+    width: "438px",
+    paddingLeft: "10px",
+    paddingRight: "10px",
+    height: "56px",
+    border: "solid grey 1px",
+    borderRadius: "5px",
+    fontSize: "15px",
   },
 };
 
 const SignUp = () => {
-  const firstNameValue = useRef();
-  const surNameValue = useRef();
-  const birthdayValue = useRef();
-  const passwordValue = useRef();
-  const navigate = useNavigate();
+  const [firstName, setFirstName] = useState("");
+  const [password, setPassword] = useState();
+  const [surName, setSurName] = useState("");
+  const [date, setDate] = useState();
   const createUser = async () => {
     try {
-      const res = await instance.post('/user/SignUp', {
-        firstName: firstNameValue.current.value,
-        password: passwordValue.current.value,
+      const res = await instance.post("/user/register", {
+        firstName: firstName,
+        surName: surName,
+        password: password,
+        birthday: date,
       });
-      navigate(`/SignIn`);
       console.log(res.data);
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
     }
   };
   return (
@@ -114,48 +115,52 @@ const SignUp = () => {
             <h1 style={styles.h1}>Now let's make you a Nike Member.</h1>
             <br />
             <p>
-              Mongolia{' '}
-              <strong style={{ textDecoration: 'underline' }}>Change</strong>
+              Mongolia{" "}
+              <strong style={{ textDecoration: "underline" }}>Change</strong>
             </p>
             <br />
             <br />
           </div>
           <div>
-            <div style={{ display: 'flex', gap: '20px' }}>
+            <div style={{ display: "flex", gap: "20px" }}>
               <TextField
                 id="outlined-basic"
                 label="Firstname"
                 variant="outlined"
                 style={styles.davharInput}
-                ref={firstNameValue}
+                onChange={(e) => setFirstName(e.target.value)}
               />
               <TextField
                 id="outlined-basic"
                 label="Surname"
                 variant="outlined"
                 style={styles.davharInput}
-                ref={surNameValue}
+                onChange={(e) => setSurName(e.target.value)}
               />
             </div>
-            <br />
             <br />
             <TextField
               id="outlined-basic"
               label="Password"
               variant="outlined"
               style={styles.input}
-              ref={passwordValue}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div>
             <br />
             <div>
-              <input style={styles.dateInput} type="date" ref={birthdayValue} />
+              <input
+                onChange={(e) => setDate(e.target.value)}
+                style={styles.dateInput}
+                type="date"
+              />
             </div>
             <Link
-              style={{ textDecoration: 'none', color: 'black' }}
+              style={{ textDecoration: "none", color: "black" }}
               to="/SignIn"
             >
+              <br />
               <strong>Already registered?</strong>
             </Link>
             <button onClick={createUser} style={styles.button}>

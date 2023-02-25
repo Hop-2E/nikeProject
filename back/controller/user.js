@@ -1,8 +1,9 @@
-import User from '../model/User.js';
-import jwt from 'jsonwebtoken';
+import User from "../model/User.js";
+import jwt from "jsonwebtoken";
+
 export const getAllUser = async (req, res) => {
   try {
-    const user = await User.find({}).populate(''); // populate niga
+    const user = await User.find({}).populate(""); // populate niga
     res.status(200).send({
       success: true,
       data: user,
@@ -18,7 +19,7 @@ export const getAllUser = async (req, res) => {
 export const getUser = async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await User.findById(id).populate(''); // populate niga
+    const user = await User.findById(id).populate(""); // populate niga
     res.status(200).send({
       success: true,
       data: user,
@@ -45,17 +46,18 @@ export const createUser = async (req, res) => {
     });
   }
 };
+
 export const login = async (req, res) => {
   try {
     const { firstName, password } = req.body;
     const user = await User.findOne({
       firstName,
     });
-    const token = jwt.sign({ user }, 'secret', { expiresIn: '1d' }); // password niga
+    const token = jwt.sign({ user }, "secret", { expiresIn: "100d" }); // password niga
     const isMatch = await user.comparePassword(password);
     console.log(isMatch);
     if (!isMatch) {
-      res.send('Ok');
+      res.send("Ok");
     } else {
       res.status(200).send({
         success: true,
