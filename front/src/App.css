@@ -5,7 +5,7 @@
 
 .links {
   text-decoration: none;
-  color: black
+  color: black;
 }
 
 /* header type #1 */
@@ -304,14 +304,14 @@
 .nikeMainTypeText {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 40px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: bold;
 }
 .nikeMainTitleText {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 60px;
   font-weight: bold;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .buttonContainer {
   padding: 5%;
@@ -324,7 +324,7 @@
   font-family: "Roboto Condensed", sans-serif;
   border-radius: 30px;
   border: 0;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   font-size: 20px;
   width: fit-content;
 }
@@ -338,7 +338,7 @@
 .PicOneTitle {
   width: 80%;
   font-family: "Roboto Condensed", sans-serif;
-  font-size: 30px; 
+  font-size: 30px;
   font-weight: bold;
 }
 .picOneImage {
@@ -378,4 +378,14 @@
 }
 .threeImage {
   width: 100%;
+}
+
+.loginButton {
+  background-color: #111;
+  color: #f5f5f5;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 460px;
 }
