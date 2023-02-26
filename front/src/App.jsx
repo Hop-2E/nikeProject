@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import Home from './pages/Home';
 import SignUp from './pages/SignUp';
-import SignIn from './pages/SignIn';
+import Signin from './pages/Signin';
 import UserHome from './pages/UserHome';
 import Products from './pages/Products';
 
@@ -21,7 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/SignIn" element={<SignIn />} />
+          <Route path="/Signin" element={<Signin />} />
           <Route path="/:id" element={<UserHome />} />
           <Route path="/products" element={<Products />} />
         </Routes>

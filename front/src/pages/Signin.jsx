@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { instance } from '../App';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const styles = {
