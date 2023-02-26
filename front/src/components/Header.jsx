@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
-import "../App.css";
+import '../App.css';
 
 const Header = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -18,12 +18,12 @@ const Header = () => {
         <div className="headerTypeOne">
           <div className="brands">
             <img
-              src={require("../images/Jumpman_logo.png")}
+              src={require('../images/Jumpman_logo.png')}
               className="jordanLogo"
               alt="#"
             />
             <img
-              src={require("../images/Converse-logo.png")}
+              src={require('../images/Converse-logo.png')}
               className="converseLogo"
               alt="#"
             />
@@ -35,23 +35,23 @@ const Header = () => {
             <span className="nikeJijigSaaral">|</span>
             <span className="nikeJijigSaaral"> Join Us </span>
             <span className="nikeJijigSaaral">|</span>
-            <Link className="links" to={"/SignUp"}>
+            <Link className="links" to={'/SignUp'}>
               <span className="nikeJijigSaaral"> Sign Up</span>
             </Link>
           </div>
         </div>
         <div className="headerTypeTwo">
-          <Link to={"/"}>
+          <Link to={'/'}>
             <img
               className="nikeLogoOG"
-              src={require("../images/nikeLogo.png")}
+              src={require('../images/nikeLogo.png')}
               alt=""
             />
           </Link>
           <div className="searchVerOne">
             <br />
             <div className="nikeNavbar">
-              <Link className="links" to={"/products"}>
+              <Link className="links" to={'/Products'}>
                 <span className="nikeNavTexts">New & Featured </span>
               </Link>
               <span className="nikeNavTexts">Men</span>
@@ -76,11 +76,13 @@ const Header = () => {
               src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
               alt=""
             />
-            <img
-              className="nikeBagAndFavIcon"
-              src="https://cdn-icons-png.flaticon.com/512/2662/2662503.png"
-              alt="https://cdn-icons-png.flaticon.com/512/54/54481.png"
-            />
+            <Link to="/Bag">
+              <img
+                className="nikeBagAndFavIcon"
+                src="https://cdn-icons-png.flaticon.com/512/2662/2662503.png"
+                alt="https://cdn-icons-png.flaticon.com/512/54/54481.png"
+              />
+            </Link>
           </div>
         </div>
         <div className="headerTypeThree">
@@ -99,7 +101,7 @@ const Header = () => {
           <div className="headerTypeTwo">
             <img
               className="nikeLogoOG"
-              src={require("../images/nikeLogo.png")}
+              src={require('../images/nikeLogo.png')}
               alt=""
             />
             <div className="searchVerOne">
