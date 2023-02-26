@@ -6,6 +6,7 @@ import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import UserHome from './pages/UserHome';
 import Products from './pages/Products';
+import Bag from './pages/Bag';
 
 export const instance = axios.create({
   baseURL: 'http://localhost:2000',
@@ -23,7 +24,8 @@ function App() {
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/SignIn" element={<SignIn />} />
           <Route path="/:id" element={<UserHome />} />
-          <Route path="/products" element={<Products />} />
+          <Route path="/Products" element={<Products />} />
+          <Route path="/Bag" element={<Bag />} />
         </Routes>
       </BrowserRouter>
     </>
