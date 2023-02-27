@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-
 import '../App.css';
 
 const Header = () => {
@@ -17,11 +16,13 @@ const Header = () => {
       <div className="headerContainer">
         <div className="headerTypeOne">
           <div className="brands">
-            <img
-              src={require('../images/Jumpman_logo.png')}
-              className="jordanLogo"
-              alt="#"
-            />
+            <Link to="/JordanHome">
+              <img
+                src={require('../images/Jumpman_logo.png')}
+                className="jordanLogo"
+                alt="#"
+              />
+            </Link>
             <img
               src={require('../images/Converse-logo.png')}
               className="converseLogo"
