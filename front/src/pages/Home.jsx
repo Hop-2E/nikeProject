@@ -3,6 +3,7 @@ import '../App.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import NikeFooterTop from '../components/NikeFooterTop';
+import JordanFooterTop from '../components/NikeFooterTop';
 import MainTwo from '../components/MainTwo';
 import PicOne from '../components/PicOne';
 import ThreePictures from '../components/ThreePictures';
@@ -58,6 +59,7 @@ const Home = () => {
           typeThree="Wild Clothes"
         />
         <NikeFooterTop />
+        <JordanFooterTop />
         <Footer />
       </div>
     </>
