@@ -55,6 +55,12 @@
   font-size: 13px;
   cursor: pointer;
 }
+.inputZai {
+  padding: 10px;
+}
+.birthdayStyle {
+  font-size: 18px !important;
+}
 
 /* header type #2 */
 .headerTypeTwo {
