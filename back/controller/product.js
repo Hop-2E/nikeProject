@@ -1,7 +1,6 @@
-import {Product} from "../model/Product.js";
-import {Order} from "../model/Product.js";
-import User from "../model/User.js";
-
+import { Product } from '../model/Product.js';
+import { Order } from '../model/Product.js';
+import User from '../model/User.js';
 
 export const getAllProduct = async (req, res) => {
   try {
@@ -69,47 +68,47 @@ export const createProduct = async (req, res) => {
 // };
 export const getUsersProduct = async (req, res) => {
   try {
-    const {id} = req.params.id;
-    const user =  await User.findById(id).populate("Order");
+    const { id } = req.params.id;
+    const user = await User.findById(id).populate('Order');
     res.status(200).send({
-      data:user,
+      data: user,
     });
   } catch (error) {
     res.status(400).send({
       success: false,
       data: error.message,
-    })
+    });
   }
 };
 
 export const approveProduct = async (req, res) => {
   try {
-    const {id} = req.body;
+    const { id } = req.body;
     const product = await Order.findById(id);
     await Order.findByIdAndRemove(id);
     res.status(200).send({
       data: product,
-      message: "Approved"
-    })
+      message: 'Approved',
+    });
   } catch (error) {
     res.status(400).send({
-    data: error.message
-    })
+      data: error.message,
+    });
   }
-}
+};
 
 export const getProductByCategory = async (req, res) => {
   try {
-    const {category} = req.body;
+    const { category } = req.body;
     const products = await Product.find({
-      category: category
+      category: category,
     });
     res.status(200).send({
-      data: products
-    })
+      data: products,
+    });
   } catch (error) {
     res.status(400).send({
-      data: error.message
-  })
-}
+      data: error.message,
+    });
+  }
 };
