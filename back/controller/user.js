@@ -1,8 +1,8 @@
-import User from "../model/User.js";
-import jwt from "jsonwebtoken";
+import User from '../model/User.js';
+import jwt from 'jsonwebtoken';
 export const getAllUser = async (req, res) => {
   try {
-    const user = await User.find({}).populate("Product");
+    const user = await User.find({}).populate('Product');
     res.status(200).send({
       success: true,
       data: user,
@@ -18,7 +18,7 @@ export const getAllUser = async (req, res) => {
 export const getUser = async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await User.findById(id).populate("Product");
+    const user = await User.findById(id).populate('Product');
     res.status(200).send({
       success: true,
       data: user,
@@ -51,11 +51,11 @@ export const login = async (req, res) => {
     const user = await User.findOne({
       firstName,
     });
-    const token = jwt.sign({ user }, "secret", { expiresIn: "1d" });
+    const token = jwt.sign({ user }, 'secret', { expiresIn: '1d' });
     const isMatch = await user.comparePassword(password);
     console.log(isMatch);
     if (!isMatch) {
-      res.send("Ok");
+      res.send('Ok');
     } else {
       res.status(200).send({
         success: true,
@@ -73,15 +73,15 @@ export const login = async (req, res) => {
 
 export const buyProduct = async (req, res) => {
   try {
-    const { user_id} = req.body;
+    const { user_id } = req.body;
     const user = await User.findById(user_id).populate('Order');
-    await Order.create(req.body)
+    await Order.create(req.body);
     res.status(200).send({
       data: user,
-    })
+    });
   } catch (error) {
     res.status(400).send({
-      data: error.message
-    })
+      data: error.message,
+    });
   }
-}
+};

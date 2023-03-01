@@ -12,17 +12,15 @@ const ProdSchema = new mongoose.Schema({
 });
 
 const OrderSchema = new mongoose.Schema({
-  productId:{
-    type: String
+  productId: {
+    type: String,
   },
-  user_id:{
+  user_id: {
     type: String,
     ref: 'User',
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
 export const Product = mongoose.model('Product', ProdSchema);
 export const Order = mongoose.model('Order', OrderSchema);
-
-
