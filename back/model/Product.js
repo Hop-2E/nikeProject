@@ -11,6 +11,18 @@ const ProdSchema = new mongoose.Schema({
   description: String,
 });
 
-const Product = mongoose.model('Product', ProdSchema);
+const OrderSchema = new mongoose.Schema({
+  productId:{
+    type: String
+  },
+  user_id:{
+    type: String,
+    ref: 'User',
+    required: true
+  }
+})
 
-export default Product;
+export const Product = mongoose.model('Product', ProdSchema);
+export const Order = mongoose.model('Order', OrderSchema);
+
+

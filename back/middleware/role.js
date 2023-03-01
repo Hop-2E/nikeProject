@@ -1,5 +1,4 @@
 import User from "../model/User.js";
-import Product from "../model/Product.js";
 
 export const AdminRole = async (req, res, next) => {
   try {
