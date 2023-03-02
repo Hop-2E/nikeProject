@@ -447,12 +447,17 @@
   flex-direction: column;
   gap: 20px;
 }
-.productsleftNav {
-  width: 20%;
-  position: fixed;
+.productsLeftNav {
+  width: 15%;
+  height: 80vh;
+  overflow-y: scroll;
 }
 .productsRightNav {
-  width: 80%;
+  width: 60%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr ;
+  gap: 20px;
 }
 .genderEquality {
   display: flex;
@@ -466,15 +471,40 @@
 .icons {
   width: 20px;
 }
-
-.jurdan{
-  width: 20px; ;
+.bigContainerOfProducts {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }
-.zurag {
-  width: 232px;
-  height:232px
+.productContainer {
+  width: 100%;
 }
-.producs{
-  width: 232px;
-  height: 471px; ;
+.pruducts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.productImage {
+  width: 100%;
+}
+.grayProductText {
+  color: #111;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 18px;
+}
+.productTitle {
+  color: black;
+  font-size: large;
+  font-weight: bold;
+  font-family: "Roboto Condensed", sans-serif;
+}
+.infoProduct {
+  display: flex;
+  flex-direction: column;
+}
+.taarsanUmnuud {
+  display: flex;
+  height: 300px;
+  gap: 20px;
+  overflow-x: scroll;
 }
