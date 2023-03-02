@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import '../App.css';
 
-const Header = () => {
+const MapHeader = () => {
   const [isClicked, setIsClicked] = useState(false);
   const searchTwo = () => {
     if (isClicked === false) {
@@ -89,13 +89,6 @@ const Header = () => {
             </Link>
           </div>
         </div>
-        <div className="headerTypeThree">
-          <p className="bannerOne">
-            Free Shipping + Returns, Free Membership, Exclusive Products
-          </p>
-          <p className="bannerTwo">Save Up to 40%</p>
-          <p className="bannerThree">Shop All Our New Markdowns</p>
-        </div>
       </div>
     </>
   ) : (
@@ -136,4 +129,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default MapHeader;
