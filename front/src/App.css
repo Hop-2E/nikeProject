@@ -449,7 +449,20 @@
 }
 .productsleftNav {
   width: 20%;
+  position: fixed;
 }
 .productsRightNav {
   width: 80%;
+}
+.genderEquality {
+  display: flex;
+  align-items: center;
+}
+.genders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} 
+.icons {
+  width: 20px;
 }
