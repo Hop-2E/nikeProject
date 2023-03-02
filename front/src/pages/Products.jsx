@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import { instance } from "../App";
 import Header from "../components/Header";
+import Product from "../components/Product";
 import Footer from "../components/Footer";
 
 const Products = () => {
@@ -43,6 +44,7 @@ const Products = () => {
               product.map((el) => {
                 return 
               })}
+           <Product /> 
           </div>
         </div>
         <Footer />
