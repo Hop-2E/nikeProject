@@ -1,8 +1,9 @@
-import User from '../model/User.js';
-import jwt from 'jsonwebtoken';
+
+import User from "../model/User.js";
+import jwt from "jsonwebtoken";
 export const getAllUser = async (req, res) => {
   try {
-    const user = await User.find({}).populate('Product');
+    const user = await User.find({}).populate("Product");
     res.status(200).send({
       success: true,
       data: user,
@@ -18,7 +19,7 @@ export const getAllUser = async (req, res) => {
 export const getUser = async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await User.findById(id).populate('Product');
+    const user = await User.findById(id).populate("Product");
     res.status(200).send({
       success: true,
       data: user,
@@ -70,7 +71,6 @@ export const login = async (req, res) => {
     });
   }
 };
-
 export const buyProduct = async (req, res) => {
   try {
     const { user_id } = req.body;
