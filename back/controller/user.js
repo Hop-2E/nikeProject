@@ -1,4 +1,4 @@
-// 
+import { Order } from "../model/Product.js";
 import User from "../model/User.js";
 import jwt from "jsonwebtoken";
 export const getAllUser = async (req, res) => {
@@ -19,7 +19,7 @@ export const getAllUser = async (req, res) => {
 export const getUser = async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await User.findById(id).populate("Product");
+    const user = await User.findById(id).populate("Order");
     res.status(200).send({
       success: true,
       data: user,
@@ -74,7 +74,7 @@ export const login = async (req, res) => {
 export const buyProduct = async (req, res) => {
   try {
     const { user_id } = req.body;
-    const user = await User.findById(user_id).populate('Order');
+    const user = await User.findById(user_id)
     await Order.create(req.body);
     res.status(200).send({
       data: user,
@@ -83,5 +83,5 @@ export const buyProduct = async (req, res) => {
     res.status(400).send({
       data: error.message,
     });
-  }
+    }
 };
