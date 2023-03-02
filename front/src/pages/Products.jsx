@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import { instance } from "../App";
 import Header from "../components/Header";
+import Product from "../components/Product";
 import Footer from "../components/Footer";
 
 const Products = () => {
@@ -32,7 +33,9 @@ const Products = () => {
             <div></div>
             <div></div>
           </div>
-          <div className="productsRightNav"></div>
+          <div className="productsRightNav">
+           <Product /> 
+          </div>
         </div>
         <Footer />
       </div>
