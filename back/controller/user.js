@@ -1,3 +1,4 @@
+
 import User from "../model/User.js";
 import jwt from "jsonwebtoken";
 export const getAllUser = async (req, res) => {
@@ -51,11 +52,11 @@ export const login = async (req, res) => {
     const user = await User.findOne({
       firstName,
     });
-    const token = jwt.sign({ user }, "secret", { expiresIn: "1d" });
+    const token = jwt.sign({ user }, 'secret', { expiresIn: '1d' });
     const isMatch = await user.comparePassword(password);
     console.log(isMatch);
     if (!isMatch) {
-      res.send("Ok");
+      res.send('Ok');
     } else {
       res.status(200).send({
         success: true,
@@ -66,6 +67,20 @@ export const login = async (req, res) => {
   } catch (error) {
     res.status(400).send({
       success: false,
+      data: error.message,
+    });
+  }
+};
+export const buyProduct = async (req, res) => {
+  try {
+    const { user_id } = req.body;
+    const user = await User.findById(user_id).populate('Order');
+    await Order.create(req.body);
+    res.status(200).send({
+      data: user,
+    });
+  } catch (error) {
+    res.status(400).send({
       data: error.message,
     });
   }
