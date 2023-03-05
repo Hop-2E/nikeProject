@@ -1,9 +1,13 @@
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import '../App.css';
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import "../App.css";
+import Product from "./Product";
+import { instance } from "../App";
 
 const Header = () => {
   const [isClicked, setIsClicked] = useState(false);
+  const [product, setProduct] = useState();
+  const [value, setValue] = useState();
   const searchTwo = () => {
     if (isClicked === false) {
       setIsClicked(true);
@@ -11,6 +15,18 @@ const Header = () => {
       setIsClicked(false);
     }
   };
+  const getProduct = async () => {
+    const res = await instance.get("/product");
+    setProduct(
+      res.data.data.map((el) => {
+        console.log(el);
+        return el;
+      })
+    );
+  };
+  useEffect(() => {
+    getProduct();
+  }, []);
   return !isClicked ? (
     <>
       <div className="headerContainer">
@@ -18,13 +34,13 @@ const Header = () => {
           <div className="brands">
             <Link to="/JordanHome">
               <img
-                src={require('../images/Jumpman_logo.png')}
+                src={require("../images/Jumpman_logo.png")}
                 className="jordanLogo"
                 alt="#"
               />
             </Link>
             <img
-              src={require('../images/Converse-logo.png')}
+              src={require("../images/Converse-logo.png")}
               className="converseLogo"
               alt="#"
             />
@@ -36,23 +52,23 @@ const Header = () => {
             <span className="nikeJijigSaaral">|</span>
             <span className="nikeJijigSaaral"> Join Us </span>
             <span className="nikeJijigSaaral">|</span>
-            <Link className="links" to={'/SignUp'}>
+            <Link className="links" to={"/SignUp"}>
               <span className="nikeJijigSaaral"> Sign Up</span>
             </Link>
           </div>
         </div>
         <div className="headerTypeTwo">
-          <Link to={'/'}>
+          <Link to={"/"}>
             <img
               className="nikeLogoOG"
-              src={require('../images/nikeLogo.png')}
+              src={require("../images/nikeLogo.png")}
               alt=""
             />
           </Link>
           <div className="searchVerOne">
             <br />
             <div className="nikeNavbar">
-              <Link className="links" to={'/Products'}>
+              <Link className="links" to={"/Products"}>
                 <span className="nikeNavTexts">New & Featured </span>
               </Link>
               <span className="nikeNavTexts">Men</span>
@@ -102,7 +118,7 @@ const Header = () => {
           <div className="headerTypeTwo">
             <img
               className="nikeLogoOG"
-              src={require('../images/nikeLogo.png')}
+              src={require("../images/nikeLogo.png")}
               alt=""
             />
             <div className="searchVerOne">
@@ -114,6 +130,7 @@ const Header = () => {
                   className="nikeBagAndFavIcon"
                 />
                 <input
+                  onChange={(e) => setValue(e.target.value)}
                   placeholder="Search"
                   type="text"
                   id="nikeSearchInputTwo"
@@ -125,7 +142,13 @@ const Header = () => {
             </span>
           </div>
           <div className="searched">
-            <div className="taarsanUmnuud"></div>
+            <div className="taarsanUmnuud">
+              {product &&
+                product.map((el) => {
+                  return el.title.includes(value) && 
+                    <Product el={el} key={el._id} />;
+                })}
+            </div>
           </div>
         </div>
       </div>
