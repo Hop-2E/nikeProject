@@ -25,18 +25,6 @@ const Products = () => {
       <div className="productsContainer">
         <Header />
         <div className="bigContainerOfProducts">
-          <div className="productsLeftNav">
-            <div className="choose">
-              <div className="genderEquality">
-                <p className="genders">Gender</p>
-                <img
-                  className="icons"
-                  src={require("../images/down.png")}
-                  alt="poop"
-                />
-              </div>
-            </div>
-          </div>
           <div className="productsRightNav">
             {product &&
               product.map((el) => {

@@ -66,7 +66,7 @@ const Footer = () => {
       <div className="botFooter">
         <div className="botSideOne">
           <div className="locationContainer">
-            <div className="connectionIcons">
+            <div className="connectionIconsLoc">
               <img
                 className="nikeBagAndFavIcon"
                 src="https://cdn-icons-png.flaticon.com/512/2838/2838912.png"

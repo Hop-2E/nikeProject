@@ -2,6 +2,7 @@ import map from '../images/Map.png';
 import MapHeader from '../components/MapHeader';
 import Footer from '../components/Footer';
 import MapComp from '../components/MapComp';
+
 const Map = () => {
   const styles = {
     divCont: { height: 'auto', width: '100vw', display: 'flex' },
@@ -35,7 +36,7 @@ const Map = () => {
       <MapHeader style={styles.header} />{' '}
       <div style={styles.divCont}>
         <div style={styles.divForspace}>
-          <div>
+          <div className='compOfmap'>
             <h4 style={styles.title}>Find a Nike Store</h4>
             <br />
             <div style={{ width: '10px' }}></div>

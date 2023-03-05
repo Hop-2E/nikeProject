@@ -1,5 +1,7 @@
 import "../App.css";
 
+import { Link } from "react-router-dom";
+
 const ThreePictures = ({
   title,
   type,
@@ -14,15 +16,21 @@ const ThreePictures = ({
       <p className="products3pics">{title}</p>
       <div className="products3pics">
         <div className="threeProducts">
-          <img src={image} alt="" className="threeImage" />
+          <Link className="links" to={"/Products"}>
+            <img src={image} alt="" className="threeImage" />
+          </Link>
           <span className="threePicsType">{type}</span>
         </div>
         <div className="threeProducts">
-          <img src={imageTwo} alt="" className="threeImage" />
+          <Link className="links" to={"/Products"}>
+            <img src={imageTwo} alt="" className="threeImage" />
+          </Link>
           <span className="threePicsType">{typeTwo}</span>
         </div>
         <div className="threeProducts">
-          <img src={imageThree} alt="" className="threeImage" />
+          <Link className="links" to={"/Products"}>
+            <img src={imageThree} alt="" className="threeImage" />
+          </Link>
           <span className="threePicsType">{typeThree}</span>
         </div>
       </div>

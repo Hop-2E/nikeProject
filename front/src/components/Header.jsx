@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "../App.css";
-import Product from "./Product";
+import ProductSearch from "./ProductSearch";
 import { instance } from "../App";
 
 const Header = () => {
@@ -46,7 +46,7 @@ const Header = () => {
             />
           </div>
           <div className="signIn">
-            <Link to="/retail">
+            <Link className="links" to={"/retail"}>
               <span className="nikeJijigSaaral">Find a Store </span>
             </Link>
             <span className="nikeJijigSaaral">|</span>
@@ -149,7 +149,7 @@ const Header = () => {
               {product &&
                 product.map((el) => {
                   return el.title.includes(value) && 
-                    <Product el={el} key={el._id} />;
+                    <ProductSearch el={el} key={el._id} />;
                 })}
             </div>
           </div>

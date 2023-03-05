@@ -1,7 +1,9 @@
+import "../App.css";
+
 const MapComp = () => {
   return (
     <>
-      <div>
+      <div className="mapContainer">
         <hr />
         <h4>Nest Academy</h4>
         <p>3rd floor Gurvan Gol Office, Chinggis Ave 17, Улаанбаатар 14240</p>
