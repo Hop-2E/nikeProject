@@ -1,11 +1,12 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Order from '../components/Order';
 
 const styles = {
   topContainer: {
     display: 'flex',
-    height: '600px',
+    // height: '600px',
     width: '100vw',
     justifyContent: 'center',
     gap: '15px',
@@ -19,7 +20,7 @@ const styles = {
   leftTop: {
     display: 'flex',
     width: '48vw',
-    height: '13vh',
+    // height: '13vh',
     flexDirection: 'column',
     border: '1px solid grey',
     padding: '12px',
@@ -28,7 +29,7 @@ const styles = {
   leftBottom: {
     display: 'flex',
     width: '48vw',
-    height: '54vh',
+    // height: '54vh',
     flexDirection: 'column',
     padding: '12px',
     gap: '5px',
@@ -36,7 +37,7 @@ const styles = {
   rightContainer: {
     display: 'flex',
     width: '25vw',
-    height: '70vh',
+    // height: '70vh',
     marginTop: '12px',
     flexDirection: 'column',
     gap: '20px',
@@ -104,7 +105,10 @@ function Bag() {
           </div>
           <div style={styles.leftBottom}>
             <span style={{ fontSize: '22px', marginLeft: '-12px' }}>Bag</span>
-            <span>There are no items in your bag.</span>
+            {/* <span>There are no items in your bag.</span> */}
+            <div style={{display: 'flex', width: "100px", height:"100px"}}>
+            <Order />
+            </div>
           </div>
         </div>
         <div style={styles.rightContainer}>
@@ -148,12 +152,12 @@ function Bag() {
       </div>
       <div style={styles.bottomContainer}>
         <div style={styles.favoriteText}>
-          <span style={{ fontSize: '22px' }}>Favorites</span>
-          <span style={{ color: '#111111' }}>
-            Want to view your favorites? Join us or Sign-in
-          </span>
+          {/* <span style={{ fontSize: '22px' }}>Favorites</span> */}
+          {/* <span style={{ color: '#111111' }}> */}
+            {/* Want to view your favorites? Join us or Sign-in */}
+          {/* </span> */}
         </div>
-        <div style={styles.Suggestion}>
+        {/* <div style={styles.Suggestion}>
           <div
             style={{
               width: '1400px',
@@ -165,9 +169,9 @@ function Bag() {
           >
             You Might Also Like
           </div>
-        </div>
+        </div> */}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
