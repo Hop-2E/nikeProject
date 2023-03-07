@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema(
     role: {
       type: String,
       default: 'normal',
-      enum: ['normal', 'superAdmin'],
+      enum: ['normal', 'admin'],
     },
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
