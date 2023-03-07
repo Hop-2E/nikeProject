@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 const PicOne = ({ image, quote, span, button }) => {
   return (
     <div className="picOneContainer">
