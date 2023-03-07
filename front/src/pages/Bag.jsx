@@ -150,14 +150,14 @@ function Bag() {
           </div>
         </div>
       </div>
-      <div style={styles.bottomContainer}>
+      {/* <div style={styles.bottomContainer}>
         <div style={styles.favoriteText}>
-          {/* <span style={{ fontSize: '22px' }}>Favorites</span> */}
-          {/* <span style={{ color: '#111111' }}> */}
-            {/* Want to view your favorites? Join us or Sign-in */}
-          {/* </span> */}
+          <span style={{ fontSize: '22px' }}>Favorites</span>
+          <span style={{ color: '#111111' }}>
+            Want to view your favorites? Join us or Sign-in
+          </span>
         </div>
-        {/* <div style={styles.Suggestion}>
+        <div style={styles.Suggestion}>
           <div
             style={{
               width: '1400px',
@@ -169,9 +169,9 @@ function Bag() {
           >
             You Might Also Like
           </div>
-        </div> */}
-      </div>
-      {/* <Footer /> */}
+        </div>
+      </div> */}
+      <Footer />
     </>
   );
 }

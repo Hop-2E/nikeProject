@@ -39,11 +39,13 @@ const Header = () => {
                 alt="#"
               />
             </Link>
-            <img
-              src={require("../images/Converse-logo.png")}
-              className="converseLogo"
-              alt="#"
-            />
+            <Link to={"/Products"}>
+              <img
+                src={require("../images/Converse-logo.png")}
+                className="converseLogo"
+                alt="#"
+              />
+            </Link>
           </div>
           <div className="signIn">
             <Link className="links" to={"/retail"}>
@@ -151,8 +153,11 @@ const Header = () => {
             <div className="taarsanUmnuud">
               {product &&
                 product.map((el) => {
-                  return el.title.includes(value) && 
-                    <ProductSearch el={el} key={el._id} />;
+                  return (
+                    el.title.includes(value) && (
+                      <ProductSearch el={el} key={el._id} />
+                    )
+                  );
                 })}
             </div>
           </div>
