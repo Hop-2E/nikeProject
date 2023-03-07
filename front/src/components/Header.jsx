@@ -74,7 +74,10 @@ const Header = () => {
                 <span className="nikeNavTexts">New & Featured </span>
               </Link>
               <span className="nikeNavTexts">Men</span>
-              <span className="nikeNavTexts">Women</span>
+
+              <Link className="links" to={"/Women"}>
+                <span className="nikeNavTexts">Women</span>
+              </Link>
               <span className="nikeNavTexts">Kids</span>
               <span className="nikeNavTexts">Accessories</span>
               <span className="nikeNavTexts">Sale</span>
