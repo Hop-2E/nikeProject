@@ -1,83 +1,9 @@
-// import User from "../model/User.js";
-// import jwt from "jsonwebtoken";
-
-// export const getAllUser = async (req, res) => {
-//   try {
-//     const user = await User.find({}).populate(""); // populate niga
-//     res.status(200).send({
-//       success: true,
-//       data: user,
-//     });
-//   } catch (error) {
-//     res.status(400).send({
-//       success: false,
-//       data: error.message,
-//     });
-//   }
-// };
-
-// export const getUser = async (req, res) => {
-//   const { id } = req.params;
-//   try {
-//     const user = await User.findById(id).populate(""); // populate niga
-//     res.status(200).send({
-//       success: true,
-//       data: user,
-//     });
-//   } catch (error) {
-//     res.status(400).send({
-//       success: false,
-//       data: error.message,
-//     });
-//   }
-// };
-
-// export const createUser = async (req, res) => {
-//   try {
-//     const user = await User.create(req.body);
-//     res.status(200).send({
-//       success: true,
-//       data: user,
-//     });
-//   } catch (error) {
-//     res.status(400).send({
-//       success: false,
-//       data: error.message,
-//     });
-//   }
-// };
-
-// export const login = async (req, res) => {
-//   try {
-//     const { firstName, password } = req.body;
-//     const user = await User.findOne({
-//       firstName,
-//     });
-//     const token = jwt.sign({ user }, "secret", { expiresIn: "1d" }); // password niga
-//     const isMatch = await user.comparePassword(password);
-//     console.log(isMatch);
-//     if (!isMatch) {
-//       res.send("bolku bn ala");
-//       // res.send(password)
-//     } else {
-//       res.status(200).send({
-//         success: true,
-//         data: user,
-//         token: token,
-//       });
-//     }
-//   } catch (error) {
-//     res.status(400).send({
-//       success: false,
-//       data: error.message,
-//     });
-//   }
-// };
+import { Order } from "../model/Product.js";
 import User from "../model/User.js";
 import jwt from "jsonwebtoken";
 export const getAllUser = async (req, res) => {
   try {
-    const user = await User.find({}).populate("Links");
+    const user = await User.find({}).populate("Product");
     res.status(200).send({
       success: true,
       data: user,
@@ -93,7 +19,7 @@ export const getAllUser = async (req, res) => {
 export const getUser = async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await User.findById(id).populate("Links");
+    const user = await User.findById(id).populate("Order");
     res.status(200).send({
       success: true,
       data: user,
@@ -126,11 +52,11 @@ export const login = async (req, res) => {
     const user = await User.findOne({
       firstName,
     });
-    const token = jwt.sign({ user }, "secret", { expiresIn: "1d" });
+    const token = jwt.sign({ user }, 'secret', { expiresIn: '1d' });
     const isMatch = await user.comparePassword(password);
     console.log(isMatch);
     if (!isMatch) {
-      res.send("Ok");
+      res.send('Ok');
     } else {
       res.status(200).send({
         success: true,
@@ -144,4 +70,18 @@ export const login = async (req, res) => {
       data: error.message,
     });
   }
+};
+export const buyProduct = async (req, res) => {
+  try {
+    const { user_id } = req.body;
+    const user = await User.findById(user_id)
+    await Order.create(req.body);
+    res.status(200).send({
+      data: user,
+    });
+  } catch (error) {
+    res.status(400).send({
+      data: error.message,
+    });
+    }
 };

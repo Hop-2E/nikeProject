@@ -1,5 +1,5 @@
-import bcrypt from "bcrypt";
-import mongoose from "mongoose";
+import bcrypt from 'bcrypt';
+import mongoose from 'mongoose';
 
 const UserSchema = new mongoose.Schema(
   {
@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       // required: [true, "нэвтрэх нэрээ оруулна уу"],
     },
-    surName:{
+    surName: {
       type: String,
     },
     password: {
@@ -16,23 +16,28 @@ const UserSchema = new mongoose.Schema(
       // minLength: [8, "хэтэрхий богино байна , 8 н оронтой байна"],
     },
     birthday: {
-      type: Date
+      type: Date,
     },
     role: {
       type: String,
-      default: "normal",
-      enum: ["normal", "admin", "superAdmin"],
+      default: 'normal',
+      enum: ['normal', 'admin', 'superAdmin'],
     },
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
-// UserSchema.virtual("Links", {
-//   ref: "Link",
-//   localField: "_id",
-//   foreignField: "user_id",
-// });
+UserSchema.virtual('Product', {
+  ref: 'Product',
+  localField: '_id',
+  foreignField: 'user_id',
+});
+UserSchema.virtual('Order', {
+  ref: 'Order',
+  localField: '_id',
+  foreignField: 'user_id',
+});
 
-UserSchema.pre("save", async function (next) {
+UserSchema.pre('save', async function (next) {
   try {
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(this.password, salt);
@@ -49,9 +54,9 @@ UserSchema.methods.comparePassword = async function (password) {
 
 UserSchema.methods.jwtGenerate = async function () {
   return jwt.sign({ id: this._id, surName: this.surName }, process.env.JWT, {
-    expiresIn: "1d",
+    expiresIn: '1d',
   });
 };
 
-const User = mongoose.model("User", UserSchema);
+const User = mongoose.model('User', UserSchema);
 export default User;

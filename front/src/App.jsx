@@ -11,6 +11,9 @@ import JordanHome from "./pages/JordanHome";
 import Women from "./pages/Women";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Favourite from './pages/Favourite';
+import Map from './pages/Map';
+
 export const instance = axios.create({
   baseURL: "http://localhost:2000",
   headers: {
@@ -29,8 +32,11 @@ function App() {
           <Route path="/Signin" element={<Signin />} />
           <Route path="/:id" element={<UserHome />} />
           <Route path="/Products" element={<Products />} />
+          <Route path="/:id/Products" element={<Products />} />
           <Route path="/Bag" element={<Bag />} />
           <Route path="/Women" element={<Women />}></Route>
+          <Route path="/favourites" element={<Favourite />}></Route>
+          <Route path="/retail" element={<Map />}></Route>
         </Routes>
       </BrowserRouter>
       <Footer></Footer>

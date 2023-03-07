@@ -1,5 +1,7 @@
 import "../App.css";
 
+import { Link } from "react-router-dom";
+
 const MainTwo = ({
   typeOne,
   typeTwo,
@@ -22,7 +24,9 @@ const MainTwo = ({
           <div className="buttonContainer">
             <p className="nikeMainTypeText">{typeOne}</p>
             <p className="nikeMainTitleText">{titleOne}</p>
-            <button className="linkTo">{linkTo}</button>
+            <Link className="links" to={"/Products"}>
+              <button className="linkTo">{linkTo}</button>
+            </Link>
           </div>
         </div>
         <div
@@ -32,7 +36,9 @@ const MainTwo = ({
           <div className="buttonContainer">
             <p className="nikeMainTypeText">{typeTwo}</p>
             <p className="nikeMainTitleText">{titleTwo}</p>
-            <button className="linkTo">{linkToTwo}</button>
+            <Link className="links" to={"/Products"}>
+              <button className="linkTo">{linkToTwo}</button>
+            </Link>
           </div>
         </div>
       </div>

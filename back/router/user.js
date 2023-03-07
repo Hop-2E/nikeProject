@@ -1,6 +1,6 @@
 import express from 'express';
 import { createUser, getAllUser, getUser, login } from '../controller/user.js';
-import {checkToken} from "../middleware/middleware.js"
+import { checkToken } from '../middleware/middleware.js';
 const routerUser = express.Router();
 
 routerUser
