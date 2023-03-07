@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
 }
-
 .links {
   text-decoration: none;
   color: black;
@@ -120,7 +119,7 @@
 .cancel {
   cursor: pointer;
   font-weight: bold;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: 20px;
 }
 .cancel:hover {
@@ -239,13 +238,13 @@
 .nikeFooterGanganTsagaan {
   color: #ffffff;
   font-weight: bold;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: 15px;
   cursor: pointer;
 }
 .nikeFooterDajguWhite {
   color: #ffffff96;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: 15px;
   cursor: pointer;
 }
@@ -310,7 +309,7 @@
 }
 .mainTwoType {
   width: 80%;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: x-large;
 }
 .outputContainerOne {
@@ -332,13 +331,13 @@
   justify-content: end;
 }
 .nikeMainTypeText {
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: 40px;
   color: #ffffff;
   font-weight: bold;
 }
 .nikeMainTitleText {
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: 60px;
   font-weight: bold;
   color: #ffffff;
@@ -351,7 +350,7 @@
 }
 .linkTo {
   padding: 15px 20px;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   border-radius: 30px;
   border: 0;
   background-color: #ffffff;
@@ -392,11 +391,11 @@
 }
 .picOneSpan {
   font-size: 18px;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 .picOneGoShop h1 {
   font-size: 72px;
-  font-family: "Tilt Warp", cursive;
+  font-family: 'Tilt Warp', cursive;
   font-weight: bold;
   color: #111;
 }
@@ -411,7 +410,7 @@
 }
 .products3pics {
   width: 80%;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: x-large;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -462,19 +461,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-} 
+}
 .icons {
   width: 20px;
 }
 
-.jurdan{
-  width: 20px; ;
+.jurdan {
+  width: 20px;
 }
 .zurag {
   width: 232px;
-  height:232px
+  height: 232px;
 }
-.producs{
+.producs {
   width: 232px;
-  height: 471px; ;
+  height: 471px;
+}
+.OneBgTwoSmTWO {
+  display: flex;
+  width: 100%;
+  height: 50vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  flex-direction: column;
+  justify-content: end;
 }
