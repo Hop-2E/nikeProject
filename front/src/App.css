@@ -35,6 +35,11 @@
   gap: 10px;
   padding-right: 5%;
 }
+.gyGap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 .brands {
   display: flex;
   align-items: center;
