@@ -17,34 +17,19 @@ const Products = () => {
       })
     );
   };
-
   useEffect(() => {
     getProduct();
   }, []);
-
   return (
     <>
       <div className="productsContainer">
         <Header />
-        <div className="">
-          <div className="productsLeftNav">
-            <div className="choose">
-              <div className="genderEquality">
-                <p className="genders">Gender</p>
-                <img
-                  className="icons"
-                  src={require("../images/down.png")}
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
+        <div className="bigContainerOfProducts">
           <div className="productsRightNav">
-            {product && 
+            {product &&
               product.map((el) => {
-                return 
+                return <Product el={el} key={el._id} />;
               })}
-           <Product /> 
           </div>
         </div>
         <Footer />

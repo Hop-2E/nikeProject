@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const PicOne = ({ image, quote, span, button }) => {
   return (
     <div className="picOneContainer">
@@ -5,7 +6,9 @@ const PicOne = ({ image, quote, span, button }) => {
       <div className="picOneGoShop">
         <h1>{quote}</h1>
         <span className="picOneSpan">{span}</span>
-        <button className="picOneButton">{button}</button>
+        <Link className="links" to={"/Products"}>
+          <button className="picOneButton">{button}</button>
+        </Link>
       </div>
     </div>
   );

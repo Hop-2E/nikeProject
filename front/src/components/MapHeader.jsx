@@ -1,13 +1,9 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "../App.css";
-import ProductSearch from "./ProductSearch";
-import { instance } from "../App";
 
-const Header = () => {
+const MapHeader = () => {
   const [isClicked, setIsClicked] = useState(false);
-  const [product, setProduct] = useState();
-  const [value, setValue] = useState();
   const searchTwo = () => {
     if (isClicked === false) {
       setIsClicked(true);
@@ -15,18 +11,6 @@ const Header = () => {
       setIsClicked(false);
     }
   };
-  const getProduct = async () => {
-    const res = await instance.get("/product");
-    setProduct(
-      res.data.data.map((el) => {
-        console.log(el);
-        return el;
-      })
-    );
-  };
-  useEffect(() => {
-    getProduct();
-  }, []);
   return !isClicked ? (
     <>
       <div className="headerContainer">
@@ -46,7 +30,7 @@ const Header = () => {
             />
           </div>
           <div className="signIn">
-            <Link className="links" to={"/retail"}>
+            <Link className="links" to="/retail">
               <span className="nikeJijigSaaral">Find a Store </span>
             </Link>
             <span className="nikeJijigSaaral">|</span>
@@ -74,10 +58,7 @@ const Header = () => {
                 <span className="nikeNavTexts">New & Featured </span>
               </Link>
               <span className="nikeNavTexts">Men</span>
-
-              <Link className="links" to={"/Women"}>
-                <span className="nikeNavTexts">Women</span>
-              </Link>
+              <span className="nikeNavTexts">Women</span>
               <span className="nikeNavTexts">Kids</span>
               <span className="nikeNavTexts">Accessories</span>
               <span className="nikeNavTexts">Sale</span>
@@ -108,13 +89,6 @@ const Header = () => {
             </Link>
           </div>
         </div>
-        <div className="headerTypeThree">
-          <p className="bannerOne">
-            Free Shipping + Returns, Free Membership, Exclusive Products
-          </p>
-          <p className="bannerTwo">Save Up to 40%</p>
-          <p className="bannerThree">Shop All Our New Markdowns</p>
-        </div>
       </div>
     </>
   ) : (
@@ -136,7 +110,6 @@ const Header = () => {
                   className="nikeBagAndFavIcon"
                 />
                 <input
-                  onChange={(e) => setValue(e.target.value)}
                   placeholder="Search"
                   type="text"
                   id="nikeSearchInputTwo"
@@ -148,13 +121,7 @@ const Header = () => {
             </span>
           </div>
           <div className="searched">
-            <div className="taarsanUmnuud">
-              {product &&
-                product.map((el) => {
-                  return el.title.includes(value) && 
-                    <ProductSearch el={el} key={el._id} />;
-                })}
-            </div>
+            <div className="taarsanUmnuud"></div>
           </div>
         </div>
       </div>
@@ -162,4 +129,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default MapHeader;
