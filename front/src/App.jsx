@@ -1,18 +1,20 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import axios from 'axios';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import axios from "axios";
 
-import Home from './pages/Home';
-import SignUp from './pages/SignUp';
-import Signin from './pages/Signin';
-import UserHome from './pages/UserHome';
-import Products from './pages/Products';
-import Bag from './pages/Bag';
-import JordanHome from './pages/JordanHome';
-
+import Home from "./pages/Home";
+import SignUp from "./pages/SignUp";
+import Signin from "./pages/Signin";
+import UserHome from "./pages/UserHome";
+import Products from "./pages/Products";
+import Bag from "./pages/Bag";
+import JordanHome from "./pages/JordanHome";
+import Women from "./pages/Women";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 export const instance = axios.create({
-  baseURL: 'http://localhost:2000',
+  baseURL: "http://localhost:2000",
   headers: {
-    'Content-type': 'application/json; charset=UTF-8',
+    "Content-type": "application/json; charset=UTF-8",
   },
 });
 
@@ -28,8 +30,10 @@ function App() {
           <Route path="/:id" element={<UserHome />} />
           <Route path="/Products" element={<Products />} />
           <Route path="/Bag" element={<Bag />} />
+          <Route path="/Women" element={<Women />}></Route>
         </Routes>
       </BrowserRouter>
+      <Footer></Footer>
     </>
   );
 }
