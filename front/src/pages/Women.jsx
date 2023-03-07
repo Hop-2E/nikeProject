@@ -91,6 +91,7 @@ const Women = () => {
           typeTwo="Women's Clothes"
           typeThree="Wild Clothes"
         />
+        <Footer />
       </div>
     </>
   );

@@ -58,7 +58,6 @@ const Home = () => {
           typeThree="Wild Clothes"
         />
         <NikeFooterTop />
-        <JordanFooterTop />
         <Footer />
       </div>
     </>

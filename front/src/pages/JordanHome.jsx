@@ -160,7 +160,7 @@ function JordanHome() {
           Button="Explore"
         />
         <JordanFooterTop />
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </>
   );

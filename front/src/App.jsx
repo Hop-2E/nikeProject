@@ -39,7 +39,6 @@ function App() {
           <Route path="/retail" element={<Map />}></Route>
         </Routes>
       </BrowserRouter>
-      <Footer></Footer>
     </>
   );
 }
