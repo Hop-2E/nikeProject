@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "../App.css";
 import ProductSearch from "./ProductSearch";
@@ -7,13 +7,21 @@ import { instance } from "../App";
 const Header = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [product, setProduct] = useState();
+  const [user, setUser] = useState();
   const [value, setValue] = useState();
+  const [isAdmin, setIsAdmin] = useState(false);
+  const params = useParams();
+
   const searchTwo = () => {
     if (isClicked === false) {
       setIsClicked(true);
     } else {
       setIsClicked(false);
     }
+  };
+  const getUserData = async () => {
+    const res = await instance.get(`/${params.id}`);
+    console.log(res.data.data);
   };
   const getProduct = async () => {
     const res = await instance.get("/product");
@@ -24,8 +32,18 @@ const Header = () => {
       })
     );
   };
+
+  const checkAdmin = () => {
+    if (user === "superAdmin") {
+      setIsAdmin(true);
+    } else {
+      setIsAdmin(false);
+    }
+  };
+
   useEffect(() => {
     getProduct();
+    getUserData();
   }, []);
   return !isClicked ? (
     <>
@@ -56,6 +74,17 @@ const Header = () => {
             <span className="nikeJijigSaaral">|</span>
             <span className="nikeJijigSaaral"> Join Us </span>
             <span className="nikeJijigSaaral">|</span>
+            {!isAdmin === true ? (
+              <>
+                {" "}
+                <Link className="links" to={"/AdminHome"}>
+                  <span className="nikeJijigSaaral"> Admin Only </span>
+                </Link>
+                <span className="nikeJijigSaaral">|</span>
+              </>
+            ) : (
+              <></>
+            )}
             <Link className="links" to={"/SignUp"}>
               <span className="nikeJijigSaaral"> Sign Up</span>
             </Link>
@@ -76,8 +105,7 @@ const Header = () => {
                 <span className="nikeNavTexts">New & Featured </span>
               </Link>
               <span className="nikeNavTexts">Men</span>
-
-              <Link className="links" to={"/Women"}>
+              <Link onClick={checkAdmin} className="links" to={"/Women"}>
                 <span className="nikeNavTexts">Women</span>
               </Link>
               <span className="nikeNavTexts">Kids</span>

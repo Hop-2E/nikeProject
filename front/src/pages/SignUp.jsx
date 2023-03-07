@@ -83,6 +83,7 @@ const SignUp = () => {
   const passwordValue = useRef();
   const surNameValue = useRef();
   const birthdayValue = useRef();
+  const role = useRef();
   const navigate = useNavigate();
   const createUser = async () => {
     try {
@@ -91,6 +92,7 @@ const SignUp = () => {
         password: passwordValue.current.value,
         surName: surNameValue.current.value,
         birthday: birthdayValue.current.value,
+        role: role.current.value,
       });
       navigate(`/SignIn`);
       console.log(res.data);
@@ -124,7 +126,7 @@ const SignUp = () => {
             <br />
             <br />
           </div>
-          <div>
+          <div className="gyGap">
             <div style={{ display: "flex", gap: "20px" }}>
               <input
                 className="inputZai"
@@ -141,13 +143,19 @@ const SignUp = () => {
                 ref={surNameValue}
               />
             </div>
-            <br />
             <input
               className="inputZai"
               type="password"
               style={styles.input}
               placeholder="Password"
               ref={passwordValue}
+            />
+            <input
+              className="inputZai"
+              type="text"
+              style={styles.input}
+              placeholder="Role"
+              ref={role}
             />
           </div>
           <div>
@@ -159,7 +167,6 @@ const SignUp = () => {
                 ref={birthdayValue}
               />
             </div>
-            <br />
             <Link
               style={{ textDecoration: "none", color: "black" }}
               to="/SignIn"
