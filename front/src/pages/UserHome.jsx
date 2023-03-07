@@ -11,11 +11,10 @@ function UserHome() {
   const [firstname, setFirstname] = useState();
   const [birth, setBirth] = useState();
   const params = useParams();
-  console.log(params);
 
   const UserData = async () => {
     const res = await instance.get(`./user/${params.id}`);
-    console.log(res.data.data);
+    console.log(params.id);
     setFirstname(res.data.data.firstName);
     setBirth(res.data.data.birthday);
   };

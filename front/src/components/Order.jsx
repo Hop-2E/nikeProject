@@ -6,9 +6,10 @@ import Product from './Product';
 function Order() {
     const [product, setProduct] = useState();
     const getProduct = async () => {
-        const res = await instance.get("/product");
+        const res = await instance.get("/product/:id");
+        console.log(res)
         setProduct(res.data.data.map((el) => {
-            console.log(el)
+            console.log(res)
             return el;
         }))
     };
