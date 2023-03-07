@@ -540,6 +540,7 @@
   background-position: center;
   flex-direction: column;
   justify-content: end;
+}
 .fourImageOne{
   grid-column: 1/2;
   grid-row: 1/5;
