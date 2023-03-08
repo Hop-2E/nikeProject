@@ -20,14 +20,13 @@ const Header = () => {
     }
   };
   const getUserData = async () => {
-    const res = await instance.get(`/${params.id}`);
-    console.log(res.data.data);
+    const res = await instance.get(`/user/${params.id}`);
+    // console.log(res);
   };
   const getProduct = async () => {
     const res = await instance.get("/product");
     setProduct(
       res.data.data.map((el) => {
-        console.log(el);
         return el;
       })
     );
@@ -129,7 +128,7 @@ const Header = () => {
               alt=""
             />
 
-            <Link to="/Bag">
+            <Link to="./Bag">
               <img
                 className="nikeBagAndFavIcon"
                 src="https://cdn-icons-png.flaticon.com/512/2662/2662503.png"
