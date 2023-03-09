@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "../App.css";
 import ProductSearch from "./ProductSearch";
@@ -7,7 +7,11 @@ import { instance } from "../App";
 const Header = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [product, setProduct] = useState();
+  const [user, setUser] = useState();
   const [value, setValue] = useState();
+  const [isAdmin, setIsAdmin] = useState(false);
+  const params = useParams();
+
   const searchTwo = () => {
     if (isClicked === false) {
       setIsClicked(true);
@@ -15,17 +19,30 @@ const Header = () => {
       setIsClicked(false);
     }
   };
+  const getUserData = async () => {
+    const res = await instance.get(`/user/${params.id}`);
+    // console.log(res);
+  };
   const getProduct = async () => {
     const res = await instance.get("/product");
     setProduct(
       res.data.data.map((el) => {
-        console.log(el);
         return el;
       })
     );
   };
+
+  const checkAdmin = () => {
+    if (user === "superAdmin") {
+      setIsAdmin(true);
+    } else {
+      setIsAdmin(false);
+    }
+  };
+
   useEffect(() => {
     getProduct();
+    getUserData();
   }, []);
   return !isClicked ? (
     <>
@@ -56,6 +73,17 @@ const Header = () => {
             <span className="nikeJijigSaaral">|</span>
             <span className="nikeJijigSaaral"> Join Us </span>
             <span className="nikeJijigSaaral">|</span>
+            {!isAdmin === true ? (
+              <>
+                {" "}
+                <Link className="links" to={"/AdminHome"}>
+                  <span className="nikeJijigSaaral"> Admin Only </span>
+                </Link>
+                <span className="nikeJijigSaaral">|</span>
+              </>
+            ) : (
+              <></>
+            )}
             <Link className="links" to={"/SignUp"}>
               <span className="nikeJijigSaaral"> Sign Up</span>
             </Link>
@@ -76,8 +104,7 @@ const Header = () => {
                 <span className="nikeNavTexts">New & Featured </span>
               </Link>
               <span className="nikeNavTexts">Men</span>
-
-              <Link className="links" to={"/Women"}>
+              <Link onClick={checkAdmin} className="links" to={"/Women"}>
                 <span className="nikeNavTexts">Women</span>
               </Link>
               <span className="nikeNavTexts">Kids</span>
@@ -103,7 +130,7 @@ const Header = () => {
               alt=""
             />
 
-            <Link to="/Bag">
+            <Link to="./Bag">
               <img
                 className="nikeBagAndFavIcon"
                 src="https://cdn-icons-png.flaticon.com/512/2662/2662503.png"
