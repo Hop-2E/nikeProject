@@ -10,7 +10,7 @@ const Product = ({ el }) => {
           <span className="productTitle">{el.title}</span>
           <span className="grayProductText">{el.type}</span>
           <span className="grayProductText">{el.color}</span>
-          <span className="productTitle">{el.price}$</span>
+          <span className="productTitle">{el.price}Price</span>
         </div>
       </div>
     </div>

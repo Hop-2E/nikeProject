@@ -94,10 +94,15 @@ const styles = {
 function Bag() {
   const params = useParams();
   const [data, setData] = useState([]);
+  const [ productid , setProductid ] = useState();
   const getUserData = async () => {
-    const res = await instance.get(`/user/${params.id}`);
-    setData(res.data.data.Order);
+    const res = await instance.get(`/product`); 
+    // setData(res.data);
+    // console.log(params)
+    // console.log(res.data)
+    // console.log(res)
   };
+  
   useEffect(() => {
     getUserData();
   }, []);
@@ -122,7 +127,7 @@ function Bag() {
               data.map((el) => {
                 return (
                   <div>
-                    <Product el={el} key={el.id} />
+                    <Product el={el} key={el._id} />
                   </div>
                 );
               })}
