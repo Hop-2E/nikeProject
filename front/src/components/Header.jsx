@@ -21,6 +21,7 @@ const Header = () => {
   };
   const getUserData = async () => {
     const res = await instance.get(`/${params.id}`);
+    setUser(res.data.data);
     console.log(res.data.data);
   };
   const getProduct = async () => {
@@ -123,11 +124,13 @@ const Header = () => {
             </div>
           </div>
           <div className="nikeBagAndFav">
-            <img
-              className="nikeBagAndFavIcon"
-              src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
-              alt=""
-            />
+            <Link className="links" to={"/userHome"} >
+              <img
+                className="nikeBagAndFavIcon"
+                src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png"
+                alt=""
+              />
+            </Link>
 
             <Link to="/Bag">
               <img

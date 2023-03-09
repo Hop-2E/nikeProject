@@ -611,10 +611,12 @@
 }
 .userLinks {
   font-family: "Roboto Condensed", sans-serif;
+  cursor: pointer;
 }
 .userProfile {
-  width: 80vw;
+  width: 100vw;
   display: flex;
+  justify-content: center;
 }
 .userInfo {
   display: flex;
@@ -626,13 +628,27 @@
   border-radius: 50%;
 }
 .profile {
-  padding: 0 0 100px 70px;
+  width: 80vw;
   display: flex;
   align-items: center;
   gap: 20px;
+  padding: 50px 0;
 }
 .userName {
   font-size: xx-large;
   font-weight: bold;
 
+}
+
+/* Favourite styles */
+
+.favContainer {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+.fav {
+  width: 80vw;
+  height: 50vh;
+  padding: 50px 0;
 }

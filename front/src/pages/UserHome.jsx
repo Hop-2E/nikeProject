@@ -1,46 +1,52 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-
 import "../App.css";
 import Header from "../components/Header";
+import { useState } from "react";
 import Footer from "../components/Footer";
-import ProfileHeader from "../components/ProfileHeader";
-import { instance } from "../App";
+
+import Profile from "../components/Profile";
+import Favourite from "../components/Favourite";
 
 function UserHome() {
-  const [firstname, setFirstname] = useState();
-  const [birth, setBirth] = useState();
-  const params = useParams();
+  const [profile, setProfile] = useState(false);
+  const [order, setOrder] = useState(false);
+  const [fav, setFav] = useState(false);
 
-  const UserData = async () => {
-    const res = await instance.get(`./user/${params.id}`);
-    console.log(params.id);
-    setFirstname(res.data.data.firstName);
-    setBirth(res.data.data.birthday);
+  const GOProfile = () => {
+    setProfile(true);
+    setOrder(false);
+    setFav(false);
   };
-
-  useEffect(() => {
-    UserData();
-  }, []);
+  const GOOrder = () => {
+    setOrder(true);
+    setProfile(false);
+    setFav(false);
+  };
+  const GOFav = () => {
+    setFav(true);
+    setOrder(false);
+    setProfile(false);
+  };
 
   return (
     <>
       <Header />
-      <div className="userProfileContainer">
-        <ProfileHeader />
-        <div className="userProfile">
-          <div className="profile">
-            <img
-              className="userImage"
-              src="https://www.freeiconspng.com/thumbs/profile-icon-png/am-a-19-year-old-multimedia-artist-student-from-manila--21.png"
-              alt=""
-            />
-            <div className="userInfo">
-              <span className="userName">{firstname}</span>
-              <span className="grayProductText">{birth}</span>
-            </div>
-          </div>
-        </div>
+      <div className="userLinksContainer">
+        <span onClick={GOProfile} className="userLinks">
+          Profile
+        </span>
+        <span onClick={GOOrder} className="userLinks">
+          Orders
+        </span>
+        <span onClick={GOFav} className="userLinks">
+          Favorites
+        </span>
+      </div>
+      <div>
+        {!profile ? (
+          <Favourite/>
+        ) : (
+          <Profile/>
+        )}
       </div>
       <Footer />
     </>

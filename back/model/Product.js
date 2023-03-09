@@ -25,5 +25,15 @@ const OrderSchema = new mongoose.Schema({
   },
 });
 
+const FavSchema = new mongoose.Schema({
+  productId : String,
+  user_id: {
+    type: String,
+    ref: 'User',
+    required: true,
+  },
+})
+
+export const Fav = mongoose.model('Fav', FavSchema);
 export const Product = mongoose.model('Product', ProdSchema);
 export const Order = mongoose.model('Order', OrderSchema);

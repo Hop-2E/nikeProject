@@ -36,6 +36,11 @@ UserSchema.virtual('Order', {
   localField: '_id',
   foreignField: 'user_id',
 });
+UserSchema.virtual('Favourite', {
+  ref: 'Favourite',
+  localField: '_id',
+  foreignField: 'user_id',
+});
 
 UserSchema.pre('save', async function (next) {
   try {
