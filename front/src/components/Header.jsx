@@ -109,7 +109,9 @@ const Header = () => {
               </Link>
               <span className="nikeNavTexts">Kids</span>
               <span className="nikeNavTexts">Accessories</span>
-              <span className="nikeNavTexts">Sale</span>
+              <Link className="links" to={"/Sale"}>
+                <span className="nikeNavTexts">Sale</span>
+              </Link>
             </div>
             <div className="nikeSearch">
               <img
