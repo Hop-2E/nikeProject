@@ -45,20 +45,20 @@
 //         </div>
 //       </div>{" "}
 //     </div>
-//   );  
+//   );
 // };
 // export default Scroll;
 
-import "../App.css";
+import '../App.css';
 
 const Scroll = (information) => {
   const styles = {
     image: {
-      width: "450px",
-      height: "450px",
+      width: '450px',
+      height: '450px',
     },
     span: {
-      fontSize: "16px",
+      fontSize: '16px',
       fontWeight: 600,
     },
   };
