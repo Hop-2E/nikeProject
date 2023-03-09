@@ -1,4 +1,4 @@
-import { Order } from "../model/Product.js";
+import { Order, Product } from "../model/Product.js";
 import User from "../model/User.js";
 import jwt from "jsonwebtoken";
 export const getAllUser = async (req, res) => {
@@ -73,11 +73,12 @@ export const login = async (req, res) => {
 };
 export const buyProduct = async (req, res) => {
   try {
-    const { user_id } = req.body;
-    const user = await User.findById(user_id)
-    await Order.create(req.body);
+    const {  productId } = req.body;
+     const  product = await Product.findById(productId)
+   
+    const data = await Order.create(req.body);
     res.status(200).send({
-      data: user,
+      data:  product,
     });
   } catch (error) {
     res.status(400).send({
@@ -85,3 +86,4 @@ export const buyProduct = async (req, res) => {
     });
     }
 };
+
