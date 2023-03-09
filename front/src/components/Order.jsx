@@ -7,17 +7,6 @@ import { useParams } from 'react-router-dom';
 function Order() {
     const params = useParams();
     const [product, setProduct] = useState();
-    // const getProduct = async () => {
-    //     const res = await instance.get("/product/:id");
-    //     // console.log(res)
-    //     setProduct(res.data.data.map((el) => {
-    //         // console.log(res)
-    //         return el;
-    //     }))
-    // };
-    // useEffect(() => {
-    //     getProduct();
-    // }, []);
     const getProduct = async () => {
       const res = await instance.get(`/user/${params.id}`);
       setProduct(
@@ -29,11 +18,11 @@ function Order() {
     };
     useEffect(() => {
       getProduct();
-    }, []);
+    }, [product]);
   return (
     <div>
       {product && product.map((el) => {
-        return <Product el={el} key={el._id} />;
+        return <Product el={el}  />;
       })}
     </div>
   )
