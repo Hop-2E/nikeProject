@@ -9,10 +9,11 @@ import Products from "./pages/Products";
 import Bag from "./pages/Bag";
 import JordanHome from "./pages/JordanHome";
 import Women from "./pages/Women";
+import Men from "./pages/Men";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Favourite from './pages/Favourite';
-import Map from './pages/Map';
+import Favourite from "./pages/Favourite";
+import Map from "./pages/Map";
 
 export const instance = axios.create({
   baseURL: "http://localhost:2000",
@@ -35,8 +36,9 @@ function App() {
           <Route path="/:id/Products" element={<Products />} />
           <Route path="/Bag" element={<Bag />} />
           <Route path="/Women" element={<Women />}></Route>
-          <Route path="/favourites" element={<Favourite />}></Route>
+          <Route path="/Favourite" element={<Favourite />}></Route>
           <Route path="/retail" element={<Map />}></Route>
+          <Route path="/Men" element={<Men />}></Route>
         </Routes>
       </BrowserRouter>
     </>

@@ -82,6 +82,7 @@ const Women = () => {
           linkTo="Shop Nike Trail"
           linkToTwo="Shop Men's Trail"
         />
+
         <ThreePictures
           title="Popular Right Now"
           image="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_441,c_limit/7286a10f-76b3-49fa-b9f3-7cd46369963a/women-s-shoes-clothing-accessories.jpg"
@@ -91,6 +92,7 @@ const Women = () => {
           typeTwo="Women's Clothes"
           typeThree="Wild Clothes"
         />
+
         <Footer />
       </div>
     </>
