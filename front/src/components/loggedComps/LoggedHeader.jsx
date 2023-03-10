@@ -22,7 +22,7 @@ const LoggedHeader = () => {
   };
 
   const getUserData = async () => {
-    const res = await instance.get(`/${params.id}`);
+    const res = await instance.get(`/user/${params._id}`);
     console.log(res.data.data);
     setUser(res.data.data);
   };
@@ -35,14 +35,6 @@ const LoggedHeader = () => {
         return el;
       })
     );
-  };
-
-  const checkAdmin = () => {
-    if (user === "admin") {
-      setIsAdmin(true);
-    } else {
-      setIsAdmin(false);
-    }
   };
 
   useEffect(() => {

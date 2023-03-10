@@ -2,7 +2,7 @@ import "../App.css";
 import { useEffect, useState } from "react";
 
 import { instance } from "../App";
-import Header from "../components/Header";
+import LoggedHeader from "../components/loggedComps/LoggedHeader";
 import Product from "../components/Product";
 import Footer from "../components/Footer";
 
@@ -22,7 +22,7 @@ const Products = () => {
   return (
     <>
       <div className="productsContainer">
-        <Header />
+        <LoggedHeader />
         <div className="bigContainerOfProducts">
           <div className="productsRightNav">
             {product &&
