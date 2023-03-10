@@ -1,13 +1,17 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import "../App.css";
-import ProductSearch from "./ProductSearch";
-import { instance } from "../App";
+import { instance } from "../../App";
 
-const Header = () => {
+import "../../App.css";
+import ProductSearch from "../ProductSearch";
+
+const LoggedHeader = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [product, setProduct] = useState();
+  const [user, setUser] = useState();
   const [value, setValue] = useState();
+  const [isAdmin, setIsAdmin] = useState(false);
+  const params = useParams();
 
   const searchTwo = () => {
     if (isClicked === false) {
@@ -16,6 +20,13 @@ const Header = () => {
       setIsClicked(false);
     }
   };
+
+  const getUserData = async () => {
+    const res = await instance.get(`/${params.id}`);
+    console.log(res.data.data);
+    setUser(res.data.data);
+  };
+
   const getProduct = async () => {
     const res = await instance.get("/product");
     setProduct(
@@ -26,32 +37,40 @@ const Header = () => {
     );
   };
 
+  const checkAdmin = () => {
+    if (user === "admin") {
+      setIsAdmin(true);
+    } else {
+      setIsAdmin(false);
+    }
+  };
+
   useEffect(() => {
     getProduct();
+    getUserData();
   }, []);
-
   return !isClicked ? (
     <>
       <div className="headerContainer">
         <div className="headerTypeOne">
           <div className="brands">
-            <Link to="/JordanHome">
+            <Link to="/:id/JordanHome">
               <img
-                src={require("../images/Jumpman_logo.png")}
+                src={require("../../images/Jumpman_logo.png")}
                 className="jordanLogo"
                 alt="#"
               />
             </Link>
-            <Link to={"/Products"}>
+            <Link to={"/:id/Products"}>
               <img
-                src={require("../images/Converse-logo.png")}
+                src={require("../../images/Converse-logo.png")}
                 className="converseLogo"
                 alt="#"
               />
             </Link>
           </div>
           <div className="signIn">
-            <Link className="links" to={"/retail"}>
+            <Link className="links" to={":id/retail"}>
               <span className="nikeJijigSaaral">Find a Store </span>
             </Link>
             <span className="nikeJijigSaaral">|</span>
@@ -59,16 +78,26 @@ const Header = () => {
             <span className="nikeJijigSaaral">|</span>
             <span className="nikeJijigSaaral"> Join Us </span>
             <span className="nikeJijigSaaral">|</span>
-            <Link className="links" to={"/SignUp"}>
-              <span className="nikeJijigSaaral"> Sign Up</span>
+            {!isAdmin === true ? (
+              <>
+                <Link className="links" to={"./adminPage"}>
+                  <span className="nikeJijigSaaral"> Admin Only </span>
+                </Link>
+                <span className="nikeJijigSaaral">|</span>
+              </>
+            ) : (
+              <></>
+            )}
+            <Link className="links" to={"/"}>
+              <span className="nikeJijigSaaral">Log Out</span>
             </Link>
           </div>
         </div>
         <div className="headerTypeTwo">
-          <Link to={"/"}>
+          <Link to={`/loggedHome/:id`}>
             <img
               className="nikeLogoOG"
-              src={require("../images/nikeLogo.png")}
+              src={require("../../images/nikeLogo.png")}
               alt=""
             />
           </Link>
@@ -128,7 +157,7 @@ const Header = () => {
           <div className="headerTypeTwo">
             <img
               className="nikeLogoOG"
-              src={require("../images/nikeLogo.png")}
+              src={require("../../images/nikeLogo.png")}
               alt=""
             />
             <div className="searchVerOne">
@@ -169,4 +198,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default LoggedHeader;

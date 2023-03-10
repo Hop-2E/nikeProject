@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import "../App.css";
-import Header from "../components/Header";
+import LoggedHeader from "../components/loggedComps/LoggedHeader";
 import Footer from "../components/Footer";
 import ProfileHeader from "../components/ProfileHeader";
 import { instance } from "../App";
@@ -25,7 +25,7 @@ function UserHome() {
 
   return (
     <>
-      <Header />
+      <LoggedHeader />
       <div className="userProfileContainer">
         <ProfileHeader />
         <div className="userProfile">

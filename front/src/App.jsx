@@ -9,11 +9,10 @@ import Products from "./pages/Products";
 import Bag from "./pages/Bag";
 import JordanHome from "./pages/JordanHome";
 import Women from "./pages/Women";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Favourite from './pages/Favourite';
-import Map from './pages/Map';
-import AdminHome from './pages/AdminHome';
+import Favourite from "./pages/Favourite";
+import Map from "./pages/Map";
+import LoggedAdminHome from "./pages/loggedPages/LoggedAdminHome";
+import HomeLogged from "./pages/loggedPages/HomeLogged";
 
 export const instance = axios.create({
   baseURL: "http://localhost:2000",
@@ -31,14 +30,16 @@ function App() {
           <Route path="/JordanHome" element={<JordanHome />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/Signin" element={<Signin />} />
-          <Route path="/:id" element={<UserHome />} />
           <Route path="/Products" element={<Products />} />
-          <Route path="/:id/Products" element={<Products />} />
           <Route path="/Bag" element={<Bag />} />
           <Route path="/Women" element={<Women />}></Route>
           <Route path="/favourites" element={<Favourite />}></Route>
           <Route path="/retail" element={<Map />}></Route>
-          <Route path="/AdminHome" element={<AdminHome />} />
+          {/* logged pages */}
+          <Route path="/loggedHome/:id" element={<HomeLogged />} />
+          <Route path="/:id/adminPage" element={<LoggedAdminHome />} />
+          <Route path="/:id/Products" element={<Products />} />
+          <Route path="/:id" element={<UserHome />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -142,6 +142,7 @@
   width: 30vw;
 }
 .searchedFull {
+  z-index: 20;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -156,8 +157,10 @@
 }
 .taarsanUmnuud {
   width: 80vw;
-  display: flex;
-  gap: 20px;
+  height: 30em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
   overflow-x: scroll;
 }
 
@@ -503,6 +506,7 @@
 }
 .productImage {
   width: 100%;
+  height: 25em;
 }
 .grayProductText {
   color: gray;
@@ -635,4 +639,50 @@
   font-size: xx-large;
   font-weight: bold;
 
+}
+
+/* Admin home styles */
+.adminContainer {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+.productPost {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Roboto Condensed", sans-serif;
+  border-right: 1px solid #111;
+}
+.productOrderApprove {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Roboto Condensed", sans-serif;
+  border-left: 1px solid #111;
+}
+.productPostButton {
+  font-family: "Roboto Condensed", sans-serif;
+  border: 0;
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+}
+.inputsProdPost {
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #111;
+}
+.inpContainer {
+  width: 60%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 40px 0;
 }
