@@ -1,8 +1,8 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import { instance } from '../App';
-import Product from './Product';
-import { useParams } from 'react-router-dom';
+import React from "react";
+import { useEffect, useState } from "react";
+import { instance } from "../App";
+import Product from "./Product";
+import { useParams } from "react-router-dom";
 
 function Order() {
     const params = useParams();
@@ -22,11 +22,12 @@ function Order() {
     }, []);
   return (
     <div>
-      {product && product.map((el) => {
-        return <Product el={el}  />;
-      })}
+      {product &&
+        product.map((el) => {
+          return <Product el={el} />;
+        })}
     </div>
-  )
+  );
 }
 
-export default Order
+export default Order;
