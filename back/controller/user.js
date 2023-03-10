@@ -75,7 +75,6 @@ export const buyProduct = async (req, res) => {
   try {
     const { productId } = req.body;
     const product = await Product.findById(productId);
-
     const data = await Order.create(req.body);
     res.status(200).send({
       data: product,

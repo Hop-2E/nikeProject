@@ -14,7 +14,6 @@ function UserHome() {
 
   const UserData = async () => {
     const res = await instance.get(`./user/${params.id}`);
-    console.log(params.id);
     setFirstname(res.data.data.firstName);
     setBirth(res.data.data.birthday);
   };

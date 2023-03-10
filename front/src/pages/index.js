@@ -6,4 +6,5 @@ export * from "./Signin.jsx";
 export * from "./SignUp.jsx";
 export * from "./UserHome.jsx";
 export * from "./Women.jsx";
+export * from "./Sale.jsx";
 export * from "./AdminHome.jsx";
