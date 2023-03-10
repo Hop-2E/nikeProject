@@ -1,5 +1,5 @@
-import { Button } from 'bootstrap';
-import '../App.css';
+import { Button } from "bootstrap";
+import "../App.css";
 
 const JordanThreePictures = ({
   title,
@@ -22,12 +22,12 @@ const JordanThreePictures = ({
         </div>
         <div className="threeProducts">
           <img src={imageTwo} alt="" className="threeImage" />
-          <span className="threePicsType">{typeTwo}</span>{' '}
+          <span className="threePicsType">{typeTwo}</span>{" "}
           <button className="picOneButton">{Button}</button>
         </div>
         <div className="threeProducts">
           <img src={imageThree} alt="" className="threeImage" />
-          <span className="threePicsType">{typeThree}</span>{' '}
+          <span className="threePicsType">{typeThree}</span>{" "}
           <button className="picOneButton">{Button}</button>
         </div>
       </div>
