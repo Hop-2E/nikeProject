@@ -77,10 +77,12 @@ export const buyProduct = async (req, res) => {
     const product = await Product.findById(productId);
     const data = await Order.create(req.body);
     res.status(200).send({
+      success: true,
       data: product,
     });
   } catch (error) {
     res.status(400).send({
+      success: false,
       data: error.message,
     });
   }

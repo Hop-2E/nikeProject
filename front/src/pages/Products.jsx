@@ -1,6 +1,5 @@
 import "../App.css";
 import { useEffect, useState } from "react";
-
 import { instance } from "../App";
 import Header from "../components/Header";
 import Product from "../components/Product";
@@ -14,7 +13,6 @@ const Products = () => {
     const res = await instance.get("/product");
     setProduct(
       res.data.data.map((el) => {
-        console.log(el);
         setProductId(el._id);
         return el;
       })
