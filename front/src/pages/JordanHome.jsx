@@ -1,46 +1,46 @@
-import React from 'react';
-import '../App.css';
-import Header from '../components/Header';
-import JordanFooterTop from '../components/JordanFooterTop';
-import Footer from '../components/Footer';
-import PicOne from '../components/PicOne';
-import OneBgTwoSm from '../components/OneBgTwoSm';
-import JordanThreePictures from '../components/JordanThreePictures';
-import MainTwo from '../components/MainTwo';
-import Scroll from '../components/Scroll';
+import React from "react";
+import "../App.css";
+import Header from "../components/Header";
+import JordanFooterTop from "../components/JordanFooterTop";
+import Footer from "../components/Footer";
+import PicOne from "../components/PicOne";
+import OneBgTwoSm from "../components/OneBgTwoSm";
+import JordanThreePictures from "../components/JordanThreePictures";
+import MainTwo from "../components/MainTwo";
+import Scroll from "../components/Scroll";
 
 function JordanHome() {
   const styles = {
     JordanLogo: {
-      width: '100vw',
-      height: 'auto',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
+      width: "100vw",
+      height: "auto",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
     },
     UnderJordanLogo: {
-      width: '100vw',
-      height: 'auto',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      fontFamily: 'Roboto,sans-serif',
-      fontWeight: 'bold',
+      width: "100vw",
+      height: "auto",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      fontFamily: "Roboto,sans-serif",
+      fontWeight: "bold",
     },
     UnderJordanLogoDiv: {
-      width: '50%',
-      height: 'auto',
-      display: 'flex',
-      justifyContent: 'space-evenly',
-      alignItems: 'center',
-      fontFamily: 'Roboto,sans-serif',
-      fontWeight: 'bold',
+      width: "50%",
+      height: "auto",
+      display: "flex",
+      justifyContent: "space-evenly",
+      alignItems: "center",
+      fontFamily: "Roboto,sans-serif",
+      fontWeight: "bold",
     },
     Scroll: {
-      width: '100vw',
-      height: 'auto',
-      overflow: 'scroll',
-      display: 'flex',
+      width: "100vw",
+      height: "auto",
+      overflow: "scroll",
+      display: "flex",
     },
   };
   return (
@@ -80,17 +80,17 @@ function JordanHome() {
           span="Beyond"
           button="Shop All Jordan▶️"
           image="https://64.media.tumblr.com/35c6e43c1298d6e7a656f48738d30fab/tumblr_n6gfhcaPwU1s3gys4o1_400.gif"
-        />{' '}
+        />{" "}
         <OneBgTwoSm
-          secName={'SHOP JORDAN ICONS'}
+          secName={"SHOP JORDAN ICONS"}
           photoOne={
-            'https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/h_1016,c_limit/a207e494-a4be-4dc6-ac3c-f7e248640b17/jordan.jpg'
+            "https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/h_1016,c_limit/a207e494-a4be-4dc6-ac3c-f7e248640b17/jordan.jpg"
           }
           photoTwo={
-            'https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_646,c_limit/0a76c4ad-0919-48f7-b6a7-6b37d1b36c3f/jordan.jpg'
+            "https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_646,c_limit/0a76c4ad-0919-48f7-b6a7-6b37d1b36c3f/jordan.jpg"
           }
           photoThree={
-            'https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_646,c_limit/a40336a3-11f5-4de3-b84c-88128cd3b385/jordan.jpg'
+            "https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_646,c_limit/a40336a3-11f5-4de3-b84c-88128cd3b385/jordan.jpg"
           }
         />
         <JordanThreePictures
@@ -104,12 +104,12 @@ function JordanHome() {
           Button="Shop"
         />
         <MainTwo
-          secName={'THE LATEST FROM JORDAN'}
+          secName={"THE LATEST FROM JORDAN"}
           photoOne={
-            'https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_646,c_limit/fec14520-1c1e-4249-b8d9-5933e177c0ab/jordan.jpg'
+            "https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_646,c_limit/fec14520-1c1e-4249-b8d9-5933e177c0ab/jordan.jpg"
           }
           photoTwo={
-            'https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_646,c_limit/1dec5754-937a-43aa-aec6-fbb348a85714/jordan.jpg'
+            "https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_646,c_limit/1dec5754-937a-43aa-aec6-fbb348a85714/jordan.jpg"
           }
           titleOne="ARTIST SERIES"
           titleTwo=" THE ALWAYS-IN-STYLE AJI"

@@ -1,9 +1,8 @@
-import { Product } from '../model/Product.js';
-import { Order } from '../model/Product.js';
-import User from '../model/User.js';
+import { Product } from "../model/Product.js";
+import { Order } from "../model/Product.js";
+import User from "../model/User.js";
 
 export const getAllProduct = async (req, res) => {
-  // console.log("approve product")
   try {
     const limit = req.query.limit;
     const skip = req.query.skip;
@@ -19,10 +18,9 @@ export const getAllProduct = async (req, res) => {
   }
 };
 
-
-export const getAllOrder= async (req, res) => {
+export const getAllOrder = async (req, res) => {
   try {
-    const order = await Order.find({})
+    const order = await Order.find({});
     res.status(200).send({
       data: order,
     });
@@ -31,10 +29,10 @@ export const getAllOrder= async (req, res) => {
       success: true,
       data: error.message,
     });
-  }}
+  }
+};
 
 export const createProduct = async (req, res) => {
-  console.log("create product")
   try {
     const product = await Product.create(req.body);
     res.status(200).send({
@@ -50,10 +48,9 @@ export const createProduct = async (req, res) => {
 };
 
 export const getUsersProduct = async (req, res) => {
-  console.log("get users product")
   try {
     const { id } = req.params.id;
-    const user = await User.findById(id).populate('Order');
+    const user = await User.findById(id).populate("Order");
     res.status(200).send({
       data: user,
     });
@@ -66,14 +63,13 @@ export const getUsersProduct = async (req, res) => {
 };
 
 export const approveProduct = async (req, res) => {
-  console.log("approve product")
   try {
     const { id } = req.body;
     const product = await Order.findById(id).populate("Product");
     await Order.findByIdAndRemove(id);
     res.status(200).send({
       data: product,
-      message: 'Approved',
+      message: "Approved",
     });
   } catch (error) {
     res.status(400).send({
@@ -100,16 +96,16 @@ export const getProductByCategory = async (req, res) => {
 
 export const getProductById = async (req, res) => {
   try {
-    const {id } = req.params;
-    const product = await Product.findById({_id : id});
+    const { id } = req.params;
+    const product = await Product.findById({ _id: id });
     res.status(200).send({
       data: product,
       success: true,
-    })
+    });
   } catch (error) {
     res.status(400).send({
       success: false,
       data: error.message,
-    })
+    });
   }
-}
+};

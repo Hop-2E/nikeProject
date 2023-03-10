@@ -1,4 +1,4 @@
-import '../App.css';
+import "../App.css";
 
 const OneBgTwoSm = (inf) => {
   return (
@@ -10,7 +10,7 @@ const OneBgTwoSm = (inf) => {
           style={{ backgroundImage: `url(${inf.photoOne})` }}
         >
           <div className="buttonContainer">
-            <p className="picOneSpan" style={{ fontWeight: 'bold' }}>
+            <p className="picOneSpan" style={{ fontWeight: "bold" }}>
               CLOTHING
             </p>
             <button className="picOneButton">Shop</button>
@@ -22,8 +22,8 @@ const OneBgTwoSm = (inf) => {
             style={{ backgroundImage: `url(${inf.photoTwo})` }}
           >
             <div className="buttonContainer">
-              <p className="picOneSpan " style={{ fontWeight: 'bold' }}>
-                SHOES{' '}
+              <p className="picOneSpan " style={{ fontWeight: "bold" }}>
+                SHOES{" "}
               </p>
               <button className="picOneButton">Shop</button>
             </div>
@@ -34,7 +34,7 @@ const OneBgTwoSm = (inf) => {
             style={{ backgroundImage: `url(${inf.photoThree})` }}
           >
             <div className="buttonContainer">
-              <p className="picOneSpan" style={{ fontWeight: 'bold' }}>
+              <p className="picOneSpan" style={{ fontWeight: "bold" }}>
                 ACCESSORIES
               </p>
               <button className="picOneButton">Shop</button>

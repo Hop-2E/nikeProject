@@ -94,15 +94,12 @@ const styles = {
 function Bag() {
   const params = useParams();
   const [data, setData] = useState([]);
-  const [ productid , setProductid ] = useState();
+  const [productid, setProductid] = useState();
   const getUserData = async () => {
-    const res = await instance.get(`/product`); 
+    const res = await instance.get(`/product`);
     // setData(res.data);
-    // console.log(params)
-    // console.log(res.data)
-    // console.log(res)
   };
-  
+
   useEffect(() => {
     getUserData();
   }, []);

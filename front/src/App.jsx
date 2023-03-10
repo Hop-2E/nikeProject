@@ -9,11 +9,9 @@ import Products from "./pages/Products";
 import Bag from "./pages/Bag";
 import JordanHome from "./pages/JordanHome";
 import Women from "./pages/Women";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Favourite from './pages/Favourite';
-import Map from './pages/Map';
-import AdminHome from './pages/AdminHome';
+import Favourite from "./pages/Favourite";
+import Map from "./pages/Map";
+import AdminHome from "./pages/AdminHome";
 
 export const instance = axios.create({
   baseURL: "http://localhost:2000",

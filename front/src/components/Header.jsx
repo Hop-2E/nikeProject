@@ -21,7 +21,6 @@ const Header = () => {
   };
   const getUserData = async () => {
     const res = await instance.get(`/user/${params.id}`);
-    // console.log(res);
   };
   const getProduct = async () => {
     const res = await instance.get("/product");

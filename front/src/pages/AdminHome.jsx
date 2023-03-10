@@ -6,9 +6,7 @@ const AdminHome = () => {
   return (
     <>
       <Header />
-      <div className="adminContainer">
-        
-      </div>
+      <div className="adminContainer"></div>
       <Footer />
     </>
   );

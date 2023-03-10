@@ -1,63 +1,63 @@
-import '../App.css';
-import * as React from 'react';
-import TextField from '@mui/material/TextField';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { instance } from '../App';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import "../App.css";
+import * as React from "react";
+import TextField from "@mui/material/TextField";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { instance } from "../App";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const styles = {
   Body: {
-    width: '100vw',
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
+    width: "100vw",
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
   },
   BodyChild: {
-    width: '500px',
-    height: 'auto',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'start',
-    flexDirection: 'column',
+    width: "500px",
+    height: "auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "start",
+    flexDirection: "column",
   },
   NikeIconCn: {
-    width: '100%',
-    height: '40px',
-    display: 'flex',
-    justifyContent: '',
-    alignItems: 'center',
+    width: "100%",
+    height: "40px",
+    display: "flex",
+    justifyContent: "",
+    alignItems: "center",
   },
   NikeIcon: {
-    width: '60px',
-    height: '60px',
+    width: "60px",
+    height: "60px",
   },
   h1: {
-    fontFamily: 'Roboto,sans-serif',
-    fontSize: '28px',
-    fontWeight: '400',
+    fontFamily: "Roboto,sans-serif",
+    fontSize: "28px",
+    fontWeight: "400",
   },
   input: {
-    fontFamily: 'Roboto,sans-serif',
-    fontSize: '20px',
-    fontWeight: 'normal',
-    width: '460px',
-    height: '56px',
-    borderRadius: '30px',
+    fontFamily: "Roboto,sans-serif",
+    fontSize: "20px",
+    fontWeight: "normal",
+    width: "460px",
+    height: "56px",
+    borderRadius: "30px",
   },
   button: {
-    width: '460px',
-    height: '50px',
-    backgroundColor: 'black',
-    color: 'white',
-    borderRadius: '30px',
-    border: 'none',
-    fontSize: '20px',
-    fontWeight: '650',
-    marginTop: '20px',
+    width: "460px",
+    height: "50px",
+    backgroundColor: "black",
+    color: "white",
+    borderRadius: "30px",
+    border: "none",
+    fontSize: "20px",
+    fontWeight: "650",
+    marginTop: "20px",
   },
 };
 
@@ -66,18 +66,18 @@ const Signin = () => {
   const [password, setPassword] = useState();
   const LoginPost = async () => {
     try {
-      const res = await instance.post('/user/SignIn', {
+      const res = await instance.post("/user/SignIn", {
         firstName: firstName,
         password: password,
       });
       try {
-        window.localStorage.setItem('token', JSON.stringify(res.data.token));
+        window.localStorage.setItem("token", JSON.stringify(res.data.token));
         window.localStorage.setItem(
-          'user_id',
+          "user_id",
           JSON.stringify(res.data.data._id)
         );
       } catch (error) {
-        console.log('error');
+        console.log("error");
       }
       window.location.replace(`/${res.data.data._id}`);
     } catch (error) {
@@ -104,8 +104,8 @@ const Signin = () => {
             <h1 style={styles.h1}>Enter your email to join us or sign in.</h1>
             <br />
             <p>
-              Mongolia{' '}
-              <strong style={{ textDecoration: 'underline' }}>Change</strong>
+              Mongolia{" "}
+              <strong style={{ textDecoration: "underline" }}>Change</strong>
             </p>
             <br />
             <br />
@@ -131,7 +131,7 @@ const Signin = () => {
           <div>
             <br />
             <Link
-              style={{ textDecoration: 'none', color: 'black' }}
+              style={{ textDecoration: "none", color: "black" }}
               to="/SignUp"
             >
               <strong>Don't have account?</strong>
