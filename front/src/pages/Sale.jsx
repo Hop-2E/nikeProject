@@ -58,7 +58,6 @@ const Sale = () => {
             image="https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_2.0/w_441,c_limit/55e07dd1-12f9-49eb-a98f-b16729314966/air-presto-womens-shoes-LMdjZP.png"
             price="166$"
             sale="13%"
-
           />
           <Scroll
             span="Nike Air Max 90 Futura"

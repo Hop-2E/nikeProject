@@ -1,12 +1,12 @@
-import '../App.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import MainTwo from '../components/MainTwo';
-import PicOne from '../components/PicOne';
-import ThreePictures from '../components/ThreePictures';
-import FourPic from '../components/FourPic';
-import Scroll from '../components/Scroll';
-import FourPicture from '../components/FourPicture';
+import "../App.css";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import MainTwo from "../components/MainTwo";
+import PicOne from "../components/PicOne";
+import ThreePictures from "../components/ThreePictures";
+import FourPic from "../components/FourPic";
+import Scroll from "../components/Scroll";
+import FourPicture from "../components/FourPicture";
 
 const Women = () => {
   return (
@@ -24,27 +24,27 @@ const Women = () => {
 
         <div
           style={{
-            width: '100vw',
-            height: 'auto',
-            display: 'flex',
-            overflow: 'scroll',
+            width: "100vw",
+            height: "auto",
+            display: "flex",
+            overflow: "scroll",
           }}
         >
           <Scroll
             span="Nike Air Max 90 Futura"
             image="https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_2.0/w_441,c_limit/3cd2a1a1-21ea-423c-9343-e1a47aac4d2d/air-max-90-futura-womens-shoes-kvRZ4h.png"
             price="166$"
-          />{' '}
+          />{" "}
           <Scroll
             span="Nike Air Max 90 Futura"
             image="https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_2.0/w_441,c_limit/94e70add-d590-4327-9b9c-c8a65b3cf541/air-max-270-womens-shoes-Pgb94t.png"
             price="166$"
-          />{' '}
+          />{" "}
           <Scroll
             span="Nike Air Max 90 Futura"
             image="https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_2.0/w_441,c_limit/421160a3-e273-426b-9c13-9c7df2aca8de/invincible-3-womens-road-running-shoes-kC40R9.png"
             price="166$"
-          />{' '}
+          />{" "}
           <Scroll
             span="Nike Air Max 90 Futura"
             image="https://static.nike.com/a/images/q_auto:eco/t_product_v1/f_auto/dpr_2.0/w_441,c_limit/55e07dd1-12f9-49eb-a98f-b16729314966/air-presto-womens-shoes-LMdjZP.png"
@@ -65,10 +65,10 @@ const Women = () => {
         <MainTwo
           secName={"Basketball's Best"}
           photoOne={
-            'https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_666,c_limit/97ad9025-1390-4aea-ab7f-0b4ab3231d87/women-s-shoes-clothing-accessories.jpg'
+            "https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_666,c_limit/97ad9025-1390-4aea-ab7f-0b4ab3231d87/women-s-shoes-clothing-accessories.jpg"
           }
           photoTwo={
-            'https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_666,c_limit/e8c5c4ef-cf2e-49db-a44b-aeacdf83fcff/women-s-shoes-clothing-accessories.jpg'
+            "https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_666,c_limit/e8c5c4ef-cf2e-49db-a44b-aeacdf83fcff/women-s-shoes-clothing-accessories.jpg"
           }
           titleOne="Flight MVP"
           titleTwo="Flight MVP 2"

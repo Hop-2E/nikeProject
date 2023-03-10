@@ -10,8 +10,6 @@ function Order() {
     const [productId, setProductId] = useState();
     const getProduct = async () => {
       const res = await instance.get(`/user/${params.id}`);
-      // const res2 = await instance.get(`/product/${productId}`)
-      console.log(res)
       setProduct(
         res.data.data.Order.map((el) => {
         setProductId(el.productId)

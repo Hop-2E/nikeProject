@@ -1,7 +1,6 @@
-import '../App.css';
+import "../App.css";
 
 const Product = ({ el }) => {
-  
   return (
     <div className="productContainer">
       <div className="pruducts">
