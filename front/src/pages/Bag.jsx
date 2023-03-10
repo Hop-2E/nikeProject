@@ -193,7 +193,7 @@ function Bag() {
           </div>
         </div> */}
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

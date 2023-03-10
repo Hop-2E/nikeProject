@@ -103,7 +103,7 @@ const Header = () => {
                 <span className="nikeNavTexts">New & Featured </span>
               </Link>
               <span className="nikeNavTexts">Men</span>
-              <Link onClick={checkAdmin} className="links" to={"/Women"}>
+              <Link className="links" to={"/Women"}>
                 <span className="nikeNavTexts">Women</span>
               </Link>
               <span className="nikeNavTexts">Kids</span>
