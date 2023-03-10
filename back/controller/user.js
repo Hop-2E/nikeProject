@@ -52,11 +52,11 @@ export const login = async (req, res) => {
     const user = await User.findOne({
       firstName,
     });
-    const token = jwt.sign({ user }, 'secret', { expiresIn: '1d' });
+    const token = jwt.sign({ user }, "secret", { expiresIn: "1d" });
     const isMatch = await user.comparePassword(password);
     console.log(isMatch);
     if (!isMatch) {
-      res.send('Ok');
+      res.send("Ok");
     } else {
       res.status(200).send({
         success: true,
@@ -73,17 +73,15 @@ export const login = async (req, res) => {
 };
 export const buyProduct = async (req, res) => {
   try {
-    const {  productId } = req.body;
-     const  product = await Product.findById(productId)
-   
+    const { productId } = req.body;
+    const product = await Product.findById(productId);
     const data = await Order.create(req.body);
     res.status(200).send({
-      data:  product,
+      data: product,
     });
   } catch (error) {
     res.status(400).send({
       data: error.message,
     });
-    }
+  }
 };
-
