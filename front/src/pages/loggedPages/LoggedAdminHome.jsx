@@ -5,7 +5,7 @@ import Footer from "../../components/Footer";
 import LoggedHeader from "../../components/loggedComps/LoggedHeader";
 import { instance } from "../../App";
 
-const AdminHome = () => {
+const LoggedAdminHome = () => {
   const [price, setPrice] = useState();
   const [image, setImage] = useState();
   const [type, setType] = useState();
@@ -22,12 +22,7 @@ const AdminHome = () => {
       color: color,
       description: desc,
     });
-    try {
-      window.localStorage.setItem("token", JSON.stringify(res.data.token));
-      window.localStorage.setItem("user_id", JSON.parse(res.data.data._id));
-    } catch (error) {
-      console.log(error);
-    }
+    console.log(res, "response")
   };
 
   return (
@@ -87,4 +82,4 @@ const AdminHome = () => {
   );
 };
 
-export default AdminHome;
+export default LoggedAdminHome;

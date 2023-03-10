@@ -12,7 +12,6 @@ const Products = () => {
     const res = await instance.get("/product");
     setProduct(
       res.data.data.map((el) => {
-        console.log(el);
         return el;
       })
     );
