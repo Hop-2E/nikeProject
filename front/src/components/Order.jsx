@@ -10,19 +10,20 @@ function Order() {
   const [productId, setProductId] = useState();
   const getProduct = async () => {
     const res = await instance.get(`/user/${params.id}`);
-    // const res2 = await instance.get(`/product/${productId}`);
+    const res2 = await instance.get(`/product/${productId}`);
     setProduct(
       res.data.data.Order.map((el) => {
         setProductId(el.productId);
         return el.productId;
       }),
-      console.log( res.data.data.Order.map((el) => {
-        return el.productId;}))
+      console.log(productId),
+      console.log(res2.data.data.description) 
     );
   };
   useEffect(() => {
-    getProduct();
-  }, []);
+    getProduct()
+    setProduct();
+  }, [productId]); //
   return (
     <div>
       {product &&
