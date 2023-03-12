@@ -37,7 +37,7 @@ const Products = () => {
               product.map((el) => {
                 return (
                   <div>
-                    <button onClick={Order}>
+                    <button style={{border: "none"}} onClick={Order}>
                       <Product el={el} key={el._id} />
                     </button>
                   </div>

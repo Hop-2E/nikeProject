@@ -8,7 +8,6 @@ const Order = () => {
   const params = useParams();
   const [product, setProduct] = useState();
   const [productId, setProductId] = useState();
-
   const getAllProduct = async () => {
     const res = await instance.get("/product");
     setProduct(
@@ -32,6 +31,7 @@ const Order = () => {
   useEffect(() => {
     getUsersProduct();
   }, []);
+
   return (
     <div>
       {product &&
