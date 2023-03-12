@@ -15,7 +15,6 @@ const styles = {
   },
   leftContainer: {
     width: "50vw",
-    height: "50vh",
     flexDirection: "column",
     marginTop: "12px",
   },
@@ -27,13 +26,13 @@ const styles = {
     padding: "12px",
     gap: "5px",
   },
-  leftBottom: {
-    display: "flex",
-    width: "48vw",
-    flexDirection: "column",
-    padding: "12px",
-    gap: "5px",
-  },
+  // leftBottom: {
+  //   display: "flex",
+  //   width: "48vw",
+  //   flexDirection: "column",
+  //   padding: "12px",
+  //   gap: "5px",
+  // },
   rightContainer: {
     display: "flex",
     width: "25vw",
@@ -88,17 +87,32 @@ const styles = {
 };
 
 function Bag() {
-  // const params = useParams();
+  const params = useParams();
   const [data, setData] = useState([]);
   const [orderId, setOrderId] = useState();
   const getProductData = async () => {
     const res = await instance.get(`/product`);
     setData(res.data.data);
-    console.log(res.data.data);
+    console.log(res.data.data, "hie")
+  };
+  const getUser = async () => {
+    const res = await instance.get(`/user/${params.id}`);
+    setOrderId(
+      res.data.data.Order.map((e) => {
+        return e.productId;
+      })
+    );
+    console.log(
+      res.data.data.Order.map((e) => {
+        return e.productId;
+      }),
+      "Hello world"
+    );
   };
 
   useEffect(() => {
     getProductData();
+    getUser();
   }, []);
   return (
     <>
@@ -112,18 +126,14 @@ function Bag() {
               Sign-in
             </span>
           </div>
-          <div style={styles.leftBottom}>
-            <span style={{ fontSize: "22px", marginLeft: "-12px" }}>Bag</span>
+          <div className="leftBotBag">
+            <span className="BagFont">Bag</span>
             {/* <span>There are no items in your bag.</span> */}
-            <div key={Math.random()}>
+            <div className="leftBotBagBot" key={Math.random()}>
               {" "}
               {data &&
                 data.map((el) => {
-                  return (
-                    <div>
-                      <Product el={el} key={Math.random()} /> 
-                    </div> //All Products
-                  );
+                  return el._id.includes(orderId) && <Product el={el} key={el._id} />;
                 })}
             </div>
             <div style={{ display: "flex", width: "100px", height: "100px" }}>
@@ -170,14 +180,14 @@ function Bag() {
           </div>
         </div>
       </div>
-      <div style={styles.bottomContainer}>
+      {/* <div style={styles.bottomContainer}>
         <div style={styles.favoriteText}>
-          {/* <span style={{ fontSize: '22px' }}>Favorites</span> */}
-          {/* <span style={{ color: '#111111' }}> */}
-          {/* Want to view your favorites? Join us or Sign-in */}
-          {/* </span> */}
+          <span style={{ fontSize: '22px' }}>Favorites</span>
+          <span style={{ color: '#111111' }}>
+          Want to view your favorites? Join us or Sign-in
+          </span>
         </div>
-        {/* <div style={styles.Suggestion}>
+        <div style={styles.Suggestion}>
           <div
             style={{
               width: '1400px',
@@ -189,9 +199,9 @@ function Bag() {
           >
             You Might Also Like
           </div>
-        </div> */}
-      </div>
-      {/* <Footer /> */}
+        </div>
+      </div> */}
+      <Footer />
     </>
   );
 }

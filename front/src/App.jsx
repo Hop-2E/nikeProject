@@ -34,11 +34,11 @@ function App() {
           <Route path="/Products" element={<Products />} />
           <Route path="/:id/Products" element={<Products />} />
           <Route path="/:id/Bag" element={<Bag />} />
-          <Route path="/Women" element={<Women />}></Route>
-          <Route path="/Sale" element={<Sale />}></Route>
-          <Route path="/Women" element={<Women />}></Route>
-          <Route path="/favourites" element={<Favourite />}></Route>
-          <Route path="/retail" element={<Map />}></Route>
+          <Route path="/Women" element={<Women />} />
+          <Route path="/Sale" element={<Sale />} />
+          <Route path="/Women" element={<Women />} />
+          <Route path="/favourites" element={<Favourite />} />
+          <Route path="/retail" element={<Map />} />
           <Route path="/AdminHome" element={<AdminHome />} />
         </Routes>
       </BrowserRouter>
