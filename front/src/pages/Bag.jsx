@@ -9,7 +9,6 @@ import { useEffect } from "react";
 const styles = {
   topContainer: {
     display: "flex",
-    // height: '600px',
     width: "100vw",
     justifyContent: "center",
     gap: "15px",
@@ -23,7 +22,6 @@ const styles = {
   leftTop: {
     display: "flex",
     width: "48vw",
-    // height: '13vh',
     flexDirection: "column",
     border: "1px solid grey",
     padding: "12px",
@@ -32,7 +30,6 @@ const styles = {
   leftBottom: {
     display: "flex",
     width: "48vw",
-    // height: '54vh',
     flexDirection: "column",
     padding: "12px",
     gap: "5px",
@@ -40,7 +37,6 @@ const styles = {
   rightContainer: {
     display: "flex",
     width: "25vw",
-    // height: '70vh',
     marginTop: "12px",
     flexDirection: "column",
     gap: "20px",
@@ -92,16 +88,17 @@ const styles = {
 };
 
 function Bag() {
-  const params = useParams();
+  // const params = useParams();
   const [data, setData] = useState([]);
-  const [productid, setProductid] = useState();
-  const getUserData = async () => {
+  const [orderId, setOrderId] = useState();
+  const getProductData = async () => {
     const res = await instance.get(`/product`);
-    // setData(res.data);
+    setData(res.data.data);
+    console.log(res.data.data);
   };
 
   useEffect(() => {
-    getUserData();
+    getProductData();
   }, []);
   return (
     <>
@@ -109,9 +106,7 @@ function Bag() {
       <div style={styles.topContainer}>
         <div style={styles.leftContainer}>
           <div style={styles.leftTop}>
-            <span style={{ color: "#FA5400", fontSize: "20px" }}>
-              Free Shipping for Members.
-            </span>
+            <span style={{ fontSize: "20px" }}>Free Shipping for Members.</span>
             <span style={{ fontSize: "16px" }}>
               Become a Nike Member for fast and free shipping. Join us or
               Sign-in
@@ -120,14 +115,17 @@ function Bag() {
           <div style={styles.leftBottom}>
             <span style={{ fontSize: "22px", marginLeft: "-12px" }}>Bag</span>
             {/* <span>There are no items in your bag.</span> */}
-            {data &&
-              data.map((el) => {
-                return (
-                  <div>
-                    <Product el={el} key={el._id} />
-                  </div>
-                );
-              })}
+            <div key={Math.random()}>
+              {" "}
+              {data &&
+                data.map((el) => {
+                  return (
+                    <div>
+                      <Product el={el} key={Math.random()} /> 
+                    </div> //All Products
+                  );
+                })}
+            </div>
             <div style={{ display: "flex", width: "100px", height: "100px" }}>
               <Order />
             </div>
@@ -193,7 +191,7 @@ function Bag() {
           </div>
         </div> */}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

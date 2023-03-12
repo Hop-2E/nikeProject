@@ -4,34 +4,46 @@ import { instance } from "../App";
 import Product from "./Product";
 import { useParams } from "react-router-dom";
 
-function Order() {
+const Order = () => {
   const params = useParams();
   const [product, setProduct] = useState();
   const [productId, setProductId] = useState();
-  const getProduct = async () => {
-    const res = await instance.get(`/user/${params.id}`);
-    const res2 = await instance.get(`/product/${productId}`);
+  const getAllProduct = async () => {
+    const res = await instance.get("/product");
     setProduct(
-      res.data.data.Order.map((el) => {
-        setProductId(el.productId);
-        return el.productId;
-      }),
-      console.log(productId),
-      console.log(res2.data.data.description) 
+      res.data.data.map((el) => {
+        setProductId(el._id);
+        console.log(el._id);
+        return el;
+      })
     );
   };
+
+  const getUsersProduct = async () => {
+    const res = await instance.get(`/user/${params.id}`);
+    const product = res.data.data.Order.map((el) => {
+      console.log(el);
+      return el;
+    });
+    setProduct(product);
+  };
+
   useEffect(() => {
-    getProduct()
-    setProduct();
-  }, [productId]); //
+    getUsersProduct();
+  }, []);
+
   return (
     <div>
       {product &&
         product.map((el) => {
-          return <Product el={el} />;
+          return (
+            <div key={Math.random()}>
+              <Product el={el} />;
+            </div> //Ordered by User
+          );
         })}
     </div>
   );
-}
+};
 
 export default Order;
