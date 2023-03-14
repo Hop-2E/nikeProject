@@ -6,8 +6,8 @@ import Product from "../components/Product";
 import { useParams } from "react-router-dom";
 import { instance } from "../App";
 import { useEffect } from "react";
-
 import { LogContext } from "../App";
+
 const styles = {
   topContainer: {
     display: "flex",
@@ -28,6 +28,13 @@ const styles = {
     padding: "12px",
     gap: "5px",
   },
+  // leftBottom: {
+  //   display: "flex",
+  //   width: "48vw",
+  //   flexDirection: "column",
+  //   padding: "12px",
+  //   gap: "5px",
+  // },
   rightContainer: {
     display: "flex",
     width: "25vw",
@@ -82,6 +89,17 @@ const styles = {
 };
 
 function Bag() {
+  const params = useParams();
+  const [data, setData] = useState([]);
+  const getUser = async () => {
+    const data = []
+    const res = await instance.get(`/user/${params.id}`);
+    console.log(res.data.data.Order);
+    await res.data.data.Order.map( async (el) => {
+      const res = await instance.get(`/product/${el.productId}`)
+      console.log(res.data.data)
+      setData((prev) => [...prev, res.data.data])
+    })
   const { userId } = useContext(LogContext);
   console.log(userId);
   const params = useParams();
@@ -107,8 +125,8 @@ function Bag() {
     );
   };
 
+  console.log(data);
   useEffect(() => {
-    getProductData();
     getUser();
   }, []);
   return (
@@ -130,9 +148,7 @@ function Bag() {
               {" "}
               {data &&
                 data.map((el) => {
-                  return (
-                    el._id.includes(orderId) && <Product el={el} key={el._id} />
-                  );
+                  return <Product key={Math.random()} el={el} />
                 })}
             </div>
             <div style={{ display: "flex", width: "100px", height: "100px" }}>
