@@ -1,11 +1,11 @@
-import "../App.css";
+import "../../App.css";
 import { useEffect, useState } from "react";
-import { instance } from "../App";
-import Header from "../components/Header";
-import Product from "../components/Product";
-import Footer from "../components/Footer";
+import { instance } from "../../App";
+import Header from "../../components/Header";
+import Product from "../../components/Product";
+import Footer from "../../components/Footer";
 
-const Products = () => {
+const LoggedProduct = () => {
   const [product, setProduct] = useState();
   const [productId, setProductId] = useState();
 
@@ -18,12 +18,11 @@ const Products = () => {
       })
     );
   };
-  const Order = async (el) => {
+  const Order = async () => {
     const res = await instance.post("/product/order", {
-      productId: el,
+      productId: productId,
       user_id: JSON.parse(localStorage.getItem("user_id")),
     });
-    console.log(el);
   };
   useEffect(() => {
     getProduct();
@@ -38,10 +37,7 @@ const Products = () => {
               product.map((el) => {
                 return (
                   <div>
-                    <button
-                      style={{ border: "none" }}
-                      onClick={() => Order(el.productId)}
-                    >
+                    <button style={{border: "none"}} onClick={Order}>
                       <Product el={el} key={el._id} />
                     </button>
                   </div>
@@ -55,4 +51,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default LoggedProduct;

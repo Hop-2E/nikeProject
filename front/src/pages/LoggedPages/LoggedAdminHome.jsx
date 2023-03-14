@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
-import "../App.css";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import { instance } from "../App";
+import "../../App.css";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import { instance } from "../../App";
 
 const LoggedAdminHome = () => {
   const [price, setPrice] = useState();
@@ -17,9 +17,7 @@ const LoggedAdminHome = () => {
   const GetUserId = async () => {
     const res = await instance.get("/user");
     console.log(res.data.data);
-    res.res.res((el) => {
-     
-    });
+    res.res.res((el) => {});
   };
 
   const ProductPost = async () => {

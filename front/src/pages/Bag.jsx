@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Order from "../components/Order";
@@ -6,6 +6,8 @@ import Product from "../components/Product";
 import { useParams } from "react-router-dom";
 import { instance } from "../App";
 import { useEffect } from "react";
+
+import { LogContext } from "../App";
 const styles = {
   topContainer: {
     display: "flex",
@@ -26,13 +28,6 @@ const styles = {
     padding: "12px",
     gap: "5px",
   },
-  // leftBottom: {
-  //   display: "flex",
-  //   width: "48vw",
-  //   flexDirection: "column",
-  //   padding: "12px",
-  //   gap: "5px",
-  // },
   rightContainer: {
     display: "flex",
     width: "25vw",
@@ -87,13 +82,15 @@ const styles = {
 };
 
 function Bag() {
+  const { userId } = useContext(LogContext);
+  console.log(userId);
   const params = useParams();
   const [data, setData] = useState([]);
   const [orderId, setOrderId] = useState();
   const getProductData = async () => {
     const res = await instance.get(`/product`);
     setData(res.data.data);
-    console.log(res.data.data, "hie")
+    console.log(res.data.data, "hie");
   };
   const getUser = async () => {
     const res = await instance.get(`/user/${params.id}`);
@@ -133,7 +130,9 @@ function Bag() {
               {" "}
               {data &&
                 data.map((el) => {
-                  return el._id.includes(orderId) && <Product el={el} key={el._id} />;
+                  return (
+                    el._id.includes(orderId) && <Product el={el} key={el._id} />
+                  );
                 })}
             </div>
             <div style={{ display: "flex", width: "100px", height: "100px" }}>
