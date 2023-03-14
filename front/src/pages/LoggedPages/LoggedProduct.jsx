@@ -1,30 +1,28 @@
-import "../App.css";
+import "../../App.css";
 import { useEffect, useState } from "react";
-import { instance } from "../App";
-import Header from "../components/Header";
-import Product from "../components/Product";
-import Footer from "../components/Footer";
+import { instance } from "../../App";
+import Header from "../../components/Header";
+import Product from "../../components/Product";
+import Footer from "../../components/Footer";
 
-const Products = () => {
+const LoggedProduct = () => {
   const [product, setProduct] = useState();
+  const [productId, setProductId] = useState();
 
   const getProduct = async () => {
     const res = await instance.get("/product");
     setProduct(
       res.data.data.map((el) => {
+        setProductId(el._id);
         return el;
       })
     );
   };
-  const Order = async (id) => {
-    try {
-      await instance.post("/product/order", {
-        productId: id,
-        user_id: JSON.parse(localStorage.getItem("user_id")),
-      });
-    } catch (error) {
-      console.log(error)
-    }
+  const Order = async () => {
+    const res = await instance.post("/product/order", {
+      productId: productId,
+      user_id: JSON.parse(localStorage.getItem("user_id")),
+    });
   };
   useEffect(() => {
     getProduct();
@@ -37,10 +35,11 @@ const Products = () => {
           <div className="productsRightNav">
             {product &&
               product.map((el) => {
-                console.log(el,"hi")
                 return (
-                  <div onClick={() => Order(el.productId)}>
+                  <div>
+                    <button style={{border: "none"}} onClick={Order}>
                       <Product el={el} key={el._id} />
+                    </button>
                   </div>
                 );
               })}
@@ -52,4 +51,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default LoggedProduct;

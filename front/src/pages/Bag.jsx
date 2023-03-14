@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Order from "../components/Order";
@@ -6,7 +6,8 @@ import Product from "../components/Product";
 import { useParams } from "react-router-dom";
 import { instance } from "../App";
 import { useEffect } from "react";
-import { create } from "@mui/material/styles/createTransitions";
+import { LogContext } from "../App";
+
 const styles = {
   topContainer: {
     display: "flex",
@@ -99,6 +100,29 @@ function Bag() {
       console.log(res.data.data)
       setData((prev) => [...prev, res.data.data])
     })
+  const { userId } = useContext(LogContext);
+  console.log(userId);
+  const params = useParams();
+  const [data, setData] = useState([]);
+  const [orderId, setOrderId] = useState();
+  const getProductData = async () => {
+    const res = await instance.get(`/product`);
+    setData(res.data.data);
+    console.log(res.data.data, "hie");
+  };
+  const getUser = async () => {
+    const res = await instance.get(`/user/${params.id}`);
+    setOrderId(
+      res.data.data.Order.map((e) => {
+        return e.productId;
+      })
+    );
+    console.log(
+      res.data.data.Order.map((e) => {
+        return e.productId;
+      }),
+      "Hello world"
+    );
   };
 
   console.log(data);

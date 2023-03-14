@@ -13,7 +13,6 @@ const Order = () => {
     setProduct(
       res.data.data.map((el) => {
         setProductId(el._id);
-        console.log(el._id);
         return el;
       })
     );
@@ -22,7 +21,7 @@ const Order = () => {
   const getUsersProduct = async () => {
     const res = await instance.get(`/user/${params.id}`);
     const product = res.data.data.Order.map((el) => {
-      console.log(el);
+      // console.log(el);
       return el;
     });
     setProduct(product);
@@ -38,7 +37,7 @@ const Order = () => {
         product.map((el) => {
           return (
             <div key={Math.random()}>
-              <Product el={el} />;
+              {/* <Product el={el} /> */}
             </div> //Ordered by User
           );
         })}

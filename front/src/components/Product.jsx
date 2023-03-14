@@ -1,6 +1,7 @@
 import "../App.css";
 
 const Product = ({ el }) => {
+  
   return (
     <div className="productContainer" key={Math.random()} >
       <div className="pruducts">
@@ -9,7 +10,7 @@ const Product = ({ el }) => {
           <span className="productTitle">{el.title}</span>
           <span className="grayProductText">{el.type}</span>
           <span className="grayProductText">{el.color}</span>
-          <span className="productTitle">{el.price}Price</span>
+          <span className="productTitle">{el.price}$</span>
         </div>
       </div>
     </div>

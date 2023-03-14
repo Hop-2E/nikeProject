@@ -10,6 +10,7 @@
 .homeContainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 5em;
 }
 
@@ -541,7 +542,6 @@
   height: 50vh;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
   flex-direction: column;
   justify-content: end;
 }
@@ -568,7 +568,7 @@
 .womenScrollContainer {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 80vw;
   margin-left: 40px;
 }
 /* Map css */
@@ -633,4 +633,64 @@
 .userName {
   font-size: xx-large;
   font-weight: bold;
+}
+
+/* admin styles */
+
+.adminContainer {
+  height: 50vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto Condensed", sans-serif;
+  padding: 20px 0;
+}
+.productPost {
+  width: 40%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #111;
+}
+.productOrderApprove {
+  width: 40%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.inpContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px 0;
+}
+.inputsProdPost {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #111;
+}
+.productPostButton {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #111;
+}
+/* Bag page styles */
+.leftBotBag {
+  width: 96%;
+}
+.leftBotBagBot {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.BagFont {
+  font-size: 22px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+}
+.center {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }
