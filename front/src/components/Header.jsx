@@ -32,7 +32,7 @@ const Header = () => {
   };
 
   const checkAdmin = () => {
-    if (user === "superAdmin") {
+    if (user === "admin") {
       setIsAdmin(true);
     } else {
       setIsAdmin(false);
@@ -43,6 +43,7 @@ const Header = () => {
     getProduct();
     getUserData();
   }, []);
+
   return !isClicked ? (
     <>
       <div className="headerContainer">

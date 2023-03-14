@@ -14,7 +14,7 @@ export const getAllProduct = async (req, res) => {
     res.status(400).send({
       success: true,
       data: error.message,
-    });
+    }); 
   }
 };
 
