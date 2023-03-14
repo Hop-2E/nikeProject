@@ -71,7 +71,9 @@ const Header = () => {
             <span className="nikeJijigSaaral">|</span>
             <span className="nikeJijigSaaral"> Help </span>
             <span className="nikeJijigSaaral">|</span>
-            <span className="nikeJijigSaaral"> Join Us </span>
+            <Link className="links" to={"/joinus"}>
+              <span className="nikeJijigSaaral">Join Us </span>
+            </Link>
             <span className="nikeJijigSaaral">|</span>
             {!isAdmin === true ? (
               <>

@@ -13,6 +13,7 @@ import Favourite from "./pages/Favourite";
 import Map from "./pages/Map";
 import Sale from "./pages/Sale";
 import LoggedAdminHome from "./pages/LoggedAdminHome";
+import JoinUs from "./pages/JoinUs";
 export const instance = axios.create({
   baseURL: "http://localhost:2000",
   headers: {
@@ -35,7 +36,9 @@ function App() {
           <Route path="/:id/Products" element={<Products />} />
           <Route path="/:id/Bag" element={<Bag />} />
           <Route path="/AdminHome" element={<LoggedAdminHome />} />
-          <Route path="/AdminHome" element={<AdminHome />} />
+          <Route path="/retail" element={<Map />} />
+          <Route path="/joinus" element={<JoinUs />} />
+          {/* <Route path="/AdminHome" element={<AdminHome />} /> */}
         </Routes>
       </BrowserRouter>
     </>
