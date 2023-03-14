@@ -16,7 +16,7 @@ const LoggedAdminHome = () => {
 
   const GetUserId = async () => {
     const res = await instance.get("/user");
-    console.log(res.data.data);
+    // console.log(res.data.data);
     res.res.res((el) => {});
   };
 
@@ -30,7 +30,7 @@ const LoggedAdminHome = () => {
       description: desc,
       user_Id: userId,
     });
-    console.log(res, "response");
+    // console.log(res, "response");
   };
 
   useEffect(() => {

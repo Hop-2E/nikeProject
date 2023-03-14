@@ -37,7 +37,6 @@ const Products = () => {
           <div className="productsRightNav">
             {product &&
               product.map((el) => {
-                console.log(el,"hi")
                 return (
                   <div onClick={() => Order(el.productId)}>
                       <Product el={el} key={el._id} />

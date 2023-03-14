@@ -89,43 +89,18 @@ const styles = {
 };
 
 function Bag() {
+  const { userId } = useContext(LogContext);
+  // console.log(userId);
   const params = useParams();
   const [data, setData] = useState([]);
   const getUser = async () => {
     const data = []
     const res = await instance.get(`/user/${params.id}`);
-    console.log(res.data.data.Order);
     await res.data.data.Order.map( async (el) => {
       const res = await instance.get(`/product/${el.productId}`)
-      console.log(res.data.data)
       setData((prev) => [...prev, res.data.data])
     })
-  const { userId } = useContext(LogContext);
-  console.log(userId);
-  const params = useParams();
-  const [data, setData] = useState([]);
-  const [orderId, setOrderId] = useState();
-  const getProductData = async () => {
-    const res = await instance.get(`/product`);
-    setData(res.data.data);
-    console.log(res.data.data, "hie");
-  };
-  const getUser = async () => {
-    const res = await instance.get(`/user/${params.id}`);
-    setOrderId(
-      res.data.data.Order.map((e) => {
-        return e.productId;
-      })
-    );
-    console.log(
-      res.data.data.Order.map((e) => {
-        return e.productId;
-      }),
-      "Hello world"
-    );
-  };
-
-  console.log(data);
+  };  
   useEffect(() => {
     getUser();
   }, []);
