@@ -16,6 +16,8 @@ import Sale from "./pages/Sale";
 import LoggedAdminHome from "./pages/LoggedPages/LoggedAdminHome";
 import LoggedProduct from "./pages/LoggedPages/LoggedProduct";
 
+import Test from "./pages/Test";
+
 export const LogContext = createContext();
 
 export const instance = axios.create({
@@ -43,6 +45,7 @@ function App() {
             <Route path="/Map" element={<Map />} />
             <Route path="/Favourite" element={<Favourite />} />
 
+            <Route path="/Test" element={<Test />} ></Route>
             {/* after logged */}
 
             <Route path="/:id" element={<UserHome />} />

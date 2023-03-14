@@ -7,23 +7,24 @@ import Footer from "../components/Footer";
 
 const Products = () => {
   const [product, setProduct] = useState();
-  const [productId, setProductId] = useState();
 
   const getProduct = async () => {
     const res = await instance.get("/product");
     setProduct(
       res.data.data.map((el) => {
-        setProductId(el._id);
         return el;
       })
     );
   };
-  const Order = async (el) => {
-    const res = await instance.post("/product/order", {
-      productId: el,
-      user_id: JSON.parse(localStorage.getItem("user_id")),
-    });
-    console.log(el);
+  const Order = async (id) => {
+    try {
+      await instance.post("/product/order", {
+        productId: id,
+        user_id: JSON.parse(localStorage.getItem("user_id")),
+      });
+    } catch (error) {
+      console.log(error)
+    }
   };
   useEffect(() => {
     getProduct();
@@ -36,14 +37,10 @@ const Products = () => {
           <div className="productsRightNav">
             {product &&
               product.map((el) => {
+                console.log(el,"hi")
                 return (
-                  <div>
-                    <button
-                      style={{ border: "none" }}
-                      onClick={() => Order(el.productId)}
-                    >
+                  <div onClick={() => Order(el.productId)}>
                       <Product el={el} key={el._id} />
-                    </button>
                   </div>
                 );
               })}
