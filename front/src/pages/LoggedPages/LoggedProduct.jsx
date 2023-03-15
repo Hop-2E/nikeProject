@@ -36,9 +36,9 @@ const LoggedProduct = () => {
             {product &&
               product.map((el) => {
                 return (
-                  <div>
-                    <button style={{border: "none"}} onClick={Order}>
-                      <Product el={el} key={el._id} />
+                  <div key={Math.random()}>
+                    <button style={{ border: "none" }} onClick={Order}>
+                      <Product el={el} />
                     </button>
                   </div>
                 );

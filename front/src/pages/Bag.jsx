@@ -94,13 +94,13 @@ function Bag() {
   const params = useParams();
   const [data, setData] = useState([]);
   const getUser = async () => {
-    const data = []
+    const data = [];
     const res = await instance.get(`/user/${params.id}`);
-    await res.data.data.Order.map( async (el) => {
-      const res = await instance.get(`/product/${el.productId}`)
-      setData((prev) => [...prev, res.data.data])
-    })
-  };  
+    await res.data.data.Order.map(async (el) => {
+      const res = await instance.get(`/product/${el.productId}`);
+      setData((prev) => [...prev, res.data.data]);
+    });
+  };
   useEffect(() => {
     getUser();
   }, []);
@@ -123,7 +123,7 @@ function Bag() {
               {" "}
               {data &&
                 data.map((el) => {
-                  return <Product key={Math.random()} el={el} />
+                  return <Product key={Math.random()} el={el} />;
                 })}
             </div>
             <div style={{ display: "flex", width: "100px", height: "100px" }}>
@@ -170,27 +170,27 @@ function Bag() {
           </div>
         </div>
       </div>
-      {/* <div style={styles.bottomContainer}>
+      <div style={styles.bottomContainer}>
         <div style={styles.favoriteText}>
-          <span style={{ fontSize: '22px' }}>Favorites</span>
-          <span style={{ color: '#111111' }}>
-          Want to view your favorites? Join us or Sign-in
+          <span style={{ fontSize: "22px" }}>Favorites</span>
+          <span style={{ color: "#111111" }}>
+            Want to view your favorites? Join us or Sign-in
           </span>
         </div>
         <div style={styles.Suggestion}>
           <div
             style={{
-              width: '1400px',
-              height: '50px',
-              fontSize: '20px',
-              paddingLeft: '50px',
-              paddingTop: '10px',
+              width: "1400px",
+              height: "50px",
+              fontSize: "20px",
+              paddingLeft: "50px",
+              paddingTop: "10px",
             }}
           >
             You Might Also Like
           </div>
         </div>
-      </div> */}
+      </div>
       <Footer />
     </>
   );

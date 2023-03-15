@@ -23,7 +23,7 @@ const Products = () => {
         user_id: JSON.parse(localStorage.getItem("user_id")),
       });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
   useEffect(() => {
@@ -39,7 +39,7 @@ const Products = () => {
               product.map((el) => {
                 return (
                   <div onClick={() => Order(el.productId)}>
-                      <Product el={el} key={el._id} />
+                    <Product el={el} key={el._id} />
                   </div>
                 );
               })}
