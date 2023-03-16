@@ -7,22 +7,14 @@ import Footer from "../components/Footer";
 
 const Products = () => {
   const [product, setProduct] = useState();
-  const [productId, setProductId] = useState();
 
   const getProduct = async () => {
     const res = await instance.get("/product");
     setProduct(
       res.data.data.map((el) => {
-        setProductId(el._id);
         return el;
       })
     );
-  };
-  const Order = async () => {
-    const res = await instance.post("/product/order", {
-      productId: productId,
-      user_id: JSON.parse(localStorage.getItem("user_id")),
-    });
   };
   useEffect(() => {
     getProduct();
@@ -37,9 +29,7 @@ const Products = () => {
               product.map((el) => {
                 return (
                   <div>
-                    <button style={{border: "none"}} onClick={Order}>
-                      <Product el={el} key={el._id} />
-                    </button>
+                    <Product el={el} key={el._id} />
                   </div>
                 );
               })}

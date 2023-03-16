@@ -1,37 +1,47 @@
 import "../App.css";
 
-const FourPic = ({
-  // title,
-  type,
-  typeTwo,
-  typeThree,
-  typeFour,
-  image,
-  imageTwo,
-  imageThree,
-  imageFour,
-}) => {
+const FourPic = (inf) => {
   return (
-    <div className="fourPicsContainer">
-      {/* <p className="products3pics">{title}</p> */}
-      {/* <div className="products3pics"> */}
-      <div className="">
-        <img src={image} alt="" className="fourImageOne" />
-        <span className="">{type}</span>
+    <div className="mainTwoContainer">
+      <span className="mainTwoType">{inf.secName}</span>
+      <div className="sectionContainer">
+        <div
+          className="outputContainerOne"
+          style={{ backgroundImage: `url(${inf.photoOne})` }}
+        >
+          <div className="buttonContainer">
+            <p className="picOneSpan" style={{ fontWeight: "bold" }}>
+              CLOTHING
+            </p>
+            <button className="picOneButton">Shop</button>
+          </div>
+        </div>
+        <div>
+          <div
+            className="OneBgTwoSmTWO"
+            style={{ backgroundImage: `url(${inf.photoTwo})` }}
+          >
+            <div className="buttonContainer">
+              <p className="picOneSpan " style={{ fontWeight: "bold" }}>
+                SHOES{" "}
+              </p>
+              <button className="picOneButton">Shop</button>
+            </div>
+          </div>
+          <br />
+          <div
+            className="OneBgTwoSmTWO"
+            style={{ backgroundImage: `url(${inf.photoThree})` }}
+          >
+            <div className="buttonContainer">
+              <p className="picOneSpan" style={{ fontWeight: "bold" }}>
+                ACCESSORIES
+              </p>
+              <button className="picOneButton">Shop</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="">
-        <img src={imageTwo} alt="" className="fourImageTwo" />
-        <span className="">{typeTwo}</span>
-      </div>
-      <div className="">
-        <img src={imageThree} alt="" className="fourImageThree" />
-        <span className="">{typeThree}</span>
-      </div>
-      <div className="">
-        <img src={imageFour} alt="" className="fourImageFour" />
-        <span className="">{typeFour}</span>
-      </div>
-      {/* </div> */}
     </div>
   );
 };

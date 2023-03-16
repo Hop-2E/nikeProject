@@ -1,10 +1,10 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import "../App.css";
-import ProductSearch from "./ProductSearch";
-import { instance } from "../App";
+import "../../App";
+import ProductSearch from "../ProductSearch";
+import { instance } from "../../App";
 
-const Header = () => {
+const LoggedHeader = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [product, setProduct] = useState();
   const [user, setUser] = useState();
@@ -69,13 +69,9 @@ const Header = () => {
               <span className="nikeJijigSaaral">Find a Store </span>
             </Link>
             <span className="nikeJijigSaaral">|</span>
-            <Link className="links" to='/help'>
-              <span className="nikeJijigSaaral"> Help </span>
-            </Link>
+            <span className="nikeJijigSaaral"> Help </span>
             <span className="nikeJijigSaaral">|</span>
-            <Link className="links" to={"/joinus"}>
-              <span className="nikeJijigSaaral">Join Us </span>
-            </Link>
+            <span className="nikeJijigSaaral"> Join Us </span>
             <span className="nikeJijigSaaral">|</span>
             {!isAdmin === true ? (
               <>
@@ -111,11 +107,7 @@ const Header = () => {
               <Link className="links" to={"/Women"}>
                 <span className="nikeNavTexts">Women</span>
               </Link>
-              <Link onClick={checkAdmin} className="links" to={"/Kids"}>
-                {" "}
-                <span className="nikeNavTexts">Kids</span>
-              </Link>
-
+              <span className="nikeNavTexts">Kids</span>
               <span className="nikeNavTexts">Accessories</span>
               <Link className="links" to={"/Sale"}>
                 <span className="nikeNavTexts">Sale</span>
@@ -204,4 +196,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default LoggedHeader;
