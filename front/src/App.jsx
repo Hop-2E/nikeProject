@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 
+import Help from "./pages/Help";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Signin from "./pages/Signin";
@@ -35,7 +36,7 @@ function App() {
           <Route path="/:id/Products" element={<Products />} />
           <Route path="/:id/Bag" element={<Bag />} />
           <Route path="/AdminHome" element={<LoggedAdminHome />} />
-          <Route path="/AdminHome" element={<AdminHome />} />
+          <Route path="/help" element={<Help />}></Route>
         </Routes>
       </BrowserRouter>
     </>

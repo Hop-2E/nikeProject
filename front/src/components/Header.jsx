@@ -69,7 +69,9 @@ const Header = () => {
               <span className="nikeJijigSaaral">Find a Store </span>
             </Link>
             <span className="nikeJijigSaaral">|</span>
-            <span className="nikeJijigSaaral"> Help </span>
+            <Link to='/help'>
+              <span className="nikeJijigSaaral"> Help </span>
+            </Link>
             <span className="nikeJijigSaaral">|</span>
             <span className="nikeJijigSaaral"> Join Us </span>
             <span className="nikeJijigSaaral">|</span>
