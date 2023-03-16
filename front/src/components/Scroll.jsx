@@ -45,7 +45,7 @@
 //         </div>
 //       </div>{" "}
 //     </div>
-//   );  
+//   );
 // };
 // export default Scroll;
 
@@ -70,6 +70,8 @@ const Scroll = (information) => {
           <span style={styles.span}>{information.span}</span>
           <br />
           <span style={styles.span}>{information.price}</span>
+          <br />
+          <span style={styles.span}>{information.sale}</span>
         </div>
       </div>
     </div>

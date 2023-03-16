@@ -6,7 +6,6 @@ const Favourite = () => {
           <div className="navbarItemOne"></div>
           <div className="navbarItemTwo"></div>
           <div className="navbarItemThree"></div>
-          <div></div>
         </div>
       </div>
     </>

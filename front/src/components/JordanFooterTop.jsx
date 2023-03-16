@@ -1,20 +1,20 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function NikeFooterTop() {
   return (
     <div class="container">
-      <div style={{ rowGap: '15px' }} class="row row-cols-4">
-        <h4 class="col" style={{ fontSize: '16px' }}>
+      <div style={{ rowGap: "15px" }} class="row row-cols-4">
+        <h4 class="col" style={{ fontSize: "16px" }}>
           Jordan Shoes
         </h4>
-        <h4 class="col" style={{ fontSize: '16px' }}>
+        <h4 class="col" style={{ fontSize: "16px" }}>
           Jordan Clothing
         </h4>
-        <h4 class="col" style={{ fontSize: '16px' }}>
+        <h4 class="col" style={{ fontSize: "16px" }}>
           Jordan Gear
         </h4>
-        <h4 class="col" style={{ fontSize: '16px' }}>
+        <h4 class="col" style={{ fontSize: "16px" }}>
           Featured
         </h4>
         <div class="col">All Jordan Shoes</div>

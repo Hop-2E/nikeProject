@@ -14,9 +14,23 @@ export const getAllProduct = async (req, res) => {
     res.status(400).send({
       success: true,
       data: error.message,
-    });
+    }); 
   }
 };
+
+
+export const getAllOrder= async (req, res) => {
+  try {
+    const order = await Order.find({})
+    res.status(200).send({
+      data: order,
+    });
+  } catch (error) {
+    res.status(400).send({
+      success: true,
+      data: error.message,
+    });
+  }}
 
 export const createProduct = async (req, res) => {
   try {
@@ -33,39 +47,6 @@ export const createProduct = async (req, res) => {
   }
 };
 
-// export const findProduct = async (req, res) => {
-//   try {
-//     const { params } = req.params;
-//     const product = await Product.findOne({
-//       ShortUrl: params,
-//     });
-//     res.status(200).send({
-//       success: true,
-//       data: product,
-//     });
-//   } catch (error) {
-//     res.status(400).send({
-//       success: false,
-//       data: error.message,
-//     });
-//   }
-// };
-
-// export const superDelete = async (req, res) => {
-//   try {
-//     const { _id } = req.params;
-//     const url = await Product.findByIdAndRemove(_id);
-//     res.status(200).send({
-//       success: true,
-//       data: url,
-//     });
-//   } catch (error) {
-//     res.status(400).send({
-//       success: false,
-//       data: error.message,
-//     });
-//   }
-// };
 export const getUsersProduct = async (req, res) => {
   try {
     const { id } = req.params.id;
@@ -84,7 +65,7 @@ export const getUsersProduct = async (req, res) => {
 export const approveProduct = async (req, res) => {
   try {
     const { id } = req.body;
-    const product = await Order.findById(id);
+    const product = await Order.findById(id).populate("Product");
     await Order.findByIdAndRemove(id);
     res.status(200).send({
       data: product,
@@ -112,3 +93,19 @@ export const getProductByCategory = async (req, res) => {
     });
   }
 };
+
+export const getProductById = async (req, res) => {
+  try {
+    const {id } = req.params;
+    const product = await Product.findById({_id : id});
+    res.status(200).send({
+      data: product,
+      success: true,
+    })
+  } catch (error) {
+    res.status(400).send({
+      success: false,
+      data: error.message,
+    })
+  }
+}
