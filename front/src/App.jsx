@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { createContext, useContext, useState } from "react";
 
+import Help from "./pages/Help";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Signin from "./pages/Signin";
