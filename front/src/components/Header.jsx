@@ -65,11 +65,11 @@ const Header = () => {
             </Link>
           </div>
           <div className="signIn">
-            <Link className="links" to={"/retail"}>
+            <Link className="links" to={"/Map"}>
               <span className="nikeJijigSaaral">Find a Store </span>
             </Link>
             <span className="nikeJijigSaaral">|</span>
-            <Link className="links" to='/help'>
+            <Link className="links" to="/help">
               <span className="nikeJijigSaaral"> Help </span>
             </Link>
             <span className="nikeJijigSaaral">|</span>
@@ -107,7 +107,9 @@ const Header = () => {
               <Link className="links" to={"/Products"}>
                 <span className="nikeNavTexts">New & Featured </span>
               </Link>
-              <span className="nikeNavTexts">Men</span>
+              <Link className="links" to={"/men"}>
+                <span className="nikeNavTexts">Men</span>
+              </Link>
               <Link className="links" to={"/Women"}>
                 <span className="nikeNavTexts">Women</span>
               </Link>
