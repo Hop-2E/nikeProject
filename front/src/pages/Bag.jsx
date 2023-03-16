@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Order from "../components/Order";
+// import Order from "../components/Order";
 import Product from "../components/Product";
 import { useParams } from "react-router-dom";
 import { instance } from "../App";
@@ -28,13 +28,6 @@ const styles = {
     padding: "12px",
     gap: "5px",
   },
-  // leftBottom: {
-  //   display: "flex",
-  //   width: "48vw",
-  //   flexDirection: "column",
-  //   padding: "12px",
-  //   gap: "5px",
-  // },
   rightContainer: {
     display: "flex",
     width: "25vw",
@@ -90,7 +83,7 @@ const styles = {
 
 function Bag() {
   const { userId } = useContext(LogContext);
-  // console.log(userId);
+
   const params = useParams();
   const [data, setData] = useState([]);
   const getUser = async () => {
@@ -98,7 +91,7 @@ function Bag() {
     const res = await instance.get(`/user/${params.id}`);
     await res.data.data.Order.map(async (el) => {
       const res = await instance.get(`/product/${el.productId}`);
-      setData((prev) => [...prev, res.data.data]);
+      setData( [ res.data.data]);
     });
   };
   useEffect(() => {
@@ -125,9 +118,6 @@ function Bag() {
                 data.map((el) => {
                   return <Product key={Math.random()} el={el} />;
                 })}
-            </div>
-            <div style={{ display: "flex", width: "100px", height: "100px" }}>
-              <Order />
             </div>
           </div>
         </div>

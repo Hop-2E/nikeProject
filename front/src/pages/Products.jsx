@@ -16,16 +16,6 @@ const Products = () => {
       })
     );
   };
-  const Order = async (id) => {
-    try {
-      await instance.post("/product/order", {
-        productId: id,
-        user_id: JSON.parse(localStorage.getItem("user_id")),
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
   useEffect(() => {
     getProduct();
   }, []);
@@ -38,7 +28,7 @@ const Products = () => {
             {product &&
               product.map((el) => {
                 return (
-                  <div onClick={() => Order(el.productId)}>
+                  <div>
                     <Product el={el} key={el._id} />
                   </div>
                 );
