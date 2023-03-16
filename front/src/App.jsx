@@ -13,6 +13,7 @@ import Women from "./pages/Women";
 import Favourite from "./pages/Favourite";
 import Map from "./pages/Map";
 import Sale from "./pages/Sale";
+import JoinUs from "./pages/JoinUs";
 import LoggedAdminHome from "./pages/LoggedPages/LoggedAdminHome";
 import LoggedProduct from "./pages/LoggedPages/LoggedProduct";
 
@@ -42,6 +43,7 @@ function App() {
             <Route path="/women" element={<Women />} />
             <Route path="/Map" element={<Map />} />
             <Route path="/Favourite" element={<Favourite />} />
+            <Route path="/joinus" element={<JoinUs />} />
 
             {/* after logged */}
 
