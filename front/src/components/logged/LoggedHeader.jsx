@@ -1,10 +1,10 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import "../App.css";
-import ProductSearch from "./ProductSearch";
-import { instance } from "../App";
+import "../../App";
+import ProductSearch from "../ProductSearch";
+import { instance } from "../../App";
 
-const Header = () => {
+const LoggedHeader = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [product, setProduct] = useState();
   const [user, setUser] = useState();
@@ -71,9 +71,7 @@ const Header = () => {
             <span className="nikeJijigSaaral">|</span>
             <span className="nikeJijigSaaral"> Help </span>
             <span className="nikeJijigSaaral">|</span>
-            <Link className="links" to={"/joinus"}>
-              <span className="nikeJijigSaaral">Join Us </span>
-            </Link>
+            <span className="nikeJijigSaaral"> Join Us </span>
             <span className="nikeJijigSaaral">|</span>
             {!isAdmin === true ? (
               <>
@@ -198,4 +196,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default LoggedHeader;

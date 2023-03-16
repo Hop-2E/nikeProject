@@ -1,11 +1,12 @@
 import "../App.css";
-import * as React from "react";
+import { useContext } from "react";
 import TextField from "@mui/material/TextField";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { instance } from "../App";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { LogContext } from "../App";
 
 const styles = {
   Body: {
@@ -64,22 +65,26 @@ const styles = {
 const Signin = () => {
   const [firstName, setFirstName] = useState();
   const [password, setPassword] = useState();
+  const { setUserId } = useContext(LogContext);
+
   const LoginPost = async () => {
     try {
       const res = await instance.post("/user/SignIn", {
         firstName: firstName,
         password: password,
       });
+
       try {
+        setUserId(res.data.data._id);
         window.localStorage.setItem("token", JSON.stringify(res.data.token));
         window.localStorage.setItem(
           "user_id",
           JSON.stringify(res.data.data._id)
         );
+        window.location.replace(`/${res.data.data._id}`)
       } catch (error) {
         console.log("error");
       }
-      window.location.replace(`/${res.data.data._id}`);
     } catch (error) {
       console.log(error);
     }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Order from "../components/Order";
@@ -6,6 +6,8 @@ import Product from "../components/Product";
 import { useParams } from "react-router-dom";
 import { instance } from "../App";
 import { useEffect } from "react";
+import { LogContext } from "../App";
+
 const styles = {
   topContainer: {
     display: "flex",
@@ -87,31 +89,19 @@ const styles = {
 };
 
 function Bag() {
+  const { userId } = useContext(LogContext);
+  // console.log(userId);
   const params = useParams();
   const [data, setData] = useState([]);
-  const [orderId, setOrderId] = useState();
-  const getProductData = async () => {
-    const res = await instance.get(`/product`);
-    setData(res.data.data);
-    console.log(res.data.data, "hie")
-  };
   const getUser = async () => {
+    const data = [];
     const res = await instance.get(`/user/${params.id}`);
-    setOrderId(
-      res.data.data.Order.map((e) => {
-        return e.productId;
-      })
-    );
-    console.log(
-      res.data.data.Order.map((e) => {
-        return e.productId;
-      }),
-      "Hello world"
-    );
+    await res.data.data.Order.map(async (el) => {
+      const res = await instance.get(`/product/${el.productId}`);
+      setData((prev) => [...prev, res.data.data]);
+    });
   };
-
   useEffect(() => {
-    getProductData();
     getUser();
   }, []);
   return (
@@ -133,7 +123,7 @@ function Bag() {
               {" "}
               {data &&
                 data.map((el) => {
-                  return el._id.includes(orderId) && <Product el={el} key={el._id} />;
+                  return <Product key={Math.random()} el={el} />;
                 })}
             </div>
             <div style={{ display: "flex", width: "100px", height: "100px" }}>
@@ -180,27 +170,27 @@ function Bag() {
           </div>
         </div>
       </div>
-      {/* <div style={styles.bottomContainer}>
+      <div style={styles.bottomContainer}>
         <div style={styles.favoriteText}>
-          <span style={{ fontSize: '22px' }}>Favorites</span>
-          <span style={{ color: '#111111' }}>
-          Want to view your favorites? Join us or Sign-in
+          <span style={{ fontSize: "22px" }}>Favorites</span>
+          <span style={{ color: "#111111" }}>
+            Want to view your favorites? Join us or Sign-in
           </span>
         </div>
         <div style={styles.Suggestion}>
           <div
             style={{
-              width: '1400px',
-              height: '50px',
-              fontSize: '20px',
-              paddingLeft: '50px',
-              paddingTop: '10px',
+              width: "1400px",
+              height: "50px",
+              fontSize: "20px",
+              paddingLeft: "50px",
+              paddingTop: "10px",
             }}
           >
             You Might Also Like
           </div>
         </div>
-      </div> */}
+      </div>
       <Footer />
     </>
   );
