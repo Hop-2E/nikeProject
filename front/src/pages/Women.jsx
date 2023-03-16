@@ -20,11 +20,16 @@ const Women = () => {
           image="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1344,c_limit/d6e4b7e4-fe74-405e-aef3-25753c82a6e8/women-s-shoes-clothing-accessories.jpg"
         />
         <FourPic
-          // title="Popular Right Now"
-          image="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/h_700,c_limit/a212aa8b-e5aa-4c14-9e65-6892cd033c5d/women-s-shoes-clothing-accessories.jpg"
-          imageTwo="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_666,c_limit/15f72313-1e64-4a86-aaa7-5bf4e5c23ebc/women-s-shoes-clothing-accessories.jpg"
-          imageThree="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_666,c_limit/7e99fe45-b70a-422c-a352-fb0905a30574/women-s-shoes-clothing-accessories.jpg"
-          imageFour="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/h_700,c_limit/19e428d7-7abb-459f-a86e-ddcb44b6e2ad/women-s-shoes-clothing-accessories.jpg"
+          secName={"SHOP JORDAN ICONS"}
+          photoOne={
+            "https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/h_1016,c_limit/a207e494-a4be-4dc6-ac3c-f7e248640b17/jordan.jpg"
+          }
+          photoTwo={
+            "https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_646,c_limit/0a76c4ad-0919-48f7-b6a7-6b37d1b36c3f/jordan.jpg"
+          }
+          photoThree={
+            "https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_646,c_limit/a40336a3-11f5-4de3-b84c-88128cd3b385/jordan.jpg"
+          }
         />
 
         <div

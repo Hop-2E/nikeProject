@@ -103,11 +103,18 @@ const Header = () => {
               <Link className="links" to={"/Products"}>
                 <span className="nikeNavTexts">New & Featured </span>
               </Link>
-              <span className="nikeNavTexts">Men</span>
+              <Link className="links" to={"/Men"}>
+                <span className="nikeNavTexts">Men</span>
+              </Link>
+
               <Link onClick={checkAdmin} className="links" to={"/Women"}>
                 <span className="nikeNavTexts">Women</span>
               </Link>
-              <span className="nikeNavTexts">Kids</span>
+              <Link onClick={checkAdmin} className="links" to={"/Kids"}>
+                {" "}
+                <span className="nikeNavTexts">Kids</span>
+              </Link>
+
               <span className="nikeNavTexts">Accessories</span>
               <span className="nikeNavTexts">Sale</span>
             </div>

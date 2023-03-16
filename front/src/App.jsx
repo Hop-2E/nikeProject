@@ -8,12 +8,14 @@ import UserHome from "./pages/UserHome";
 import Products from "./pages/Products";
 import Bag from "./pages/Bag";
 import JordanHome from "./pages/JordanHome";
+// import Men from ".pages/Men";
 import Women from "./pages/Women";
+import Kids from "./pages/Kids";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Favourite from './pages/Favourite';
-import Map from './pages/Map';
-import AdminHome from './pages/AdminHome';
+import Favourite from "./pages/Favourite";
+import Map from "./pages/Map";
+import AdminHome from "./pages/AdminHome";
 
 export const instance = axios.create({
   baseURL: "http://localhost:2000",
@@ -36,6 +38,8 @@ function App() {
           <Route path="/:id/Products" element={<Products />} />
           <Route path="/:id/Bag" element={<Bag />} />
           <Route path="/Women" element={<Women />}></Route>
+          <Route path="/Men" element={<Men />}></Route>
+          <Route path="/Kids" element={<Kids />}></Route>
           <Route path="/favourites" element={<Favourite />}></Route>
           <Route path="/retail" element={<Map />}></Route>
           <Route path="/AdminHome" element={<AdminHome />} />
