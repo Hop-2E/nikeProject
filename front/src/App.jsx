@@ -14,7 +14,6 @@ import Women from "./pages/Women";
 import Kids from "./pages/Kids";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Map from "./pages/Map";
 import Favourite from "./pages/Favourite";
 import Map from "./pages/Map";
 import Sale from "./pages/Sale";
